@@ -108,7 +108,7 @@ is_poisoned:
 	jsr j_primm
 	.byte $8d
 	.byte "A CURING WILL", $8d
-	.byte "COST THEE 100GP.", $8d
+	.byte "COST THEE 100gp.", $8d
 	.byte 0
 	lda gold_hi
 	beq @no_money
@@ -149,7 +149,7 @@ ask_heal:
 	jsr j_primm
 	.byte $8d
 	.byte "A HEALING WILL", $8d
-	.byte "COST THEE 200GP.", $8d
+	.byte "COST THEE 200gp.", $8d
 	.byte 0
 	lda gold_hi
 	cmp #$02
@@ -191,7 +191,7 @@ is_dead:
 	.byte $8d
 	.byte "RESURRECTION", $8d
 	.byte "WILL COST THEE", $8d
-	.byte "300GP.", $8d
+	.byte "300gp.", $8d
 	.byte 0
 	lda gold_hi
 	cmp #$03
@@ -288,7 +288,7 @@ ask_donate:
 	jsr j_primm
 	.byte $8d
 	.byte "ART THOU WILLING", $8d
-	.byte "TO GIVE 100PTS", $8d
+	.byte "TO GIVE 100pts", $8d
 	.byte "OF THY BLOOD TO", $8d
 	.byte "AID OTHERS?", 0
 	jsr input_char

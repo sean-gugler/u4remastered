@@ -305,7 +305,7 @@ sell_menu:
 :	lda payment + 1
 	jsr j_printbcd
 	jsr j_primm
-	.byte "GP FOR THAT.", $8d
+	.byte "gp FOR THAT.", $8d
 	.byte 0
 	lda zptmp_item_type
 	clc 
@@ -503,89 +503,89 @@ string_table:
 	.byte "STAFF MAKERS IN", $8d
 	.byte "BRITANNIA, YET", $8d
 	.byte "SELL THEM FOR", $8d
-	.byte "ONLY 20GP.", $8d
+	.byte "ONLY 20gp.", $8d
 	.byte 0
 	.byte "WE SELL THE", $8d
 	.byte "MOST DEADLY OF", $8d
 	.byte "DAGGERS, A", $8d
 	.byte "BARGAIN AT", $8d
-	.byte "ONLY 2GP EACH.", $8d
+	.byte "ONLY 2gp EACH.", $8d
 	.byte 0
 	.byte "OUR SLINGS ARE", $8d
 	.byte "MADE FROM ONLY", $8d
 	.byte "THE FINEST GUT", $8d
 	.byte "AND LEATHER,", $8d
 	.byte "'TIS YOURS", $8d
-	.byte "FOR 25GP.", $8d
+	.byte "FOR 25gp.", $8d
 	.byte 0
 	.byte "THESE MACES HAVE", $8d
 	.byte "A HARDENED SHAFT", $8d
-	.byte "AND A 5LB HEAD,", $8d
+	.byte "AND A 5lb HEAD,", $8d
 	.byte "FAIRLY PRICED", $8d
-	.byte "AT 100GP.", $8d
+	.byte "AT 100gp.", $8d
 	.byte 0
 	.byte "NOTICE THE FINE", $8d
 	.byte "WORKMANSHIP ON", $8d
 	.byte "THIS AXE, YOU'LL", $8d
-	.byte "AGREE 225GP IS", $8d
+	.byte "AGREE 225gp IS", $8d
 	.byte "A GOOD PRICE.", $8d
 	.byte 0
 	.byte "THE FINE WORK", $8d
 	.byte "ON THESE SWORDS", $8d
 	.byte "WILL BE THE", $8d
 	.byte "DREAD OF THY", $8d
-	.byte "FOES, FOR 300GP.", $8d
+	.byte "FOES, FOR 300gp.", $8d
 	.byte 0
 	.byte "OUR BOWS ARE", $8d
 	.byte "MADE OF FINEST", $8d
 	.byte "YEW, AND THE", $8d
 	.byte "ARROWS WILLOW, A", $8d
-	.byte "STEAL AT 250GP.", $8d
+	.byte "STEAL AT 250gp.", $8d
 	.byte 0
 	.byte "CROSSBOWS MADE", $8d
 	.byte "BY IOLO THE BARD", $8d
 	.byte "ARE THE FINEST", $8d
 	.byte "IN THE WORLD,", $8d
-	.byte "YOURS FOR 600GP.", $8d
+	.byte "YOURS FOR 600gp.", $8d
 	.byte 0
 	.byte "FLASKS OF OIL", $8d
 	.byte "MAKE GREAT", $8d
 	.byte "WEAPONS AND", $8d
 	.byte "CREATE A WALL", $8d
 	.byte "OF FIRE TOO,", $8d
-	.byte "5GP EACH.", $8d
+	.byte "5gp EACH.", $8d
 	.byte 0
 	.byte "A HALBERD IS", $8d
 	.byte "A MIGHTY WEAPON", $8d
 	.byte "TO ATTACK OVER", $8d
 	.byte "OBSTACLES; A", $8d
 	.byte "MUST AND", $8d
-	.byte "ONLY 350GP.", $8d
+	.byte "ONLY 350gp.", $8d
 	.byte 0
 	.byte "THIS MAGICAL AXE", $8d
 	.byte "CAN BE THROWN AT", $8d
 	.byte "THY ENEMY AND", $8d
 	.byte "WILL THEN", $8d
 	.byte "RETURN, ALL FOR", $8d
-	.byte "1500GP.", $8d
+	.byte "1500gp.", $8d
 	.byte 0
 	.byte "MAGICAL SWORDS", $8d
 	.byte "SUCH AS THESE", $8d
 	.byte "ARE RARE INDEED!", $8d
 	.byte "I WILL PART WITH", $8d
-	.byte "ONE FOR 2500GP.", $8d
+	.byte "ONE FOR 2500gp.", $8d
 	.byte 0
 	.byte "A MAGICAL BOW", $8d
 	.byte "WILL KEEP THY", $8d
 	.byte "ENEMIES FAR AWAY", $8d
 	.byte "OR DEAD! A", $8d
-	.byte "MUST FOR 2000GP!", $8d
+	.byte "MUST FOR 2000gp!", $8d
 	.byte 0
 	.byte "THIS MAGIC WAND", $8d
 	.byte "CASTS MIGHTY", $8d
 	.byte "BLUE BOLTS TO", $8d
 	.byte "STRIKE DOWN THY", $8d
-	.byte "FOES, 5000GP.", $8d
+	.byte "FOES, 5000gp.", $8d
 	.byte 0
 	.byte "MYSTIC SWORDS", $8d
 	.byte "ARE AN UNKNOWN", $8d

@@ -114,7 +114,7 @@ maybe_fight:
 talk_prompt:
 	jsr	j_primm
 	.byte $8d
-	.byte "YOUR INTEREST:", $8d
+	.byte "Your interest:", $8d
 	.byte 0
 
 	jsr	get_input
@@ -217,7 +217,7 @@ ask_question:
 	jsr	j_primm
 	.byte $8d
 	.byte $8d
-	.byte "YOU RESPOND:", $8d
+	.byte "You respond:", $8d
 	.byte 0
 
 	jsr	get_input
@@ -535,7 +535,7 @@ check_give:
 
 @how_much:
 	jsr	j_primm
-	.byte "HOW MUCH-", 0
+	.byte "How much-", 0
 
 	jsr	j_getnumber
 	lda	#$8D

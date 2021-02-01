@@ -286,7 +286,7 @@ sell_menu:
 :	lda payment + 1
 	jsr j_printbcd
 	jsr j_primm
-	.byte "GP FOR THAT.", $8d
+	.byte "gp FOR THAT.", $8d
 	.byte 0
 	lda zptmp_item_type
 	clc 
@@ -437,40 +437,40 @@ string_table:
 	.byte "CLOTH ARMOUR IS", $8d
 	.byte "GOOD FOR A TIGHT", $8d
 	.byte "BUDGET, FAIRLY", $8d
-	.byte "PRICED AT 50GP.", $8d
+	.byte "PRICED AT 50gp.", $8d
 	.byte 0
 	.byte "LEATHER ARMOUR", $8d
 	.byte "IS BOTH SUPPLE", $8d
 	.byte "AND STRONG, AND", $8d
 	.byte "COSTS A MERE", $8d
-	.byte "200GP, A", $8d
+	.byte "200gp, A", $8d
 	.byte "BARGAIN!", $8d
 	.byte 0
 	.byte "CHAIN MAIL IS", $8d
 	.byte "THE ARMOUR USED", $8d
 	.byte "BY MORE WARRIORS", $8d
 	.byte "THAN ALL OTHERS.", $8d
-	.byte "OURS COSTS 600GP", $8d
+	.byte "OURS COSTS 600gp", $8d
 	.byte 0
 	.byte "FULL PLATE", $8d
 	.byte "ARMOUR IS THE", $8d
 	.byte "ULTIMATE IN NON-", $8d
 	.byte "MAGIC ARMOUR,", $8d
 	.byte "GET YOURS", $8d
-	.byte "FOR 2000GP.", $8d
+	.byte "FOR 2000gp.", $8d
 	.byte 0
 	.byte "MAGIC ARMOUR IS", $8d
 	.byte "RARE AND", $8d
 	.byte "EXPENSIVE. THIS", $8d
 	.byte "CHAIN SELLS FOR", $8d
-	.byte "4000GP.", $8d
+	.byte "4000gp.", $8d
 	.byte 0
 	.byte "MAGICAL PLATE", $8d
 	.byte "ARMOUR IS THE", $8d
 	.byte "BEST KNOWN", $8d
 	.byte "PROTECTION, ONLY", $8d
 	.byte "WE HAVE IT.", $8d
-	.byte "COST: 7000GP.", $8d
+	.byte "COST: 7000gp.", $8d
 	.byte 0
 	.byte "MYSTIC ROBES!", $8d
 	.byte 0
