@@ -81,18 +81,18 @@ drawview:
 	sta (charptr),y
 
 	iny
-	lda tilecolors1,x
+;	lda tilecolors0,x
 	sta (charptr),y
 
 	tya
 	clc
 	adc #$27
 	tay
-	lda tilecolors2,x
+	lda tilecolors0,x
 	sta (charptr),y
 
 	iny
-	lda tilecolors3,x
+;	lda tilecolors0,x
 	sta (charptr),y
 
 	ldy #15

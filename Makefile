@@ -547,14 +547,14 @@ src/u4loader/loadscreen.o: src/u4loader/loadscreen.bin
 src/u4loader/preload.o: \
 	files/patched/117.prg \
 	files/patched/142.prg \
-	src/tiles/titlebitmap.prg \
+	files/patched/143.prg \
 	files/patched/144.prg \
 	files/patched/14d.prg \
 	files/patched/14f.prg \
 	files/patched/150.prg \
 	files/patched/155.prg \
 	files/patched/156.prg \
-	src/tiles/titlecolors.prg
+	files/patched/19e.prg
 
 src/u4loader/filemap.s: tools/gen_filemap.py files/filemap.txt
 	tools/gen_filemap.py files/filemap.txt $@ $(GAM_FILES)
@@ -612,7 +612,7 @@ src/ifflinit/iffllen.o: \
 LOADER_OBJS = $(LOADER_COMMON_OBJS) src/ifflinit/iffllen.o
 LOADER1541_OBJS = $(LOADER_COMMON_OBJS) src/ifflinit1541/iffllen_program.o
 
-src/tiles/tilecolors.o: files/patched/14c.prg src/tiles/tileset.bin src/tiles/font.bin
+src/tiles/tilecolors.o: files/patched/14c.prg files/patched/141.prg files/patched/142.prg
 
 src/trainer/trainer.o: src/include/trainer.i
 

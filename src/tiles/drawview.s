@@ -78,18 +78,18 @@ drawview:
 	sta (charptr),y
 
 	iny
-	lda tilecolors1,x
+;	lda tilecolors0,x
 	sta (charptr),y
 
 	tya
 	clc
 	adc #$27
 	tay
-	lda tilecolors2,x
+	lda tilecolors0,x
 	sta (charptr),y
 
 	iny
-	lda tilecolors3,x
+;	lda tilecolors0,x
 	sta (charptr),y
 
 	ldy #15
@@ -216,45 +216,45 @@ fillrand:
 animate_flags:
 	jsr fastrand
 	bmi @castle
-	ldx $c0a0
-	ldy $c0a1
-	sty $c0a0
-	stx $c0a1
+	ldx $b0a3
+	ldy $b0a4
+	sty $b0a3
+	stx $b0a4
 @castle:
 	jsr fastrand
 	bmi @lbcastle
-	ldx $b0b2
-	ldy $b0b3
-	sty $b0b2
-	stx $b0b3
+	ldx $b0b9
+	ldy $b0ba
+	sty $b0b9
+	stx $b0ba
 @lbcastle:
 	jsr fastrand
 	bmi @shipwest
 	ldx $b0e2
-	ldy $b0e3
+	ldy $b0e1
 	sty $b0e2
-	stx $b0e3
+	stx $b0e1
 @shipwest:
 	jsr fastrand
 	bmi @shipeast
-	ldx $b101
+	ldx $b103
 	ldy $b102
-	sty $b101
+	sty $b103
 	stx $b102
-	ldx $b109
+	ldx $b10b
 	ldy $b10a
-	sty $b109
+	sty $b10b
 	stx $b10a
 @shipeast:
 	jsr fastrand
 	bmi @flagsdone
-	ldx $b121
+	ldx $b123
 	ldy $b122
-	sty $b121
+	sty $b123
 	stx $b122
-	ldx $b129
+	ldx $b12b
 	ldy $b12a
-	sty $b129
+	sty $b12b
 	stx $b12a
 @flagsdone:
 	rts
