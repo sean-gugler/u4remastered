@@ -122,7 +122,7 @@ files/patched: files/extracted
 	mkdir -p $@
 	touch $@
 
-files/patched/%.prg: src/charcreate/%.koa | files/patched
+DISABLE_files/patched/%.prg: src/charcreate/%.koa | files/patched
 	python3 -c 'import sys; sys.stdout.write("\x00\x40")' > $@
 	dd if=$< of=$@ bs=1 skip=2    seek=2    count=5888 2> /dev/null
 	dd if=$< of=$@ bs=1 skip=8002 seek=5890 count=768  2> /dev/null
@@ -301,7 +301,7 @@ src/charcreate/charcreate.prg: $(CHARCREATE_OBJS) src/charcreate/charcreate.cfg
 		-Ln $(patsubst %.prg,%.lab,$@) \
 		-o $@ $(LD65FLAGS) $(CHARCREATE_OBJS) || (rm -f $@ && exit 1)
 
-files/compressed/151: src/charcreate/charcreate.prg | files/compressed
+DISABLE_files/compressed/151: src/charcreate/charcreate.prg | files/compressed
 	tools/backpack -q -s 2 $< $@
 
 CARDCOLORS_OBJS = \
@@ -310,15 +310,15 @@ CARDCOLORS_OBJS = \
 
 CARD_KOALAS = src/charcreate/cards1.koa src/charcreate/cards2.koa
 
-files/patched/152.prg: tools/gen_cards.py $(CARD_KOALAS) | files/patched
+DISABLE_files/patched/152.prg: tools/gen_cards.py $(CARD_KOALAS) | files/patched
 	$< $(CARD_KOALAS) $@ files/patched/19f.prg
 
-files/patched/19f.prg: files/patched/152.prg
+DISABLE_files/patched/19f.prg: files/patched/152.prg
 	touch $@
 
 src/charcreate/cardcolors.o: files/patched/19f.prg
 
-files/compressed/19f: src/charcreate/cardcolors.prg | files/compressed
+DISABLE_files/compressed/19f: src/charcreate/cardcolors.prg | files/compressed
 	tools/backpack -q -s 2 $< $@
 
 src/charcreate/cardcolors.prg: $(CARDCOLORS_OBJS) src/charcreate/cardcolors.cfg
