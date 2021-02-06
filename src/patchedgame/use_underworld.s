@@ -183,7 +183,7 @@ use:
 	sta game_mode
 @ask_which:
 	jsr j_primm
-	.byte "Which item:", $8d
+	.byte "WHICH ITEM:", $8d
 	.byte 0
 
 	jsr get_input
@@ -192,7 +192,7 @@ use:
 print_not_usable:
 	jsr j_primm
 	.byte $8d
-	.byte "Not usable!", $8d
+	.byte "NOT USABLE!", $8d
 	.byte 0
 
 	jmp return_to_dungeon
@@ -200,7 +200,7 @@ print_not_usable:
 print_none_owned:
 	jsr j_primm
 	.byte $8d
-	.byte "None owned!", $8d
+	.byte "NONE OWNED!", $8d
 	.byte 0
 
 	jmp return_to_dungeon
@@ -208,7 +208,7 @@ print_none_owned:
 print_no_effect:
 	jsr j_primm
 	.byte $8d
-	.byte "Hmm...No effect!", $8d
+	.byte "HMM...NO EFFECT!", $8d
 	.byte 0
 
 	jmp return_to_dungeon
@@ -275,9 +275,9 @@ use_stone:
 	bne @no_effect
 	jsr j_primm
 	.byte $8d
-	.byte "There are holes", $8d
-	.byte "for 4 stones,", $8d
-	.byte "what colors:", $8d
+	.byte "THERE ARE HOLES", $8d
+	.byte "FOR 4 STONES,", $8d
+	.byte "WHAT COLORS:", $8d
 	.byte 0
 
 	lda #$00
@@ -329,9 +329,9 @@ use_stone:
 	ora threepartkey
 	sta threepartkey
 	jsr j_primm
-	.byte "Thou doth find", $8d
-	.byte "one third of the", $8d
-	.byte "three part key!", $8d
+	.byte "THOU DOTH FIND", $8d
+	.byte "ONE THIRD OF THE", $8d
+	.byte "THREE PART KEY!", $8d
 	.byte 0
 
 	jmp return_to_dungeon
@@ -349,18 +349,18 @@ use_stone_in_abyss:
 	bne @no_effect
 	jsr j_primm
 	.byte $8d
-	.byte "As thou", $8d
-	.byte "doth approach", $8d
+	.byte "AS THOU", $8d
+	.byte "DOTH APPROACH", $8d
 	.byte 0
 
 	jsr ask_virtue
 	bne @no_effect
 	jsr j_primm
 	.byte $8d
-	.byte "The voice says:", $8d
-	.byte "use thy stone.", $8d
+	.byte "THE VOICE SAYS:", $8d
+	.byte "USE THY STONE.", $8d
 	.byte $8d
-	.byte "Color:", $8d
+	.byte "COLOR:", $8d
 	.byte 0
 
 	jsr get_input
@@ -391,9 +391,9 @@ use_stone_in_abyss:
 	sta (ptr1),y
 	jsr j_primm
 	.byte $8d
-	.byte "The altar", $8d
-	.byte "changes before", $8d
-	.byte "thine eyes!", $8d
+	.byte "THE ALTAR", $8d
+	.byte "CHANGES BEFORE", $8d
+	.byte "THINE EYES!", $8d
 	.byte 0
 
 	jmp return_to_dungeon
@@ -456,8 +456,8 @@ use_skull:
 	bmi j_print_no_effect
 	jsr j_primm
 	.byte $8d
-	.byte "Holding the evil", $8d
-	.byte "skull aloft...", $8d
+	.byte "HOLDING THE EVIL", $8d
+	.byte "SKULL ALOFT...", $8d
 	.byte 0
 
 	jsr shake_screen
@@ -681,7 +681,7 @@ dec_virtue:
 @lost_an_eight:
 	jsr j_primm
 	.byte $8d
-	.byte "An eighth lost!", $8d
+	.byte "AN EIGHTH LOST!", $8d
 	.byte 0
 
 	lda #$99
@@ -706,15 +706,15 @@ ask_virtue:
 @level1:
 	jsr j_primm
 	.byte $8d
-	.byte "A voice rings", $8d
-	.byte "out: What virtue", $8d
-	.byte "dost stem from", $8d
+	.byte "A VOICE RINGS", $8d
+	.byte "OUT: WHAT VIRTUE", $8d
+	.byte "DOST STEM FROM", $8d
 	.byte 0
 
 	ldx dungeon_level
 	bne @level2
 	jsr j_primm
-	.byte "truth?", $8d
+	.byte "TRUTH?", $8d
 	.byte 0
 
 	jmp @get_reply
@@ -723,7 +723,7 @@ ask_virtue:
 	dex
 	bne @level3
 	jsr j_primm
-	.byte "love?", $8d
+	.byte "LOVE?", $8d
 	.byte 0
 
 	jmp @get_reply
@@ -732,7 +732,7 @@ ask_virtue:
 	dex
 	bne @level4
 	jsr j_primm
-	.byte "courage?", $8d
+	.byte "COURAGE?", $8d
 	.byte 0
 
 	jmp @get_reply
@@ -741,7 +741,7 @@ ask_virtue:
 	dex
 	bne @level5
 	jsr j_primm
-	.byte "truth and love?", $8d
+	.byte "TRUTH AND LOVE?", $8d
 	.byte 0
 
 	jmp @get_reply
@@ -750,8 +750,8 @@ ask_virtue:
 	dex
 	bne @level6
 	jsr j_primm
-	.byte "love and", $8d
-	.byte "courage?", $8d
+	.byte "LOVE AND", $8d
+	.byte "COURAGE?", $8d
 	.byte 0
 
 	jmp @get_reply
@@ -760,8 +760,8 @@ ask_virtue:
 	dex
 	bne @level7
 	jsr j_primm
-	.byte "courage and", $8d
-	.byte "truth?", $8d
+	.byte "COURAGE AND", $8d
+	.byte "TRUTH?", $8d
 	.byte 0
 
 	jmp @get_reply
@@ -770,20 +770,20 @@ ask_virtue:
 	dex
 	bne @level8
 	jsr j_primm
-	.byte "truth, love", $8d
-	.byte "and courage?", $8d
+	.byte "TRUTH, LOVE", $8d
+	.byte "AND COURAGE?", $8d
 	.byte 0
 
 	jmp @get_reply
 
 @level8:
 	jsr j_primm
-	.byte "A voice rings", $8d
-	.byte "out: What", $8d
-	.byte "virtue exists", $8d
-	.byte "independently of", $8d
-	.byte "truth, love and", $8d
-	.byte "courage!", $8d
+	.byte "A VOICE RINGS", $8d
+	.byte "OUT: WHAT", $8d
+	.byte "VIRTUE EXISTS", $8d
+	.byte "INDEPENDENTLY OF", $8d
+	.byte "TRUTH, LOVE AND", $8d
+	.byte "COURAGE!", $8d
 	.byte 0
 
 @get_reply:

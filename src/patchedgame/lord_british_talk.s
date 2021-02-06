@@ -69,8 +69,8 @@ talk_lord_british:
 	jsr j_update_status
 @alive:
 	jsr j_primm
-	.byte "Lord British", $8d
-	.byte "says: Welcome", $8d
+	.byte "LORD BRITISH", $8d
+	.byte "SAYS: WELCOME", $8d
 	.byte 0
 
 	lda #$01
@@ -84,7 +84,7 @@ talk_lord_british:
 @alone:
 	jsr j_primm
 	.byte $8d
-	.byte "my friend!", $8d
+	.byte "MY FRIEND!", $8d
 	.byte 0
 
 	jmp check_xp
@@ -92,7 +92,7 @@ talk_lord_british:
 @one_companion:
 	jsr j_primm
 	.byte $8d
-	.byte "and thee also", $8d
+	.byte "AND THEE ALSO", $8d
 	.byte 0
 
 	inc currplayer
@@ -106,8 +106,8 @@ talk_lord_british:
 @three_or_more:
 	jsr j_primm
 	.byte $8d
-	.byte "and thy worthy", $8d
-	.byte "adventurers!", $8d
+	.byte "AND THY WORTHY", $8d
+	.byte "ADVENTURERS!", $8d
 	.byte 0
 
 check_xp:
@@ -162,8 +162,8 @@ check_xp:
 	jsr j_printname
 	jsr j_primm
 	.byte $8d
-	.byte "thou art now", $8d
-	.byte "level ", 0
+	.byte "THOU ART NOW", $8d
+	.byte "LEVEL ", 0
 
 	lda talk_zptmp
 	jsr j_printdigit
@@ -182,8 +182,8 @@ check_xp:
 @what:
 	jsr j_primm
 	.byte $8d
-	.byte "What would thou", $8d
-	.byte "ask of me?", $8d
+	.byte "WHAT WOULD THOU", $8d
+	.byte "ASK OF ME?", $8d
 	.byte 0
 
 	jmp main_prompt
@@ -196,7 +196,7 @@ next_question:
 	jsr music_ctl
 	jsr j_primm
 	.byte $8d
-	.byte "What else?", $8d
+	.byte "WHAT ELSE?", $8d
 	.byte 0
 
 main_prompt:
@@ -205,8 +205,8 @@ main_prompt:
 	bpl jump_to_keyword
 	jsr print_he_says
 	jsr j_primm
-	.byte "I cannot help", $8d
-	.byte "thee with that.", $8d
+	.byte "I CANNOT HELP", $8d
+	.byte "THEE WITH THAT.", $8d
 	.byte 0
 
 	jmp next_question
@@ -253,8 +253,8 @@ keyword_jumptable:
 print_lb_says:
 	jsr j_primm
 	.byte $8d
-	.byte "Lord British", $8d
-	.byte "says: ", $8d
+	.byte "LORD BRITISH", $8d
+	.byte "SAYS: ", $8d
 	.byte 0
 
 	rts
@@ -262,7 +262,7 @@ print_lb_says:
 print_he_says:
 	jsr j_primm
 	.byte $8d
-	.byte "He says:", $8d
+	.byte "HE SAYS:", $8d
 	.byte 0
 
 	rts
@@ -270,7 +270,7 @@ print_he_says:
 print_he_asks:
 	jsr j_primm
 	.byte $8d
-	.byte "He asks:", $8d
+	.byte "HE ASKS:", $8d
 	.byte 0
 
 print_newline:
@@ -287,7 +287,7 @@ ask_y_or_n:
 	beq @no
 	jsr j_primm
 	.byte $8d
-	.byte "Yes or no:", $8d
+	.byte "YES OR NO:", $8d
 	.byte 0
 
 	rts
@@ -305,8 +305,8 @@ ask_y_or_n:
 answer_bye:
 	jsr print_lb_says
 	jsr j_primm
-	.byte "Fare thee", $8d
-	.byte "well my friend", 0
+	.byte "FARE THEE", $8d
+	.byte "WELL MY FRIEND", 0
 
 	lda party_size
 	cmp #$01
@@ -319,7 +319,7 @@ answer_bye:
 
 @plural:
 	jsr j_primm
-	.byte "s!", $8d
+	.byte "S!", $8d
 	.byte 0
 
 	jmp exit_conversation
@@ -327,19 +327,19 @@ answer_bye:
 answer_name:
 	jsr print_he_says
 	jsr j_primm
-	.byte "My name is", $8d
-	.byte "Lord British,", $8d
-	.byte "sovereign of", $8d
-	.byte "all Britannia!", $8d
+	.byte "MY NAME IS", $8d
+	.byte "LORD BRITISH,", $8d
+	.byte "SOVEREIGN OF", $8d
+	.byte "ALL BRITANNIA!", $8d
 	.byte 0
 
 	jmp next_question
 
 answer_look:
 	jsr j_primm
-	.byte "Thou seest the", $8d
-	.byte "king with the", $8d
-	.byte "royal sceptre.", $8d
+	.byte "THOU SEEST THE", $8d
+	.byte "KING WITH THE", $8d
+	.byte "ROYAL SCEPTRE.", $8d
 	.byte 0
 
 	jmp next_question
@@ -347,10 +347,10 @@ answer_look:
 answer_job:
 	jsr print_he_says
 	jsr j_primm
-	.byte "I rule all", $8d
-	.byte "Britannia, and", $8d
-	.byte "shall do my best", $8d
-	.byte "to help thee!", $8d
+	.byte "I RULE ALL", $8d
+	.byte "BRITANNIA, AND", $8d
+	.byte "SHALL DO MY BEST", $8d
+	.byte "TO HELP THEE!", $8d
 	.byte 0
 
 	jmp next_question
@@ -358,20 +358,20 @@ answer_job:
 answer_heal:
 	jsr print_he_says
 	jsr j_primm
-	.byte "I am well,", $8d
-	.byte "thank ye.", $8d
+	.byte "I AM WELL,", $8d
+	.byte "THANK YE.", $8d
 	.byte 0
 
 	jsr print_he_asks
 	jsr j_primm
-	.byte "Art thou well?", $8d
+	.byte "ART THOU WELL?", $8d
 	.byte 0
 
 	jsr ask_y_or_n
 	bne @notwell
 	jsr print_he_says
 	jsr j_primm
-	.byte "That is good.", $8d
+	.byte "THAT IS GOOD.", $8d
 	.byte 0
 
 	jmp next_question
@@ -379,8 +379,8 @@ answer_heal:
 @notwell:
 	jsr print_he_says
 	jsr j_primm
-	.byte "Let me heal", $8d
-	.byte "thy wounds!", $8d
+	.byte "LET ME HEAL", $8d
+	.byte "THY WOUNDS!", $8d
 	.byte 0
 
 	ldx #$14
@@ -398,13 +398,13 @@ answer_heal:
 answer_trut:
 	jsr print_he_says
 	jsr j_primm
-	.byte "Many truths can", $8d
-	.byte "be learned at", $8d
-	.byte "The Lycaeum. It", $8d
-	.byte "lies on the", $8d
-	.byte "northwestern", $8d
-	.byte "shore of Verity", $8d
-	.byte "Isle!", $8d
+	.byte "MANY TRUTHS CAN", $8d
+	.byte "BE LEARNED AT", $8d
+	.byte "THE LYCAEUM. IT", $8d
+	.byte "LIES ON THE", $8d
+	.byte "NORTHWESTERN", $8d
+	.byte "SHORE OF VERITY", $8d
+	.byte "ISLE!", $8d
 	.byte 0
 
 	jmp next_question
@@ -412,13 +412,13 @@ answer_trut:
 answer_love:
 	jsr print_he_says
 	jsr j_primm
-	.byte "Look for the", $8d
-	.byte "meaning of love", $8d
-	.byte "at Empath Abbey.", $8d
-	.byte "The abbey sits", $8d
-	.byte "on the western", $8d
-	.byte "edge of The Deep", $8d
-	.byte "Forest!", $8d
+	.byte "LOOK FOR THE", $8d
+	.byte "MEANING OF LOVE", $8d
+	.byte "AT EMPATH ABBEY.", $8d
+	.byte "THE ABBEY SITS", $8d
+	.byte "ON THE WESTERN", $8d
+	.byte "EDGE OF THE DEEP", $8d
+	.byte "FOREST!", $8d
 	.byte 0
 
 	jmp next_question
@@ -426,11 +426,11 @@ answer_love:
 answer_cour:
 	jsr print_he_says
 	jsr j_primm
-	.byte "Serpent Castle", $8d
-	.byte "on The Isle of", $8d
-	.byte "Deeds is where", $8d
-	.byte "courage should", $8d
-	.byte "be sought!", $8d
+	.byte "SERPENT CASTLE", $8d
+	.byte "ON THE ISLE OF", $8d
+	.byte "DEEDS IS WHERE", $8d
+	.byte "COURAGE SHOULD", $8d
+	.byte "BE SOUGHT!", $8d
 	.byte 0
 
 	jmp next_question
@@ -438,12 +438,12 @@ answer_cour:
 answer_hone:
 	jsr print_he_says
 	jsr j_primm
-	.byte "The fair towne", $8d
-	.byte "of Moonglow, on", $8d
-	.byte "Verity Isle, is", $8d
-	.byte "where the virtue", $8d
-	.byte "of honesty", $8d
-	.byte "thrives!", $8d
+	.byte "THE FAIR TOWNE", $8d
+	.byte "OF MOONGLOW, ON", $8d
+	.byte "VERITY ISLE, IS", $8d
+	.byte "WHERE THE VIRTUE", $8d
+	.byte "OF HONESTY", $8d
+	.byte "THRIVES!", $8d
 	.byte 0
 
 	jmp next_question
@@ -451,11 +451,11 @@ answer_hone:
 answer_comp:
 	jsr print_he_says
 	jsr j_primm
-	.byte "The bards in the", $8d
-	.byte "towne of Britain", $8d
-	.byte "are well versed", $8d
-	.byte "in the virtue of", $8d
-	.byte "compassion!", $8d
+	.byte "THE BARDS IN THE", $8d
+	.byte "TOWNE OF BRITAIN", $8d
+	.byte "ARE WELL VERSED", $8d
+	.byte "IN THE VIRTUE OF", $8d
+	.byte "COMPASSION!", $8d
 	.byte 0
 
 	jmp next_question
@@ -463,11 +463,11 @@ answer_comp:
 answer_valo:
 	jsr print_he_says
 	jsr j_primm
-	.byte "Many valiant", $8d
-	.byte "fighters come", $8d
-	.byte "from Jhelom,", $8d
-	.byte "in The Valarian", $8d
-	.byte "Isles!", $8d
+	.byte "MANY VALIANT", $8d
+	.byte "FIGHTERS COME", $8d
+	.byte "FROM JHELOM,", $8d
+	.byte "IN THE VALARIAN", $8d
+	.byte "ISLES!", $8d
 	.byte 0
 
 	jmp next_question
@@ -475,10 +475,10 @@ answer_valo:
 answer_just:
 	jsr print_he_says
 	jsr j_primm
-	.byte "In the city of", $8d
-	.byte "Yew, in The Deep", $8d
-	.byte "Forest, justice", $8d
-	.byte "is served!", $8d
+	.byte "IN THE CITY OF", $8d
+	.byte "YEW, IN THE DEEP", $8d
+	.byte "FOREST, JUSTICE", $8d
+	.byte "IS SERVED!", $8d
 	.byte 0
 
 	jmp next_question
@@ -486,12 +486,12 @@ answer_just:
 answer_sacr:
 	jsr print_he_says
 	jsr j_primm
-	.byte "Minoc, towne of", $8d
-	.byte "self-sacrifice,", $8d
-	.byte "lies on the", $8d
-	.byte "eastern shores", $8d
-	.byte "of Lost Hope", $8d
-	.byte "Bay!", $8d
+	.byte "MINOC, TOWNE OF", $8d
+	.byte "SELF-SACRIFICE,", $8d
+	.byte "LIES ON THE", $8d
+	.byte "EASTERN SHORES", $8d
+	.byte "OF LOST HOPE", $8d
+	.byte "BAY!", $8d
 	.byte 0
 
 	jmp next_question
@@ -499,12 +499,12 @@ answer_sacr:
 answer_hono:
 	jsr print_he_says
 	jsr j_primm
-	.byte "The paladins who", $8d
-	.byte "strive for honor", $8d
-	.byte "are oft seen in", $8d
-	.byte "Trinsic, north", $8d
-	.byte "of The Cape of", $8d
-	.byte "Heroes!", $8d
+	.byte "THE PALADINS WHO", $8d
+	.byte "STRIVE FOR HONOR", $8d
+	.byte "ARE OFT SEEN IN", $8d
+	.byte "TRINSIC, NORTH", $8d
+	.byte "OF THE CAPE OF", $8d
+	.byte "HEROES!", $8d
 	.byte 0
 
 	jmp next_question
@@ -512,12 +512,12 @@ answer_hono:
 answer_spir:
 	jsr print_he_says
 	jsr j_primm
-	.byte "In Skara Brae", $8d
-	.byte "the spiritual", $8d
-	.byte "path is taught,", $8d
-	.byte "find it on an", $8d
-	.byte "isle near", $8d
-	.byte "Spiritwood!", $8d
+	.byte "IN SKARA BRAE", $8d
+	.byte "THE SPIRITUAL", $8d
+	.byte "PATH IS TAUGHT,", $8d
+	.byte "FIND IT ON AN", $8d
+	.byte "ISLE NEAR", $8d
+	.byte "SPIRITWOOD!", $8d
 	.byte 0
 
 	jmp next_question
@@ -525,26 +525,26 @@ answer_spir:
 answer_humi:
 	jsr print_he_says
 	jsr j_primm
-	.byte "Humility is the", $8d
-	.byte "foundation of", $8d
-	.byte "virtue! The", $8d
-	.byte "ruins of proud", $8d
-	.byte "Magincia are a", $8d
-	.byte "testimony unto", $8d
-	.byte "the virtue of", $8d
-	.byte "humility!", $8d
+	.byte "HUMILITY IS THE", $8d
+	.byte "FOUNDATION OF", $8d
+	.byte "VIRTUE! THE", $8d
+	.byte "RUINS OF PROUD", $8d
+	.byte "MAGINCIA ARE A", $8d
+	.byte "TESTIMONY UNTO", $8d
+	.byte "THE VIRTUE OF", $8d
+	.byte "HUMILITY!", $8d
 	.byte 0
 
 	jsr j_waitkey
 	jsr j_primm
 	.byte $8d
-	.byte "Find the ruins", $8d
-	.byte "of Magincia far", $8d
-	.byte "off the shores", $8d
-	.byte "of Britannia,", $8d
-	.byte "on a small isle", $8d
-	.byte "in the vast", $8d
-	.byte "ocean!", $8d
+	.byte "FIND THE RUINS", $8d
+	.byte "OF MAGINCIA FAR", $8d
+	.byte "OFF THE SHORES", $8d
+	.byte "OF BRITANNIA,", $8d
+	.byte "ON A SMALL ISLE", $8d
+	.byte "IN THE VAST", $8d
+	.byte "OCEAN!", $8d
 	.byte 0
 
 	jmp next_question
@@ -552,26 +552,26 @@ answer_humi:
 answer_prid:
 	jsr print_he_says
 	jsr j_primm
-	.byte "Of the eight", $8d
-	.byte "combinations of", $8d
-	.byte "truth, love and", $8d
-	.byte "courage, that", $8d
-	.byte "which contains", $8d
-	.byte "neither truth,", $8d
-	.byte "love nor courage", $8d
-	.byte "is pride.", $8d
+	.byte "OF THE EIGHT", $8d
+	.byte "COMBINATIONS OF", $8d
+	.byte "TRUTH, LOVE AND", $8d
+	.byte "COURAGE, THAT", $8d
+	.byte "WHICH CONTAINS", $8d
+	.byte "NEITHER TRUTH,", $8d
+	.byte "LOVE NOR COURAGE", $8d
+	.byte "IS PRIDE.", $8d
 	.byte 0
 
 	jsr j_waitkey
 	jsr j_primm
 	.byte $8d
-	.byte "Pride being not", $8d
-	.byte "a virtue must be", $8d
-	.byte "shunned in favor", $8d
-	.byte "of humility, the", $8d
-	.byte "virtue which is", $8d
-	.byte "the antithesis", $8d
-	.byte "of pride!", $8d
+	.byte "PRIDE BEING NOT", $8d
+	.byte "A VIRTUE MUST BE", $8d
+	.byte "SHUNNED IN FAVOR", $8d
+	.byte "OF HUMILITY, THE", $8d
+	.byte "VIRTUE WHICH IS", $8d
+	.byte "THE ANTITHESIS", $8d
+	.byte "OF PRIDE!", $8d
 	.byte 0
 
 	jmp next_question
@@ -579,23 +579,23 @@ answer_prid:
 answer_avat:
 	jsr print_lb_says
 	jsr j_primm
-	.byte "To be an Avatar", $8d
-	.byte "is to be the", $8d
-	.byte "embodiment of", $8d
-	.byte "the eight", $8d
-	.byte "virtues.", $8d
+	.byte "TO BE AN AVATAR", $8d
+	.byte "IS TO BE THE", $8d
+	.byte "EMBODIMENT OF", $8d
+	.byte "THE EIGHT", $8d
+	.byte "VIRTUES.", $8d
 	.byte 0
 
 	jsr j_waitkey
 	jsr j_primm
 	.byte $8d
-	.byte "It is to live a", $8d
-	.byte "life constantly", $8d
-	.byte "and forever in", $8d
-	.byte "the quest to", $8d
-	.byte "better thyself", $8d
-	.byte "and the world in", $8d
-	.byte "which we live.", $8d
+	.byte "IT IS TO LIVE A", $8d
+	.byte "LIFE CONSTANTLY", $8d
+	.byte "AND FOREVER IN", $8d
+	.byte "THE QUEST TO", $8d
+	.byte "BETTER THYSELF", $8d
+	.byte "AND THE WORLD IN", $8d
+	.byte "WHICH WE LIVE.", $8d
 	.byte 0
 
 	jmp next_question
@@ -603,28 +603,28 @@ answer_avat:
 answer_ques:
 	jsr print_lb_says
 	jsr j_primm
-	.byte "The Quest of", $8d
-	.byte "the Avatar is", $8d
-	.byte "is to know and", $8d
-	.byte "become the", $8d
-	.byte "embodiment of", $8d
-	.byte "the eight", $8d
-	.byte "virtues of", $8d
-	.byte "goodness!", $8d
+	.byte "THE QUEST OF", $8d
+	.byte "THE AVATAR IS", $8d
+	.byte "IS TO KNOW AND", $8d
+	.byte "BECOME THE", $8d
+	.byte "EMBODIMENT OF", $8d
+	.byte "THE EIGHT", $8d
+	.byte "VIRTUES OF", $8d
+	.byte "GOODNESS!", $8d
 	.byte 0
 
 	jsr j_waitkey
 	jsr j_primm
 	.byte $8d
-	.byte "It is known that", $8d
-	.byte "all who take on", $8d
-	.byte "this quest must", $8d
-	.byte "prove themselves", $8d
-	.byte "by conquering", $8d
-	.byte "the abyss and", $8d
-	.byte "viewing The", $8d
-	.byte "Codex of", $8d
-	.byte "Ultimate Wisdom!", $8d
+	.byte "IT IS KNOWN THAT", $8d
+	.byte "ALL WHO TAKE ON", $8d
+	.byte "THIS QUEST MUST", $8d
+	.byte "PROVE THEMSELVES", $8d
+	.byte "BY CONQUERING", $8d
+	.byte "THE ABYSS AND", $8d
+	.byte "VIEWING THE", $8d
+	.byte "CODEX OF", $8d
+	.byte "ULTIMATE WISDOM!", $8d
 	.byte 0
 
 	jmp next_question
@@ -632,37 +632,37 @@ answer_ques:
 answer_brit:
 	jsr print_he_says
 	jsr j_primm
-	.byte "Even though the", $8d
-	.byte "great evil lords", $8d
-	.byte "have been routed", $8d
-	.byte "evil yet remains", $8d
-	.byte "in Britannia.", $8d
+	.byte "EVEN THOUGH THE", $8d
+	.byte "GREAT EVIL LORDS", $8d
+	.byte "HAVE BEEN ROUTED", $8d
+	.byte "EVIL YET REMAINS", $8d
+	.byte "IN BRITANNIA.", $8d
 	.byte 0
 
 	jsr j_waitkey
 	jsr j_primm
 	.byte $8d
-	.byte "If but one soul", $8d
-	.byte "could complete", $8d
-	.byte "the Quest of the", $8d
-	.byte "Avatar, our", $8d
-	.byte "people would", $8d
-	.byte "have a new hope,", $8d
-	.byte "a new goal for", $8d
-	.byte "life.", $8d
+	.byte "IF BUT ONE SOUL", $8d
+	.byte "COULD COMPLETE", $8d
+	.byte "THE QUEST OF THE", $8d
+	.byte "AVATAR, OUR", $8d
+	.byte "PEOPLE WOULD", $8d
+	.byte "HAVE A NEW HOPE,", $8d
+	.byte "A NEW GOAL FOR", $8d
+	.byte "LIFE.", $8d
 	.byte 0
 
 	jsr j_waitkey
 	jsr j_primm
 	.byte $8d
-	.byte "There would be a", $8d
-	.byte "shining example", $8d
-	.byte "that there is", $8d
-	.byte "more to life", $8d
-	.byte "than the endless", $8d
-	.byte "struggle for", $8d
-	.byte "possessions", $8d
-	.byte "and gold!", $8d
+	.byte "THERE WOULD BE A", $8d
+	.byte "SHINING EXAMPLE", $8d
+	.byte "THAT THERE IS", $8d
+	.byte "MORE TO LIFE", $8d
+	.byte "THAN THE ENDLESS", $8d
+	.byte "STRUGGLE FOR", $8d
+	.byte "POSSESSIONS", $8d
+	.byte "AND GOLD!", $8d
 	.byte 0
 
 	jmp next_question
@@ -670,14 +670,14 @@ answer_brit:
 answer_ankh:
 	jsr print_he_says
 	jsr j_primm
-	.byte "The ankh is the", $8d
-	.byte "symbol of one", $8d
-	.byte "who strives for", $8d
-	.byte "virtue, keep it", $8d
-	.byte "with thee at", $8d
-	.byte "all times for by", $8d
-	.byte "this mark thou", $8d
-	.byte "shalt be known!", $8d
+	.byte "THE ANKH IS THE", $8d
+	.byte "SYMBOL OF ONE", $8d
+	.byte "WHO STRIVES FOR", $8d
+	.byte "VIRTUE, KEEP IT", $8d
+	.byte "WITH THEE AT", $8d
+	.byte "ALL TIMES FOR BY", $8d
+	.byte "THIS MARK THOU", $8d
+	.byte "SHALT BE KNOWN!", $8d
 	.byte 0
 
 	jmp next_question
@@ -691,35 +691,35 @@ answer_help:
 answer_abys:
 	jsr print_he_says
 	jsr j_primm
-	.byte "The Great", $8d
-	.byte "Stygian Abyss", $8d
-	.byte "is the darkest", $8d
-	.byte "pocket of evil", $8d
-	.byte "remaining in", $8d
-	.byte "Britannia!", $8d
+	.byte "THE GREAT", $8d
+	.byte "STYGIAN ABYSS", $8d
+	.byte "IS THE DARKEST", $8d
+	.byte "POCKET OF EVIL", $8d
+	.byte "REMAINING IN", $8d
+	.byte "BRITANNIA!", $8d
 	.byte 0
 
 	jsr j_waitkey
 	jsr j_primm
 	.byte $8d
-	.byte "It is said that", $8d
-	.byte "in the deepest", $8d
-	.byte "recesses of the", $8d
-	.byte "abyss is the", $8d
-	.byte "chamber of the", $8d
-	.byte "codex!", $8d
+	.byte "IT IS SAID THAT", $8d
+	.byte "IN THE DEEPEST", $8d
+	.byte "RECESSES OF THE", $8d
+	.byte "ABYSS IS THE", $8d
+	.byte "CHAMBER OF THE", $8d
+	.byte "CODEX!", $8d
 	.byte 0
 
 	jsr j_waitkey
 	jsr j_primm
 	.byte $8d
-	.byte "It is also said", $8d
-	.byte "that only one of", $8d
-	.byte "highest virtue", $8d
-	.byte "may enter this", $8d
-	.byte "chamber, one", $8d
-	.byte "such as an", $8d
-	.byte "Avatar!!!", $8d
+	.byte "IT IS ALSO SAID", $8d
+	.byte "THAT ONLY ONE OF", $8d
+	.byte "HIGHEST VIRTUE", $8d
+	.byte "MAY ENTER THIS", $8d
+	.byte "CHAMBER, ONE", $8d
+	.byte "SUCH AS AN", $8d
+	.byte "AVATAR!!!", $8d
 	.byte 0
 
 	jmp next_question
@@ -727,7 +727,7 @@ answer_abys:
 answer_mond:
 	jsr print_he_says
 	jsr j_primm
-	.byte "Mondain is dead!", $8d
+	.byte "MONDAIN IS DEAD!", $8d
 	.byte 0
 
 	jmp next_question
@@ -735,7 +735,7 @@ answer_mond:
 answer_mina:
 	jsr print_he_says
 	jsr j_primm
-	.byte "Minax is dead!", $8d
+	.byte "MINAX IS DEAD!", $8d
 	.byte 0
 
 	jmp next_question
@@ -743,7 +743,7 @@ answer_mina:
 answer_exod:
 	jsr print_he_says
 	jsr j_primm
-	.byte "Exodus is dead!", $8d
+	.byte "EXODUS IS DEAD!", $8d
 	.byte 0
 
 	jmp next_question
@@ -751,30 +751,30 @@ answer_exod:
 answer_virt:
 	jsr print_he_says
 	jsr j_primm
-	.byte "The eight", $8d
-	.byte "virtues of the", $8d
-	.byte "Avatar are:", $8d
+	.byte "THE EIGHT", $8d
+	.byte "VIRTUES OF THE", $8d
+	.byte "AVATAR ARE:", $8d
 	.byte 0
 
 	jsr j_waitkey
 	jsr j_primm
-	.byte "Honesty,", $8d
-	.byte "compassion,", $8d
-	.byte "valor,", $8d
-	.byte "justice,", $8d
-	.byte "sacrifice,", $8d
-	.byte "honor,", $8d
-	.byte "spirituality,", $8d
-	.byte "and humility!", $8d
+	.byte "HONESTY,", $8d
+	.byte "COMPASSION,", $8d
+	.byte "VALOR,", $8d
+	.byte "JUSTICE,", $8d
+	.byte "SACRIFICE,", $8d
+	.byte "HONOR,", $8d
+	.byte "SPIRITUALITY,", $8d
+	.byte "AND HUMILITY!", $8d
 	.byte 0
 
 	jmp next_question
 
 lb_intro:
 	jsr j_primm
-	.byte "Lord British", $8d
-	.byte "rises and says", $8d
-	.byte "at long last!", $8d
+	.byte "LORD BRITISH", $8d
+	.byte "RISES AND SAYS", $8d
+	.byte "AT LONG LAST!", $8d
 	.byte 0
 
 	lda #$01
@@ -782,46 +782,46 @@ lb_intro:
 	jsr j_printname
 	jsr j_primm
 	.byte $8d
-	.byte "thou hast come!", $8d
-	.byte "We have waited", $8d
-	.byte "such a long,", $8d
-	.byte "long time...", $8d
+	.byte "THOU HAST COME!", $8d
+	.byte "WE HAVE WAITED", $8d
+	.byte "SUCH A LONG,", $8d
+	.byte "LONG TIME...", $8d
 	.byte 0
 
 	jsr j_waitkey
 	jsr j_primm
 	.byte $8d
-	.byte "Lord British", $8d
-	.byte "sits and says:", $8d
-	.byte "A new age is", $8d
-	.byte "upon Britannia.", $8d
-	.byte "The great evil", $8d
-	.byte "lords are gone", $8d
-	.byte "but our people", $8d
-	.byte "lack direction", $8d
-	.byte "and purpose in", $8d
-	.byte "their lives...", 0
+	.byte "LORD BRITISH", $8d
+	.byte "SITS AND SAYS:", $8d
+	.byte "A NEW AGE IS", $8d
+	.byte "UPON BRITANNIA.", $8d
+	.byte "THE GREAT EVIL", $8d
+	.byte "LORDS ARE GONE", $8d
+	.byte "BUT OUR PEOPLE", $8d
+	.byte "LACK DIRECTION", $8d
+	.byte "AND PURPOSE IN", $8d
+	.byte "THEIR LIVES...", 0
 
 	jsr j_waitkey
 	jsr j_primm
 	.byte $8d
 	.byte $8d
-	.byte "A champion of", $8d
-	.byte "virtue is called", $8d
-	.byte "for. Thou may be", $8d
-	.byte "this champion,", $8d
-	.byte "but only time", $8d
-	.byte "shall tell. I", $8d
-	.byte "will aid thee", $8d
-	.byte "any way that I", $8d
-	.byte "can!", $8d
+	.byte "A CHAMPION OF", $8d
+	.byte "VIRTUE IS CALLED", $8d
+	.byte "FOR. THOU MAY BE", $8d
+	.byte "THIS CHAMPION,", $8d
+	.byte "BUT ONLY TIME", $8d
+	.byte "SHALL TELL. I", $8d
+	.byte "WILL AID THEE", $8d
+	.byte "ANY WAY THAT I", $8d
+	.byte "CAN!", $8d
 	.byte 0
 
 	jsr j_waitkey
 	jsr j_primm
 	.byte $8d
-	.byte "How may I", $8d
-	.byte "help thee?", $8d
+	.byte "HOW MAY I", $8d
+	.byte "HELP THEE?", $8d
 	.byte 0
 
 	jmp main_prompt

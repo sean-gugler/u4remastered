@@ -183,11 +183,11 @@ shrine:
 	bne @haverune
 	jsr j_primm
 	.byte $8d
-	.byte "Thou dost not", $8d
-	.byte "bear the rune", $8d
-	.byte "of entry! A", $8d
-	.byte "strange force", $8d
-	.byte "keeps you out!", $8d
+	.byte "THOU DOST NOT", $8d
+	.byte "BEAR THE RUNE", $8d
+	.byte "OF ENTRY! A", $8d
+	.byte "STRANGE FORCE", $8d
+	.byte "KEEPS YOU OUT!", $8d
 	.byte 0
 
 	jmp exit_shrine
@@ -209,14 +209,14 @@ shrine:
 	jsr music_ctl
 	jsr j_primm
 	.byte $8d
-	.byte "You enter the", $8d
-	.byte "ancient shrine", $8d
-	.byte "and sit before", $8d
-	.byte "the altar...", $8d
+	.byte "YOU ENTER THE", $8d
+	.byte "ANCIENT SHRINE", $8d
+	.byte "AND SIT BEFORE", $8d
+	.byte "THE ALTAR...", $8d
 	.byte $8d
-	.byte "Upon what virtue", $8d
-	.byte "dost thou", $8d
-	.byte "meditate?", $8d
+	.byte "UPON WHAT VIRTUE", $8d
+	.byte "DOST THOU", $8d
+	.byte "MEDITATE?", $8d
 	.byte 0
 
 	lda #$00
@@ -225,8 +225,8 @@ shrine:
 @askcycles:
 	jsr j_primm
 	.byte $8d
-	.byte "For how many", $8d
-	.byte "cycles (0-3):", 0
+	.byte "FOR HOW MANY", $8d
+	.byte "CYCLES (0-3):", 0
 
 	jsr get_number			; Buggy original:
 	bne :+                          ;	cmp #$04
@@ -252,7 +252,7 @@ shrine:
 	sta last_meditated
 	jsr j_primm
 	.byte $8d
-	.byte "Begin meditation", $8d
+	.byte "BEGIN MEDITATION", $8d
 	.byte 0
 
 @slowdots:
@@ -269,7 +269,7 @@ shrine:
 	sta key_buf_len
 	jsr j_primm
 	.byte $8d
-	.byte "Mantra", 0
+	.byte "MANTRA", 0
 
 	jsr get_string
 	jsr compare_string
@@ -287,11 +287,11 @@ shrine:
 @wrongmantra:
 	jsr j_primm
 	.byte $8d
-	.byte "Thou art not", $8d
-	.byte "able to focus", $8d
-	.byte "thy thoughts", $8d
-	.byte "with that", $8d
-	.byte "mantra!", $8d
+	.byte "THOU ART NOT", $8d
+	.byte "ABLE TO FOCUS", $8d
+	.byte "THY THOUGHTS", $8d
+	.byte "WITH THAT", $8d
+	.byte "MANTRA!", $8d
 	.byte 0
 
 	ldy #$06
@@ -312,10 +312,10 @@ shrine:
 @vision:
 	jsr j_primm
 	.byte $8d
-	.byte "Thy thoughts", $8d
-	.byte "are pure,", $8d
-	.byte "thou art granted", $8d
-	.byte "a vision!", $8d
+	.byte "THY THOUGHTS", $8d
+	.byte "ARE PURE,", $8d
+	.byte "THOU ART GRANTED", $8d
+	.byte "A VISION!", $8d
 	.byte 0
 
 	ldy #$06
@@ -372,10 +372,10 @@ shortdelay:
 no_focus:
 	jsr j_primm
 	.byte $8d
-	.byte "Thou art unable", $8d
-	.byte "to focus thy", $8d
-	.byte "thoughts on", $8d
-	.byte "this subject!", $8d
+	.byte "THOU ART UNABLE", $8d
+	.byte "TO FOCUS THY", $8d
+	.byte "THOUGHTS ON", $8d
+	.byte "THIS SUBJECT!", $8d
 	.byte 0
 
 	jsr j_waitkey
@@ -384,10 +384,10 @@ no_focus:
 still_weary:
 	jsr j_primm
 	.byte $8d
-	.byte "Thy mind is", $8d
-	.byte "still weary", $8d
-	.byte "from thy last", $8d
-	.byte "meditation!", $8d
+	.byte "THY MIND IS", $8d
+	.byte "STILL WEARY", $8d
+	.byte "FROM THY LAST", $8d
+	.byte "MEDITATION!", $8d
 	.byte 0
 
 	jsr j_waitkey
@@ -427,8 +427,8 @@ decrease_virtue:
 @lost_an_eighth:
 	jsr j_primm
 	.byte $8d
-	.byte "Thou hast lost", $8d
-	.byte "an eighth!", $8d
+	.byte "THOU HAST LOST", $8d
+	.byte "AN EIGHTH!", $8d
 	.byte 0
 
 	ldy $59
@@ -438,10 +438,10 @@ decrease_virtue:
 partial_avatar:
 	jsr j_primm
 	.byte $8d
-	.byte "Thou hast", $8d
-	.byte "achieved partial", $8d
-	.byte "Avatarhood in", $8d
-	.byte "the virtue of", $8d
+	.byte "THOU HAST", $8d
+	.byte "ACHIEVED PARTIAL", $8d
+	.byte "AVATARHOOD IN", $8d
+	.byte "THE VIRTUE OF", $8d
 	.byte 0
 
 	lda #$97
@@ -461,8 +461,8 @@ partial_avatar:
 	jsr j_waitkey
 	jsr j_primm
 	.byte $8d
-	.byte "Thou art granted", $8d
-	.byte "a vision!", $8d
+	.byte "THOU ART GRANTED", $8d
+	.byte "A VISION!", $8d
 	.byte 0
 
 	lda #$00
@@ -633,161 +633,161 @@ print_hint:
 :	rts
 
 hint_honesty_0:
-	.byte 0, "Take not the", $8d
-	.byte "gold of others", $8d
-	.byte "found in towns", $8d
-	.byte "and castles for", $8d
-	.byte "yours it is not!", $8d
+	.byte 0, "TAKE NOT THE", $8d
+	.byte "GOLD OF OTHERS", $8d
+	.byte "FOUND IN TOWNS", $8d
+	.byte "AND CASTLES FOR", $8d
+	.byte "YOURS IT IS NOT!", $8d
 hint_honesty_1:
-	.byte 0, "Cheat not the", $8d
-	.byte "merchants and", $8d
-	.byte "peddlers for", $8d
-	.byte "'tis an evil", $8d
-	.byte "thing to do!", $8d
+	.byte 0, "CHEAT NOT THE", $8d
+	.byte "MERCHANTS AND", $8d
+	.byte "PEDDLERS FOR", $8d
+	.byte "'TIS AN EVIL", $8d
+	.byte "THING TO DO!", $8d
 hint_honesty_2:
-	.byte 0, "Second, read the", $8d
-	.byte "book of truth at", $8d
-	.byte "the entrance to", $8d
-	.byte "the Great", $8d
-	.byte "Stygian Abyss!", $8d
+	.byte 0, "SECOND, READ THE", $8d
+	.byte "BOOK OF TRUTH AT", $8d
+	.byte "THE ENTRANCE TO", $8d
+	.byte "THE GREAT", $8d
+	.byte "STYGIAN ABYSS!", $8d
 hint_compassion_0:
-	.byte 0, "Kill not the", $8d
-	.byte "non-evil beasts", $8d
-	.byte "of the land, and", $8d
-	.byte "do not attack", $8d
-	.byte "the fair people!", $8d
+	.byte 0, "KILL NOT THE", $8d
+	.byte "NON-EVIL BEASTS", $8d
+	.byte "OF THE LAND, AND", $8d
+	.byte "DO NOT ATTACK", $8d
+	.byte "THE FAIR PEOPLE!", $8d
 hint_compassion_1:
-	.byte 0, "Give of thy", $8d
-	.byte "purse to those", $8d
-	.byte "who beg and thy", $8d
-	.byte "deed shall not", $8d
-	.byte "be forgotten!", $8d
+	.byte 0, "GIVE OF THY", $8d
+	.byte "PURSE TO THOSE", $8d
+	.byte "WHO BEG AND THY", $8d
+	.byte "DEED SHALL NOT", $8d
+	.byte "BE FORGOTTEN!", $8d
 hint_compassion_2:
-	.byte 0, "Third, light the", $8d
-	.byte "candle of love", $8d
-	.byte "at the entrance", $8d
-	.byte "to the Great", $8d
-	.byte "Stygian Abyss!", $8d
+	.byte 0, "THIRD, LIGHT THE", $8d
+	.byte "CANDLE OF LOVE", $8d
+	.byte "AT THE ENTRANCE", $8d
+	.byte "TO THE GREAT", $8d
+	.byte "STYGIAN ABYSS!", $8d
 hint_valor_0:
-	.byte 0, "Victories scored", $8d
-	.byte "over evil", $8d
-	.byte "creatures help", $8d
-	.byte "to build a", $8d
-	.byte "valorous soul!", $8d
+	.byte 0, "VICTORIES SCORED", $8d
+	.byte "OVER EVIL", $8d
+	.byte "CREATURES HELP", $8d
+	.byte "TO BUILD A", $8d
+	.byte "VALOROUS SOUL!", $8d
 hint_valor_1:
-	.byte 0, "To flee from", $8d
-	.byte "battle with less", $8d
-	.byte "than grievous", $8d
-	.byte "wounds often", $8d
-	.byte "shows a coward!", $8d
+	.byte 0, "TO FLEE FROM", $8d
+	.byte "BATTLE WITH LESS", $8d
+	.byte "THAN GRIEVOUS", $8d
+	.byte "WOUNDS OFTEN", $8d
+	.byte "SHOWS A COWARD!", $8d
 hint_valor_2:
-	.byte 0, "First, ring the", $8d
-	.byte "bell of courage", $8d
-	.byte "at the entrance", $8d
-	.byte "to the Great", $8d
-	.byte "Stygian Abyss!", $8d
+	.byte 0, "FIRST, RING THE", $8d
+	.byte "BELL OF COURAGE", $8d
+	.byte "AT THE ENTRANCE", $8d
+	.byte "TO THE GREAT", $8d
+	.byte "STYGIAN ABYSS!", $8d
 hint_justice_0:
-	.byte 0, "To take the gold", $8d
-	.byte "of others is", $8d
-	.byte "injustice not", $8d
-	.byte "soon forgotten,", $8d
-	.byte "take only thy", $8d
-	.byte "due!", $8d
+	.byte 0, "TO TAKE THE GOLD", $8d
+	.byte "OF OTHERS IS", $8d
+	.byte "INJUSTICE NOT", $8d
+	.byte "SOON FORGOTTEN,", $8d
+	.byte "TAKE ONLY THY", $8d
+	.byte "DUE!", $8d
 hint_justice_1:
-	.byte 0, "Attack not a", $8d
-	.byte "peaceful citizen", $8d
-	.byte "for that action", $8d
-	.byte "deserves strict", $8d
-	.byte "punishment!", $8d
+	.byte 0, "ATTACK NOT A", $8d
+	.byte "PEACEFUL CITIZEN", $8d
+	.byte "FOR THAT ACTION", $8d
+	.byte "DESERVES STRICT", $8d
+	.byte "PUNISHMENT!", $8d
 hint_justice_2:
-	.byte 0, "Kill not a", $8d
-	.byte "non-evil beast", $8d
-	.byte "for they deserve", $8d
-	.byte "not death even", $8d
-	.byte "if in hunger", $8d
-	.byte "they attack", $8d
-	.byte "thee!", $8d
+	.byte 0, "KILL NOT A", $8d
+	.byte "NON-EVIL BEAST", $8d
+	.byte "FOR THEY DESERVE", $8d
+	.byte "NOT DEATH EVEN", $8d
+	.byte "IF IN HUNGER", $8d
+	.byte "THEY ATTACK", $8d
+	.byte "THEE!", $8d
 hint_sacrifice_0:
-	.byte 0, "To give thy last", $8d
-	.byte "gold piece unto", $8d
-	.byte "the needy shows", $8d
-	.byte "good measure of", $8d
-	.byte "self-sacrifice!", $8d
+	.byte 0, "TO GIVE THY LAST", $8d
+	.byte "GOLD PIECE UNTO", $8d
+	.byte "THE NEEDY SHOWS", $8d
+	.byte "GOOD MEASURE OF", $8d
+	.byte "SELF-SACRIFICE!", $8d
 hint_sacrifice_1:
-	.byte 0, "For thee to flee", $8d
-	.byte "and leave thy", $8d
-	.byte "companions is a", $8d
-	.byte "self-seeking", $8d
-	.byte "action to be", $8d
-	.byte "avoided!", $8d
+	.byte 0, "FOR THEE TO FLEE", $8d
+	.byte "AND LEAVE THY", $8d
+	.byte "COMPANIONS IS A", $8d
+	.byte "SELF-SEEKING", $8d
+	.byte "ACTION TO BE", $8d
+	.byte "AVOIDED!", $8d
 hint_sacrifice_2:
-	.byte 0, "To give of thy", $8d
-	.byte "life's blood so", $8d
-	.byte "that others may", $8d
-	.byte "live is a virtue", $8d
-	.byte "of great praise!", $8d
+	.byte 0, "TO GIVE OF THY", $8d
+	.byte "LIFE'S BLOOD SO", $8d
+	.byte "THAT OTHERS MAY", $8d
+	.byte "LIVE IS A VIRTUE", $8d
+	.byte "OF GREAT PRAISE!", $8d
 hint_honor_0:
-	.byte 0, "Take not the", $8d
-	.byte "gold of others", $8d
-	.byte "for this shall", $8d
-	.byte "bring dishonor", $8d
-	.byte "upon thee!", $8d
+	.byte 0, "TAKE NOT THE", $8d
+	.byte "GOLD OF OTHERS", $8d
+	.byte "FOR THIS SHALL", $8d
+	.byte "BRING DISHONOR", $8d
+	.byte "UPON THEE!", $8d
 hint_honor_1:
-	.byte 0, "To strike first", $8d
-	.byte "a non-evil being", $8d
-	.byte "is by no means", $8d
-	.byte "an honorable", $8d
-	.byte "deed!", $8d
+	.byte 0, "TO STRIKE FIRST", $8d
+	.byte "A NON-EVIL BEING", $8d
+	.byte "IS BY NO MEANS", $8d
+	.byte "AN HONORABLE", $8d
+	.byte "DEED!", $8d
 hint_honor_2:
-	.byte 0, "Seek ye to solve", $8d
-	.byte "the many quests", $8d
-	.byte "before thee, and", $8d
-	.byte "honor shall be", $8d
-	.byte "a reward!", $8d
+	.byte 0, "SEEK YE TO SOLVE", $8d
+	.byte "THE MANY QUESTS", $8d
+	.byte "BEFORE THEE, AND", $8d
+	.byte "HONOR SHALL BE", $8d
+	.byte "A REWARD!", $8d
 hint_spirituality_0:
-	.byte 0, "Seek ye to know", $8d
-	.byte "thyself, visit", $8d
-	.byte "the seer often", $8d
-	.byte "for he can", $8d
-	.byte "see into thy", $8d
-	.byte "inner being!", $8d
+	.byte 0, "SEEK YE TO KNOW", $8d
+	.byte "THYSELF, VISIT", $8d
+	.byte "THE SEER OFTEN", $8d
+	.byte "FOR HE CAN", $8d
+	.byte "SEE INTO THY", $8d
+	.byte "INNER BEING!", $8d
 hint_spirituality_1:
-	.byte 0, "Meditation", $8d
-	.byte "leads to", $8d
-	.byte "enlightenment.", $8d
-	.byte "Seek ye all", $8d
-	.byte "wisdom and", $8d
-	.byte "knowledge!", $8d
+	.byte 0, "MEDITATION", $8d
+	.byte "LEADS TO", $8d
+	.byte "ENLIGHTENMENT.", $8d
+	.byte "SEEK YE ALL", $8d
+	.byte "WISDOM AND", $8d
+	.byte "KNOWLEDGE!", $8d
 hint_spirituality_2:
-	.byte 0, "If thou dost", $8d
-	.byte "seek the white", $8d
-	.byte "stone, search ye", $8d
-	.byte "not under the", $8d
-	.byte "ground, but in", $8d
-	.byte "the sky near", $8d
-	.byte "serpents spine!", $8d
+	.byte 0, "IF THOU DOST", $8d
+	.byte "SEEK THE WHITE", $8d
+	.byte "STONE, SEARCH YE", $8d
+	.byte "NOT UNDER THE", $8d
+	.byte "GROUND, BUT IN", $8d
+	.byte "THE SKY NEAR", $8d
+	.byte "SERPENTS SPINE!", $8d
 hint_humility_0:
-	.byte 0, "Claim not to be", $8d
-	.byte "that which thou", $8d
-	.byte "art not, humble", $8d
-	.byte "actions speak", $8d
-	.byte "well of thee!", $8d
+	.byte 0, "CLAIM NOT TO BE", $8d
+	.byte "THAT WHICH THOU", $8d
+	.byte "ART NOT, HUMBLE", $8d
+	.byte "ACTIONS SPEAK", $8d
+	.byte "WELL OF THEE!", $8d
 hint_humility_1:
-	.byte 0, "Strive not to", $8d
-	.byte "wield the great", $8d
-	.byte "force of evil", $8d
-	.byte "for its power", $8d
-	.byte "will overcome", $8d
-	.byte "thee!", $8d
+	.byte 0, "STRIVE NOT TO", $8d
+	.byte "WIELD THE GREAT", $8d
+	.byte "FORCE OF EVIL", $8d
+	.byte "FOR ITS POWER", $8d
+	.byte "WILL OVERCOME", $8d
+	.byte "THEE!", $8d
 hint_humility_2:
-	.byte 0, "If thou dost", $8d
-	.byte "seek the black", $8d
-	.byte "stone, search ye", $8d
-	.byte "at the time and", $8d
-	.byte "place of the", $8d
-	.byte "gate on the", $8d
-	.byte "darkest of all", $8d
-	.byte "nights!", $8d
+	.byte 0, "IF THOU DOST", $8d
+	.byte "SEEK THE BLACK", $8d
+	.byte "STONE, SEARCH YE", $8d
+	.byte "AT THE TIME AND", $8d
+	.byte "PLACE OF THE", $8d
+	.byte "GATE ON THE", $8d
+	.byte "DARKEST OF ALL", $8d
+	.byte "NIGHTS!", $8d
 hint_end:
 	.byte 0
 

@@ -65,7 +65,7 @@ talk:
 	sta	monster_type
 	jsr	j_primm
 	.byte $8d
-	.byte "You meet", $8d
+	.byte "YOU MEET", $8d
 	.byte 0
 
 	lda	#$03
@@ -82,7 +82,7 @@ talk:
 print_name:
 	jsr	pronoun_says
 	jsr	j_primm
-	.byte " I am", $8d
+	.byte " I AM", $8d
 	.byte 0
 
 	lda	#$01
@@ -108,13 +108,13 @@ maybe_fight:
 ; dead code, unused in original game
 ;	jsr	pronoun_says_newline
 ;	jsr	j_primm
-;	.byte "Go away!", $8d
+;	.byte "GO AWAY!", $8d
 ;	.byte 0
 
 talk_prompt:
 	jsr	j_primm
 	.byte $8d
-	.byte "Your interest:", $8d
+	.byte "YOUR INTEREST:", $8d
 	.byte 0
 
 	jsr	get_input
@@ -139,9 +139,9 @@ talk_prompt:
 	bpl	@found_keyword
 	jsr	pronoun_says
 	jsr	j_primm
-	.byte " That,", $8d
-	.byte "I cannot help", $8d
-	.byte "thee with.", $8d
+	.byte " THAT,", $8d
+	.byte "I CANNOT HELP", $8d
+	.byte "THEE WITH.", $8d
 	.byte 0
 
 	jmp	check_question_trigger
@@ -154,7 +154,7 @@ talk_prompt:
 @bye:
 	jsr	pronoun_says
 	jsr	j_primm
-	.byte " Bye.", $8d
+	.byte " BYE.", $8d
 	.byte 0
 
 	jmp	talk_done
@@ -168,7 +168,7 @@ talk_prompt:
 	cmp	#$02
 	bne	@join
 	jsr	j_primm
-	.byte "You see a", $8d
+	.byte "YOU SEE A", $8d
 	.byte 0
 
 	lda	#$03
@@ -208,7 +208,7 @@ ask_question:
 	lda	#$02
 	jsr	print_string
 	jsr	j_primm
-	.byte " asks:", $8d
+	.byte " ASKS:", $8d
 	.byte 0
 
 	lda	#$08
@@ -217,7 +217,7 @@ ask_question:
 	jsr	j_primm
 	.byte $8d
 	.byte $8d
-	.byte "You respond:", $8d
+	.byte "YOU RESPOND:", $8d
 	.byte 0
 
 	jsr	get_input
@@ -244,7 +244,7 @@ ask_question:
 @yes_or_no:
 	jsr	pronoun_says_newline
 	jsr	j_primm
-	.byte "Yes, or no:", 0
+	.byte "YES, OR NO:", 0
 
 	jmp	@get_response
 
@@ -252,7 +252,7 @@ pronoun_turns_away:
 	lda	#$02
 	jsr	print_string
 	jsr	j_primm
-	.byte " turns away!", $8d
+	.byte " TURNS AWAY!", $8d
 	.byte $8d
 	.byte 0
 
@@ -262,8 +262,8 @@ start_combat:
 	lda	#$02
 	jsr	print_string
 	jsr	j_primm
-	.byte " says:", $8d
-	.byte "En garde! Fool!", $8d
+	.byte " SAYS:", $8d
+	.byte "EN GARDE! FOOL!", $8d
 	.byte 0
 
 	ldx	$6A
@@ -275,7 +275,7 @@ pronoun_says:
 	lda	#$02
 	jsr	print_string
 	jsr	j_primm
-	.byte " says:", 0
+	.byte " SAYS:", 0
 
 	rts
 
@@ -441,8 +441,8 @@ check_join:
 @cant_join:
 	jsr	pronoun_says_newline
 	jsr	j_primm
-	.byte "I cannot", $8d
-	.byte "join thee.", $8d
+	.byte "I CANNOT", $8d
+	.byte "JOIN THEE.", $8d
 	.byte 0
 
 	jmp	talk_prompt
@@ -452,14 +452,14 @@ check_join:
 @print_decline:
 	jsr	pronoun_says_newline
 	jsr	j_primm
-	.byte "Thou art not", $8d
+	.byte "THOU ART NOT", $8d
 	.byte 0
 
 	jsr	decline_reason
 	jsr	j_primm
 	.byte $8d
-	.byte "enough for me", $8d
-	.byte "to join thee.", $8d
+	.byte "ENOUGH FOR ME", $8d
+	.byte "TO JOIN THEE.", $8d
 	.byte 0
 
 	jmp	talk_prompt
@@ -472,8 +472,8 @@ check_join:
 accept_join:
 	jsr	pronoun_says_newline
 	jsr	j_primm
-	.byte "I am honored", $8d
-	.byte "to join thee!", $8d
+	.byte "I AM HONORED", $8d
+	.byte "TO JOIN THEE!", $8d
 	.byte 0
 
 	ldx	#$1F
@@ -526,16 +526,16 @@ check_give:
 	beq	@how_much
 	jsr	pronoun_says
 	jsr	j_primm
-	.byte " I do", $8d
-	.byte "not need thy", $8d
-	.byte "gold, keep it!", $8d
+	.byte " I DO", $8d
+	.byte "NOT NEED THY", $8d
+	.byte "GOLD, KEEP IT!", $8d
 	.byte 0
 
 	jmp	check_question_trigger
 
 @how_much:
 	jsr	j_primm
-	.byte "How much-", 0
+	.byte "HOW MUCH-", 0
 
 	jsr	j_getnumber
 	lda	#$8D
@@ -549,8 +549,8 @@ check_give:
 	bpl	@has_gold
 	jsr	j_primm
 	.byte $8d
-	.byte "Thou hast not", $8d
-	.byte "that much gold!", $8d
+	.byte "THOU HAST NOT", $8d
+	.byte "THAT MUCH GOLD!", $8d
 	.byte 0
 
 	jmp	check_question_trigger
@@ -561,11 +561,11 @@ check_give:
 	jsr	j_console_out
 	jsr	pronoun_says
 	jsr	j_primm
-	.byte " Oh,", $8d
-	.byte "thank thee!", $8d
-	.byte "I shall never", $8d
-	.byte "forget thy", $8d
-	.byte "kindness!", $8d
+	.byte " OH,", $8d
+	.byte "THANK THEE!", $8d
+	.byte "I SHALL NEVER", $8d
+	.byte "FORGET THY", $8d
+	.byte "KINDNESS!", $8d
 	.byte 0
 
 	jmp	check_question_trigger
@@ -593,7 +593,7 @@ decline_reason:
 	ldx	$58
 	bne	@compassionate
 	jsr	j_primm
-	.byte "honest", 0
+	.byte "HONEST", 0
 
 	rts
 
@@ -601,7 +601,7 @@ decline_reason:
 	dex
 	bne	@valiant
 	jsr	j_primm
-	.byte "compassionate", 0
+	.byte "COMPASSIONATE", 0
 
 	rts
 
@@ -609,7 +609,7 @@ decline_reason:
 	dex
 	bne	@just
 	jsr	j_primm
-	.byte "valiant", 0
+	.byte "VALIANT", 0
 
 	rts
 
@@ -617,7 +617,7 @@ decline_reason:
 	dex
 	bne	@sacrificial
 	jsr	j_primm
-	.byte "just", 0
+	.byte "JUST", 0
 
 	rts
 
@@ -625,7 +625,7 @@ decline_reason:
 	dex
 	bne	@honorable
 	jsr	j_primm
-	.byte "sacrificial", 0
+	.byte "SACRIFICIAL", 0
 
 	rts
 
@@ -633,7 +633,7 @@ decline_reason:
 	dex
 	bne	@spiritual
 	jsr	j_primm
-	.byte "honorable", 0
+	.byte "HONORABLE", 0
 
 	rts
 
@@ -641,7 +641,7 @@ decline_reason:
 	dex
 	bne	@humble
 	jsr	j_primm
-	.byte "spiritual", 0
+	.byte "SPIRITUAL", 0
 
 	rts
 
@@ -649,13 +649,13 @@ decline_reason:
 	dex
 	bne	@experienced
 	jsr	j_primm
-	.byte "humble", 0
+	.byte "HUMBLE", 0
 
 	rts  ; BUG FIX, this was missing in original code
 
 @experienced:
 	jsr	j_primm
-	.byte "experienced", 0
+	.byte "EXPERIENCED", 0
 
 	rts
 
@@ -745,8 +745,8 @@ subtract_virtue:
 @lost_an_eigth:
 	jsr	j_primm
 	.byte $8d
-	.byte "Thou hast lost", $8d
-	.byte "an eighth!", $8d
+	.byte "THOU HAST LOST", $8d
+	.byte "AN EIGHTH!", $8d
 	.byte 0
 
 	ldy	$59

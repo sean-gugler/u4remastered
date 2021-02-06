@@ -179,7 +179,7 @@ search:
 	bpl @next
 print_nothing_here:
 	jsr j_primm
-	.byte "Nothing here!", $8d
+	.byte "NOTHING HERE!", $8d
 	.byte 0
 
 	rts
@@ -208,7 +208,7 @@ item_handlers:
 
 print_you_find:
 	jsr j_primm
-	.byte "You find...", $8d
+	.byte "YOU FIND...", $8d
 	.byte 0
 
 	lda move_counter+3
@@ -242,7 +242,7 @@ find_mandrake:
 @found:
 	jsr print_you_find
 	jsr j_primm
-	.byte "Mandrake root!", $8d
+	.byte "MANDRAKE ROOT!", $8d
 	.byte 0
 
 	ldy #$07
@@ -277,7 +277,7 @@ find_nightshade:
 @found:
 	jsr print_you_find
 	jsr j_primm
-	.byte "Nightshade!", $8d
+	.byte "NIGHTSHADE!", $8d
 	.byte 0
 
 	ldy #$06
@@ -295,8 +295,8 @@ find_bell:
 	sta items
 	jsr print_you_find
 	jsr j_primm
-	.byte "The bell of", $8d
-	.byte "courage!", $8d
+	.byte "THE BELL OF", $8d
+	.byte "COURAGE!", $8d
 	.byte 0
 
 	lda #$04
@@ -319,7 +319,7 @@ find_black_stone:
 	sta stones
 	jsr print_you_find
 	jsr j_primm
-	.byte "The black stone!", $8d
+	.byte "THE BLACK STONE!", $8d
 	.byte 0
 
 	lda #$02
@@ -338,7 +338,7 @@ find_white_stone:
 	sta stones
 	jsr print_you_find
 	jsr j_primm
-	.byte "The white stone!", $8d
+	.byte "THE WHITE STONE!", $8d
 	.byte 0
 
 	lda #$02
@@ -354,7 +354,7 @@ find_horn:
 	inc horn
 	jsr print_you_find
 	jsr j_primm
-	.byte "A silver horn!", $8d
+	.byte "A SILVER HORN!", $8d
 	.byte 0
 
 	lda #$04
@@ -370,8 +370,8 @@ find_wheel:
 	inc wheel
 	jsr print_you_find
 	jsr j_primm
-	.byte "The wheel from", $8d
-	.byte "the H.M.S. Cape!", 0
+	.byte "THE WHEEL FROM", $8d
+	.byte "THE H.M.S. CAPE!", 0
 
 	lda #$04
 	jsr add_xp100
@@ -392,9 +392,9 @@ find_skull:
 	inc skull
 	jsr print_you_find
 	jsr j_primm
-	.byte "The skull", $8d
-	.byte "of Mondain", $8d
-	.byte "the wizard!", $8d
+	.byte "THE SKULL", $8d
+	.byte "OF MONDAIN", $8d
+	.byte "THE WIZARD!", $8d
 	.byte 0
 
 	lda #$04

@@ -174,7 +174,7 @@ music_init		= $ec00
 
 use:
 	jsr j_primm
-	.byte "Which item:", $8d
+	.byte "WHICH ITEM:", $8d
 	.byte 0
 
 	jsr get_input
@@ -182,7 +182,7 @@ use:
 	bpl keyword_matched
 	jsr j_primm
 	.byte $8d
-	.byte "Not usable item!", $8d
+	.byte "NOT USABLE ITEM!", $8d
 	.byte 0
 
 	rts
@@ -190,7 +190,7 @@ use:
 print_none_owned:
 	jsr j_primm
 	.byte $8d
-	.byte "None owned!", $8d
+	.byte "NONE OWNED!", $8d
 	.byte 0
 
 	rts
@@ -198,7 +198,7 @@ print_none_owned:
 print_no_effect:
 	jsr j_primm
 	.byte $8d
-	.byte "Hmm...No effect!", $8d
+	.byte "HMM...NO EFFECT!", $8d
 	.byte 0
 
 	rts
@@ -230,8 +230,8 @@ use_stone:
 @have_stone:
 	jsr j_primm
 	.byte $8d
-	.byte "No place to", $8d
-	.byte "use them!", $8d
+	.byte "NO PLACE TO", $8d
+	.byte "USE THEM!", $8d
 	.byte 0
 
 	rts
@@ -296,10 +296,10 @@ use_skull:
 @have_skull:
 	jsr j_primm
 	.byte $8d
-	.byte "You hold the", $8d
-	.byte "evil skull of", $8d
-	.byte "Mondain the", $8d
-	.byte "wizard aloft....", $8d
+	.byte "YOU HOLD THE", $8d
+	.byte "EVIL SKULL OF", $8d
+	.byte "MONDAIN THE", $8d
+	.byte "WIZARD ALOFT....", $8d
 	.byte 0
 
 	ldx #$1f

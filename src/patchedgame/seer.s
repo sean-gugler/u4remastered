@@ -42,53 +42,53 @@ inbuf = $af00
 	beq welcome
 	jsr j_primm
 	.byte $8d
-	.byte "The seer says:", $8d
-	.byte "I will speak", $8d
-	.byte "only with", $8d
+	.byte "THE SEER SAYS:", $8d
+	.byte "I WILL SPEAK", $8d
+	.byte "ONLY WITH", $8d
 	.byte 0
 	jsr j_printname
 	jsr j_primm
 	.byte $8d
-	.byte "Return when", $8d
+	.byte "RETURN WHEN", $8d
 	.byte 0
 	jsr j_printname
 	jsr j_primm
 	.byte $8d
-	.byte "is revived!", $8d
+	.byte "IS REVIVED!", $8d
 	.byte 0
 	rts 
 
 welcome:
 	jsr j_primm
 	.byte $8d
-	.byte "Welcome,", $8d
+	.byte "WELCOME,", $8d
 	.byte 0
 	jsr j_printname
 	jsr j_primm
 	.byte $8d
-	.byte "I am Hawkwind,", $8d
-	.byte "seer of souls.", $8d
-	.byte "I see that which", $8d
-	.byte "is within thee", $8d
-	.byte "and drives thee", $8d
-	.byte "to deeds of good", $8d
-	.byte "or evil...", $8d
+	.byte "I AM HAWKWIND,", $8d
+	.byte "SEER OF SOULS.", $8d
+	.byte "I SEE THAT WHICH", $8d
+	.byte "IS WITHIN THEE", $8d
+	.byte "AND DRIVES THEE", $8d
+	.byte "TO DEEDS OF GOOD", $8d
+	.byte "OR EVIL...", $8d
 	.byte 0
 	jsr j_waitkey
 	jsr j_primm
 	.byte $8d
-	.byte "For what path", $8d
-	.byte "doth thou seek", $8d
-	.byte "enlightenment?", $8d
+	.byte "FOR WHAT PATH", $8d
+	.byte "DOTH THOU SEEK", $8d
+	.byte "ENLIGHTENMENT?", $8d
 	.byte 0
 	jmp input_word
 
 ask_again:
 	jsr j_primm
 	.byte $8d
-	.byte "Hawkwind asks:", $8d
-	.byte "What other path", $8d
-	.byte "seeks clarity?", $8d
+	.byte "HAWKWIND ASKS:", $8d
+	.byte "WHAT OTHER PATH", $8d
+	.byte "SEEKS CLARITY?", $8d
 	.byte 0
 input_word:
 	jsr get_input
@@ -105,10 +105,10 @@ input_word:
 	bpl @found
 	jsr j_primm
 	.byte $8d
-	.byte "He says:", $8d
-	.byte "That is not a", $8d
-	.byte "subject for", $8d
-	.byte "enlightenment.", $8d
+	.byte "HE SAYS:", $8d
+	.byte "THAT IS NOT A", $8d
+	.byte "SUBJECT FOR", $8d
+	.byte "ENLIGHTENMENT.", $8d
 	.byte 0
 	jmp ask_again
 
@@ -118,12 +118,12 @@ input_word:
 @bye:
 	jsr j_primm
 	.byte $8d
-	.byte "Hawkwind says:", $8d
-	.byte "Fare thee well", $8d
-	.byte "and may thou", $8d
-	.byte "complete the", $8d
-	.byte "Quest of", $8d
-	.byte "the Avatar!", $8d
+	.byte "HAWKWIND SAYS:", $8d
+	.byte "FARE THEE WELL", $8d
+	.byte "AND MAY THOU", $8d
+	.byte "COMPLETE THE", $8d
+	.byte "QUEST OF", $8d
+	.byte "THE AVATAR!", $8d
 	.byte 0
 	lda move_counter_lo
 	cmp last_meditated
@@ -148,13 +148,13 @@ check_avatar:
 	lda stats,y
 	bne lookup_advice
 	jsr j_primm
-	.byte "He says:", $8d
-	.byte "Thou hast become", $8d
-	.byte "a partial Avatar", $8d
-	.byte "in that", $8d
-	.byte "attribute. Thou", $8d
-	.byte "need not my", $8d
-	.byte "insights.", $8d
+	.byte "HE SAYS:", $8d
+	.byte "THOU HAST BECOME", $8d
+	.byte "A PARTIAL AVATAR", $8d
+	.byte "IN THAT", $8d
+	.byte "ATTRIBUTE. THOU", $8d
+	.byte "NEED NOT MY", $8d
+	.byte "INSIGHTS.", $8d
 	.byte 0
 	jmp ask_again
 
@@ -185,9 +185,9 @@ print_advice:
 	bne @done
 	jsr j_primm
 	.byte $8d
-	.byte "Go to the shrine", $8d
-	.byte "and meditate for", $8d
-	.byte "three cycles!", $8d
+	.byte "GO TO THE SHRINE", $8d
+	.byte "AND MEDITATE FOR", $8d
+	.byte "THREE CYCLES!", $8d
 	.byte 0
 	jsr j_waitkey
 @done:
@@ -349,255 +349,255 @@ inc_ptr:
 
 string_table:
 	.byte 0
-	.byte "Thou art a thief", $8d
-	.byte "and a scoundrel.", $8d
-	.byte "Thou may not", $8d
-	.byte "ever become an", $8d
-	.byte "Avatar!", $8d
+	.byte "THOU ART A THIEF", $8d
+	.byte "AND A SCOUNDREL.", $8d
+	.byte "THOU MAY NOT", $8d
+	.byte "EVER BECOME AN", $8d
+	.byte "AVATAR!", $8d
 	.byte 0
-	.byte "Thou art a cold", $8d
-	.byte "and cruel brute.", $8d
-	.byte "Thou shouldst go", $8d
-	.byte "to prison for", $8d
-	.byte "thy crimes!", $8d
+	.byte "THOU ART A COLD", $8d
+	.byte "AND CRUEL BRUTE.", $8d
+	.byte "THOU SHOULDST GO", $8d
+	.byte "TO PRISON FOR", $8d
+	.byte "THY CRIMES!", $8d
 	.byte 0
-	.byte "Thou art a", $8d
-	.byte "coward, thou", $8d
-	.byte "dost flee from", $8d
-	.byte "the hint of", $8d
-	.byte "danger!", $8d
+	.byte "THOU ART A", $8d
+	.byte "COWARD, THOU", $8d
+	.byte "DOST FLEE FROM", $8d
+	.byte "THE HINT OF", $8d
+	.byte "DANGER!", $8d
 	.byte 0
-	.byte "Thou art an", $8d
-	.byte "unjust wretch.", $8d
-	.byte "thou art a", $8d
-	.byte "fulsome meddler!", $8d
+	.byte "THOU ART AN", $8d
+	.byte "UNJUST WRETCH.", $8d
+	.byte "THOU ART A", $8d
+	.byte "FULSOME MEDDLER!", $8d
 	.byte 0
-	.byte "Thou art a", $8d
-	.byte "self-serving", $8d
-	.byte "tufthunter, thou", $8d
-	.byte "deserveth not", $8d
-	.byte "my help, yet I", $8d
-	.byte "grant it!", $8d
+	.byte "THOU ART A", $8d
+	.byte "SELF-SERVING", $8d
+	.byte "TUFTHUNTER, THOU", $8d
+	.byte "DESERVETH NOT", $8d
+	.byte "MY HELP, YET I", $8d
+	.byte "GRANT IT!", $8d
 	.byte 0
-	.byte "Thou art a cad", $8d
-	.byte "and a bounder.", $8d
-	.byte "Thy presence is", $8d
-	.byte "an affront, thou", $8d
-	.byte "art low as a", $8d
-	.byte "slug!", $8d
+	.byte "THOU ART A CAD", $8d
+	.byte "AND A BOUNDER.", $8d
+	.byte "THY PRESENCE IS", $8d
+	.byte "AN AFFRONT, THOU", $8d
+	.byte "ART LOW AS A", $8d
+	.byte "SLUG!", $8d
 	.byte 0
-	.byte "Thy spirit is", $8d
-	.byte "weak and feeble.", $8d
-	.byte "Thou dost not", $8d
-	.byte "strive for", $8d
-	.byte "perfection!", $8d
+	.byte "THY SPIRIT IS", $8d
+	.byte "WEAK AND FEEBLE.", $8d
+	.byte "THOU DOST NOT", $8d
+	.byte "STRIVE FOR", $8d
+	.byte "PERFECTION!", $8d
 	.byte 0
-	.byte "Thou art proud", $8d
-	.byte "and vain,", $8d
-	.byte "all other virtue", $8d
-	.byte "in thee is", $8d
-	.byte "a loss!", $8d
+	.byte "THOU ART PROUD", $8d
+	.byte "AND VAIN,", $8d
+	.byte "ALL OTHER VIRTUE", $8d
+	.byte "IN THEE IS", $8d
+	.byte "A LOSS!", $8d
 	.byte 0
-	.byte "Thou art not", $8d
-	.byte "an honest soul,", $8d
-	.byte "thou must live", $8d
-	.byte "a more honest", $8d
-	.byte "life to be", $8d
-	.byte "an Avatar!", $8d
+	.byte "THOU ART NOT", $8d
+	.byte "AN HONEST SOUL,", $8d
+	.byte "THOU MUST LIVE", $8d
+	.byte "A MORE HONEST", $8d
+	.byte "LIFE TO BE", $8d
+	.byte "AN AVATAR!", $8d
 	.byte 0
-	.byte "Thou dost kill", $8d
-	.byte "where there is", $8d
-	.byte "no need and give", $8d
-	.byte "too little unto", $8d
-	.byte "others!", $8d
+	.byte "THOU DOST KILL", $8d
+	.byte "WHERE THERE IS", $8d
+	.byte "NO NEED AND GIVE", $8d
+	.byte "TOO LITTLE UNTO", $8d
+	.byte "OTHERS!", $8d
 	.byte 0
-	.byte "Thou dost not", $8d
-	.byte "display a great", $8d
-	.byte "deal of valor,", $8d
-	.byte "thou dost flee", $8d
-	.byte "before the need!", $8d
+	.byte "THOU DOST NOT", $8d
+	.byte "DISPLAY A GREAT", $8d
+	.byte "DEAL OF VALOR,", $8d
+	.byte "THOU DOST FLEE", $8d
+	.byte "BEFORE THE NEED!", $8d
 	.byte 0
-	.byte "Thou art cruel", $8d
-	.byte "and unjust, in", $8d
-	.byte "time thou will", $8d
-	.byte "suffer for thy", $8d
-	.byte "crimes!", $8d
+	.byte "THOU ART CRUEL", $8d
+	.byte "AND UNJUST, IN", $8d
+	.byte "TIME THOU WILL", $8d
+	.byte "SUFFER FOR THY", $8d
+	.byte "CRIMES!", $8d
 	.byte 0
-	.byte "Thou dost need", $8d
-	.byte "to think more", $8d
-	.byte "of the life of", $8d
-	.byte "others and less", $8d
-	.byte "of thy own!", $8d
+	.byte "THOU DOST NEED", $8d
+	.byte "TO THINK MORE", $8d
+	.byte "OF THE LIFE OF", $8d
+	.byte "OTHERS AND LESS", $8d
+	.byte "OF THY OWN!", $8d
 	.byte 0
-	.byte "Thou dost not", $8d
-	.byte "fight with honor", $8d
-	.byte "but with malice", $8d
-	.byte "and deceit!", $8d
+	.byte "THOU DOST NOT", $8d
+	.byte "FIGHT WITH HONOR", $8d
+	.byte "BUT WITH MALICE", $8d
+	.byte "AND DECEIT!", $8d
 	.byte 0
-	.byte "Thou dost not", $8d
-	.byte "take the time to", $8d
-	.byte "care about thy", $8d
-	.byte "inner being, a", $8d
-	.byte "must to be an", $8d
-	.byte "Avatar!", $8d
+	.byte "THOU DOST NOT", $8d
+	.byte "TAKE THE TIME TO", $8d
+	.byte "CARE ABOUT THY", $8d
+	.byte "INNER BEING, A", $8d
+	.byte "MUST TO BE AN", $8d
+	.byte "AVATAR!", $8d
 	.byte 0
-	.byte "Thou art too", $8d
-	.byte "proud of thy", $8d
-	.byte "little deeds,", $8d
-	.byte "humility is the", $8d
-	.byte "root of all", $8d
-	.byte "virtue!", $8d
+	.byte "THOU ART TOO", $8d
+	.byte "PROUD OF THY", $8d
+	.byte "LITTLE DEEDS,", $8d
+	.byte "HUMILITY IS THE", $8d
+	.byte "ROOT OF ALL", $8d
+	.byte "VIRTUE!", $8d
 	.byte 0
-	.byte "Thou hast made", $8d
-	.byte "little progress", $8d
-	.byte "on the paths", $8d
-	.byte "of honesty,", $8d
-	.byte "strive to prove", $8d
-	.byte "thy worth!", $8d
+	.byte "THOU HAST MADE", $8d
+	.byte "LITTLE PROGRESS", $8d
+	.byte "ON THE PATHS", $8d
+	.byte "OF HONESTY,", $8d
+	.byte "STRIVE TO PROVE", $8d
+	.byte "THY WORTH!", $8d
 	.byte 0
-	.byte "Thou hast not", $8d
-	.byte "shown thy", $8d
-	.byte "compassion well.", $8d
-	.byte "Be more kind", $8d
-	.byte "unto others!", $8d
+	.byte "THOU HAST NOT", $8d
+	.byte "SHOWN THY", $8d
+	.byte "COMPASSION WELL.", $8d
+	.byte "BE MORE KIND", $8d
+	.byte "UNTO OTHERS!", $8d
 	.byte 0
-	.byte "Thou art not yet", $8d
-	.byte "a valiant", $8d
-	.byte "warrior, fight", $8d
-	.byte "to defeate evil", $8d
-	.byte "and prove", $8d
-	.byte "thyself!", $8d
+	.byte "THOU ART NOT YET", $8d
+	.byte "A VALIANT", $8d
+	.byte "WARRIOR, FIGHT", $8d
+	.byte "TO DEFEATE EVIL", $8d
+	.byte "AND PROVE", $8d
+	.byte "THYSELF!", $8d
 	.byte 0
-	.byte "Thou hast not", $8d
-	.byte "proven thyself", $8d
-	.byte "to be just.", $8d
-	.byte "Strive to do", $8d
-	.byte "justice unto", $8d
-	.byte "all things!", $8d
+	.byte "THOU HAST NOT", $8d
+	.byte "PROVEN THYSELF", $8d
+	.byte "TO BE JUST.", $8d
+	.byte "STRIVE TO DO", $8d
+	.byte "JUSTICE UNTO", $8d
+	.byte "ALL THINGS!", $8d
 	.byte 0
-	.byte "Thy sacrifice", $8d
-	.byte "is small.", $8d
-	.byte "Give of thy", $8d
-	.byte "life's blood so", $8d
-	.byte "that others may", $8d
-	.byte "live.", $8d
+	.byte "THY SACRIFICE", $8d
+	.byte "IS SMALL.", $8d
+	.byte "GIVE OF THY", $8d
+	.byte "LIFE'S BLOOD SO", $8d
+	.byte "THAT OTHERS MAY", $8d
+	.byte "LIVE.", $8d
 	.byte 0
-	.byte "Thou dost need", $8d
-	.byte "to show thyself", $8d
-	.byte "to be more", $8d
-	.byte "honorable, the", $8d
-	.byte "path lies before", $8d
-	.byte "thee!", $8d
+	.byte "THOU DOST NEED", $8d
+	.byte "TO SHOW THYSELF", $8d
+	.byte "TO BE MORE", $8d
+	.byte "HONORABLE, THE", $8d
+	.byte "PATH LIES BEFORE", $8d
+	.byte "THEE!", $8d
 	.byte 0
-	.byte "Strive to know", $8d
-	.byte "and master more", $8d
-	.byte "of thine inner", $8d
-	.byte "being.", $8d
-	.byte "Meditation", $8d
-	.byte "lights the path!", $8d
+	.byte "STRIVE TO KNOW", $8d
+	.byte "AND MASTER MORE", $8d
+	.byte "OF THINE INNER", $8d
+	.byte "BEING.", $8d
+	.byte "MEDITATION", $8d
+	.byte "LIGHTS THE PATH!", $8d
 	.byte 0
-	.byte "Thy progress on", $8d
-	.byte "this path is", $8d
-	.byte "most uncertain.", $8d
-	.byte "Without humility", $8d
-	.byte "thou art", $8d
-	.byte "empty!", $8d
+	.byte "THY PROGRESS ON", $8d
+	.byte "THIS PATH IS", $8d
+	.byte "MOST UNCERTAIN.", $8d
+	.byte "WITHOUT HUMILITY", $8d
+	.byte "THOU ART", $8d
+	.byte "EMPTY!", $8d
 	.byte 0
-	.byte "Thou dost seem", $8d
-	.byte "to be an honest", $8d
-	.byte "soul, continued", $8d
-	.byte "honesty will", $8d
-	.byte "reward thee!", $8d
+	.byte "THOU DOST SEEM", $8d
+	.byte "TO BE AN HONEST", $8d
+	.byte "SOUL, CONTINUED", $8d
+	.byte "HONESTY WILL", $8d
+	.byte "REWARD THEE!", $8d
 	.byte 0
-	.byte "Thou dost show", $8d
-	.byte "thy compassion", $8d
-	.byte "well, continued", $8d
-	.byte "goodwill should", $8d
-	.byte "be thy guide!", $8d
+	.byte "THOU DOST SHOW", $8d
+	.byte "THY COMPASSION", $8d
+	.byte "WELL, CONTINUED", $8d
+	.byte "GOODWILL SHOULD", $8d
+	.byte "BE THY GUIDE!", $8d
 	.byte 0
-	.byte "Thou art showing", $8d
-	.byte "valor in the", $8d
-	.byte "face of danger.", $8d
-	.byte "Strive to become", $8d
-	.byte "yet more so!", $8d
+	.byte "THOU ART SHOWING", $8d
+	.byte "VALOR IN THE", $8d
+	.byte "FACE OF DANGER.", $8d
+	.byte "STRIVE TO BECOME", $8d
+	.byte "YET MORE SO!", $8d
 	.byte 0
-	.byte "Thou dost seem", $8d
-	.byte "fair and just.", $8d
-	.byte "Strive to uphold", $8d
-	.byte "justice even", $8d
-	.byte "more sternly!", $8d
+	.byte "THOU DOST SEEM", $8d
+	.byte "FAIR AND JUST.", $8d
+	.byte "STRIVE TO UPHOLD", $8d
+	.byte "JUSTICE EVEN", $8d
+	.byte "MORE STERNLY!", $8d
 	.byte 0
-	.byte "Thou art giving", $8d
-	.byte "of thyself in", $8d
-	.byte "some ways, seek", $8d
-	.byte "ye now to find", $8d
-	.byte "yet more!", $8d
+	.byte "THOU ART GIVING", $8d
+	.byte "OF THYSELF IN", $8d
+	.byte "SOME WAYS, SEEK", $8d
+	.byte "YE NOW TO FIND", $8d
+	.byte "YET MORE!", $8d
 	.byte 0
-	.byte "Thou dost seem", $8d
-	.byte "to be honorable", $8d
-	.byte "in nature, seek", $8d
-	.byte "to bring honor", $8d
-	.byte "upon others as", $8d
-	.byte "well!", $8d
+	.byte "THOU DOST SEEM", $8d
+	.byte "TO BE HONORABLE", $8d
+	.byte "IN NATURE, SEEK", $8d
+	.byte "TO BRING HONOR", $8d
+	.byte "UPON OTHERS AS", $8d
+	.byte "WELL!", $8d
 	.byte 0
-	.byte "Thou art doing", $8d
-	.byte "well on the path", $8d
-	.byte "to inner sight.", $8d
-	.byte "Continue to seek", $8d
-	.byte "the inner light!", $8d
+	.byte "THOU ART DOING", $8d
+	.byte "WELL ON THE PATH", $8d
+	.byte "TO INNER SIGHT.", $8d
+	.byte "CONTINUE TO SEEK", $8d
+	.byte "THE INNER LIGHT!", $8d
 	.byte 0
-	.byte "Thou dost seem", $8d
-	.byte "a humble soul.", $8d
-	.byte "Thou art setting", $8d
-	.byte "strong stones to", $8d
-	.byte "build virtues", $8d
-	.byte "upon!", $8d
+	.byte "THOU DOST SEEM", $8d
+	.byte "A HUMBLE SOUL.", $8d
+	.byte "THOU ART SETTING", $8d
+	.byte "STRONG STONES TO", $8d
+	.byte "BUILD VIRTUES", $8d
+	.byte "UPON!", $8d
 	.byte 0
-	.byte "Thou art truly", $8d
-	.byte "an honest soul.", $8d
-	.byte "Seek ye now to", $8d
-	.byte "reach elevation!", $8d
+	.byte "THOU ART TRULY", $8d
+	.byte "AN HONEST SOUL.", $8d
+	.byte "SEEK YE NOW TO", $8d
+	.byte "REACH ELEVATION!", $8d
 	.byte 0
-	.byte "Compassion is", $8d
-	.byte "a virtue that", $8d
-	.byte "thou hast shown", $8d
-	.byte "well. Seek ye", $8d
-	.byte "now elevation!", $8d
+	.byte "COMPASSION IS", $8d
+	.byte "A VIRTUE THAT", $8d
+	.byte "THOU HAST SHOWN", $8d
+	.byte "WELL. SEEK YE", $8d
+	.byte "NOW ELEVATION!", $8d
 	.byte 0
-	.byte "Thou art a truly", $8d
-	.byte "valiant warrior.", $8d
-	.byte "Seek ye now", $8d
-	.byte "elevation in the", $8d
-	.byte "virtue of valor!", $8d
+	.byte "THOU ART A TRULY", $8d
+	.byte "VALIANT WARRIOR.", $8d
+	.byte "SEEK YE NOW", $8d
+	.byte "ELEVATION IN THE", $8d
+	.byte "VIRTUE OF VALOR!", $8d
 	.byte 0
-	.byte "Thou art just", $8d
-	.byte "and fair. Seek", $8d
-	.byte "ye now the", $8d
-	.byte "elevation!", $8d
+	.byte "THOU ART JUST", $8d
+	.byte "AND FAIR. SEEK", $8d
+	.byte "YE NOW THE", $8d
+	.byte "ELEVATION!", $8d
 	.byte 0
-	.byte "Thou art giving", $8d
-	.byte "and good. Thy", $8d
-	.byte "self-sacrifice", $8d
-	.byte "is great. Seek", $8d
-	.byte "now elevation!", $8d
+	.byte "THOU ART GIVING", $8d
+	.byte "AND GOOD. THY", $8d
+	.byte "SELF-SACRIFICE", $8d
+	.byte "IS GREAT. SEEK", $8d
+	.byte "NOW ELEVATION!", $8d
 	.byte 0
-	.byte "Thou hast proven", $8d
-	.byte "thyself to be", $8d
-	.byte "honorable, seek", $8d
-	.byte "ye now for the", $8d
-	.byte "elevation!", $8d
+	.byte "THOU HAST PROVEN", $8d
+	.byte "THYSELF TO BE", $8d
+	.byte "HONORABLE, SEEK", $8d
+	.byte "YE NOW FOR THE", $8d
+	.byte "ELEVATION!", $8d
 	.byte 0
-	.byte "Spirituality", $8d
-	.byte "is in thy", $8d
-	.byte "nature. Seek ye", $8d
-	.byte "now the", $8d
-	.byte "elevation!", $8d
+	.byte "SPIRITUALITY", $8d
+	.byte "IS IN THY", $8d
+	.byte "NATURE. SEEK YE", $8d
+	.byte "NOW THE", $8d
+	.byte "ELEVATION!", $8d
 	.byte 0
-	.byte "Thy humility", $8d
-	.byte "shines bright", $8d
-	.byte "upon thy being.", $8d
-	.byte "Seek ye now for", $8d
-	.byte "elevation!", $8d
+	.byte "THY HUMILITY", $8d
+	.byte "SHINES BRIGHT", $8d
+	.byte "UPON THY BEING.", $8d
+	.byte "SEEK YE NOW FOR", $8d
+	.byte "ELEVATION!", $8d
 	.byte 0
 
 ; Garbage leftover in sector at end of file

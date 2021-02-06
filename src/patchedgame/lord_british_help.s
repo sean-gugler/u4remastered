@@ -99,7 +99,7 @@ ready:
 
 print_he_says:
 	jsr j_primm
-	.byte "He says:", $8d
+	.byte "HE SAYS:", $8d
 	.byte 0
 
 	rts
@@ -107,34 +107,34 @@ print_he_says:
 help_early:
 	jsr print_he_says
 	jsr j_primm
-	.byte "To survive in", $8d
-	.byte "this hostile", $8d
-	.byte "land thou must", $8d
-	.byte "first know", $8d
-	.byte "thyself! Seek ye", $8d
-	.byte "to master thy", $8d
-	.byte "weapons and thy", $8d
-	.byte "magical ability!", $8d
+	.byte "TO SURVIVE IN", $8d
+	.byte "THIS HOSTILE", $8d
+	.byte "LAND THOU MUST", $8d
+	.byte "FIRST KNOW", $8d
+	.byte "THYSELF! SEEK YE", $8d
+	.byte "TO MASTER THY", $8d
+	.byte "WEAPONS AND THY", $8d
+	.byte "MAGICAL ABILITY!", $8d
 	.byte 0
 
 	jsr j_waitkey
 	jsr j_primm
 	.byte $8d
-	.byte "Take great care", $8d
-	.byte "in these thy", $8d
-	.byte "first travels", $8d
-	.byte "in Britannia.", $8d
+	.byte "TAKE GREAT CARE", $8d
+	.byte "IN THESE THY", $8d
+	.byte "FIRST TRAVELS", $8d
+	.byte "IN BRITANNIA.", $8d
 	.byte 0
 
 	jsr j_waitkey
 	jsr j_primm
 	.byte $8d
-	.byte "Until thou dost", $8d
-	.byte "well know", $8d
-	.byte "thyself travel", $8d
-	.byte "not far from the", $8d
-	.byte "safety of the", $8d
-	.byte "townes!", $8d
+	.byte "UNTIL THOU DOST", $8d
+	.byte "WELL KNOW", $8d
+	.byte "THYSELF TRAVEL", $8d
+	.byte "NOT FAR FROM THE", $8d
+	.byte "SAFETY OF THE", $8d
+	.byte "TOWNES!", $8d
 	.byte 0
 
 	jmp return_to_main_conversation
@@ -142,26 +142,26 @@ help_early:
 help_companions:
 	jsr print_he_says
 	jsr j_primm
-	.byte "Travel not the", $8d
-	.byte "open lands", $8d
-	.byte "alone, there are", $8d
-	.byte "many worthy", $8d
-	.byte "people in the", $8d
-	.byte "diverse townes", $8d
-	.byte "whom it would be", $8d
-	.byte "wise to ask to", $8d
-	.byte "join thee!", $8d
+	.byte "TRAVEL NOT THE", $8d
+	.byte "OPEN LANDS", $8d
+	.byte "ALONE, THERE ARE", $8d
+	.byte "MANY WORTHY", $8d
+	.byte "PEOPLE IN THE", $8d
+	.byte "DIVERSE TOWNES", $8d
+	.byte "WHOM IT WOULD BE", $8d
+	.byte "WISE TO ASK TO", $8d
+	.byte "JOIN THEE!", $8d
 	.byte 0
 
 	jsr j_waitkey
 	jsr j_primm
 	.byte $8d
-	.byte "Build thy party", $8d
-	.byte "unto eight", $8d
-	.byte "travellers, for", $8d
-	.byte "only a true", $8d
-	.byte "leader can win", $8d
-	.byte "the quest!", $8d
+	.byte "BUILD THY PARTY", $8d
+	.byte "UNTO EIGHT", $8d
+	.byte "TRAVELLERS, FOR", $8d
+	.byte "ONLY A TRUE", $8d
+	.byte "LEADER CAN WIN", $8d
+	.byte "THE QUEST!", $8d
 	.byte 0
 
 	jmp return_to_main_conversation
@@ -169,47 +169,47 @@ help_companions:
 help_runes:
 	jsr print_he_says
 	jsr j_primm
-	.byte "Learn ye the", $8d
-	.byte "paths of virtue,", $8d
-	.byte "seek to gain", $8d
-	.byte "entry unto the", $8d
-	.byte "eight shrines!", $8d
+	.byte "LEARN YE THE", $8d
+	.byte "PATHS OF VIRTUE,", $8d
+	.byte "SEEK TO GAIN", $8d
+	.byte "ENTRY UNTO THE", $8d
+	.byte "EIGHT SHRINES!", $8d
 	.byte 0
 
 	jsr j_waitkey
 	jsr j_primm
 	.byte $8d
-	.byte "Find ye the", $8d
-	.byte "runes, needed", $8d
-	.byte "for entry into", $8d
-	.byte "each shrine, and", $8d
-	.byte "learn each chant", $8d
-	.byte "or 'mantra' used", $8d
-	.byte "to focus thy", $8d
-	.byte "meditations.", $8d
+	.byte "FIND YE THE", $8d
+	.byte "RUNES, NEEDED", $8d
+	.byte "FOR ENTRY INTO", $8d
+	.byte "EACH SHRINE, AND", $8d
+	.byte "LEARN EACH CHANT", $8d
+	.byte "OR 'MANTRA' USED", $8d
+	.byte "TO FOCUS THY", $8d
+	.byte "MEDITATIONS.", $8d
 	.byte 0
 
 	jsr j_waitkey
 	jsr j_primm
 	.byte $8d
-	.byte "Within the", $8d
-	.byte "shrines thou", $8d
-	.byte "shalt learn of", $8d
-	.byte "the deeds which", $8d
-	.byte "show thy inner", $8d
-	.byte "virtue or vice!", $8d
+	.byte "WITHIN THE", $8d
+	.byte "SHRINES THOU", $8d
+	.byte "SHALT LEARN OF", $8d
+	.byte "THE DEEDS WHICH", $8d
+	.byte "SHOW THY INNER", $8d
+	.byte "VIRTUE OR VICE!", $8d
 	.byte 0
 
 	jsr j_waitkey
 	jsr j_primm
 	.byte $8d
-	.byte "Choose thy path", $8d
-	.byte "wisely for all", $8d
-	.byte "thy deeds of", $8d
-	.byte "good or evil are", $8d
-	.byte "remembered and", $8d
-	.byte "can return to", $8d
-	.byte "hinder thee!", $8d
+	.byte "CHOOSE THY PATH", $8d
+	.byte "WISELY FOR ALL", $8d
+	.byte "THY DEEDS OF", $8d
+	.byte "GOOD OR EVIL ARE", $8d
+	.byte "REMEMBERED AND", $8d
+	.byte "CAN RETURN TO", $8d
+	.byte "HINDER THEE!", $8d
 	.byte 0
 
 	jmp return_to_main_conversation
@@ -217,38 +217,38 @@ help_runes:
 help_virtues:
 	jsr print_he_says
 	jsr j_primm
-	.byte "Visit the seer", $8d
-	.byte "Hawkwind often", $8d
-	.byte "and use his", $8d
-	.byte "wisdom to help", $8d
-	.byte "thee prove thy", $8d
-	.byte "virtue.", $8d
+	.byte "VISIT THE SEER", $8d
+	.byte "HAWKWIND OFTEN", $8d
+	.byte "AND USE HIS", $8d
+	.byte "WISDOM TO HELP", $8d
+	.byte "THEE PROVE THY", $8d
+	.byte "VIRTUE.", $8d
 	.byte 0
 
 	jsr j_waitkey
 	jsr j_primm
 	.byte $8d
-	.byte "When thou art", $8d
-	.byte "ready, Hawkwind", $8d
-	.byte "will advise", $8d
-	.byte "thee to seek", $8d
-	.byte "the elevation", $8d
-	.byte "unto partial", $8d
-	.byte "avatarhood in a", $8d
-	.byte "virtue.", $8d
+	.byte "WHEN THOU ART", $8d
+	.byte "READY, HAWKWIND", $8d
+	.byte "WILL ADVISE", $8d
+	.byte "THEE TO SEEK", $8d
+	.byte "THE ELEVATION", $8d
+	.byte "UNTO PARTIAL", $8d
+	.byte "AVATARHOOD IN A", $8d
+	.byte "VIRTUE.", $8d
 	.byte 0
 
 	jsr j_waitkey
 	jsr j_primm
 	.byte $8d
-	.byte "Seek ye to", $8d
-	.byte "become a partial", $8d
-	.byte "avatar in all", $8d
-	.byte "eight virtues,", $8d
-	.byte "for only then", $8d
-	.byte "shalt thou be", $8d
-	.byte "ready to seek", $8d
-	.byte "the codex!", $8d
+	.byte "SEEK YE TO", $8d
+	.byte "BECOME A PARTIAL", $8d
+	.byte "AVATAR IN ALL", $8d
+	.byte "EIGHT VIRTUES,", $8d
+	.byte "FOR ONLY THEN", $8d
+	.byte "SHALT THOU BE", $8d
+	.byte "READY TO SEEK", $8d
+	.byte "THE CODEX!", $8d
 	.byte 0
 
 	jmp return_to_main_conversation
@@ -256,25 +256,25 @@ help_virtues:
 help_stones:
 	jsr print_he_says
 	jsr j_primm
-	.byte "Go ye now into", $8d
-	.byte "the depths of", $8d
-	.byte "the dungeons,", $8d
-	.byte "therein recover", $8d
-	.byte "the 8 coloured", $8d
-	.byte "stones from the", $8d
-	.byte "altar pedestals", $8d
-	.byte "in the halls", $8d
-	.byte "of the dungeons.", $8d
+	.byte "GO YE NOW INTO", $8d
+	.byte "THE DEPTHS OF", $8d
+	.byte "THE DUNGEONS,", $8d
+	.byte "THEREIN RECOVER", $8d
+	.byte "THE 8 COLOURED", $8d
+	.byte "STONES FROM THE", $8d
+	.byte "ALTAR PEDESTALS", $8d
+	.byte "IN THE HALLS", $8d
+	.byte "OF THE DUNGEONS.", $8d
 	.byte 0
 
 	jsr j_waitkey
 	jsr j_primm
 	.byte $8d
-	.byte "Find the uses of", $8d
-	.byte "these stones for", $8d
-	.byte "they can help", $8d
-	.byte "thee in the", $8d
-	.byte "abyss!", $8d
+	.byte "FIND THE USES OF", $8d
+	.byte "THESE STONES FOR", $8d
+	.byte "THEY CAN HELP", $8d
+	.byte "THEE IN THE", $8d
+	.byte "ABYSS!", $8d
 	.byte 0
 
 	jmp return_to_main_conversation
@@ -282,14 +282,14 @@ help_stones:
 help_avatarhood:
 	jsr print_he_says
 	jsr j_primm
-	.byte "Thou art doing", $8d
-	.byte "very well indeed", $8d
-	.byte "on the path to", $8d
-	.byte "avatarhood!", $8d
-	.byte "Strive ye to", $8d
-	.byte "achieve the", $8d
-	.byte "elevation in all", $8d
-	.byte "eight virtues!", $8d
+	.byte "THOU ART DOING", $8d
+	.byte "VERY WELL INDEED", $8d
+	.byte "ON THE PATH TO", $8d
+	.byte "AVATARHOOD!", $8d
+	.byte "STRIVE YE TO", $8d
+	.byte "ACHIEVE THE", $8d
+	.byte "ELEVATION IN ALL", $8d
+	.byte "EIGHT VIRTUES!", $8d
 	.byte 0
 
 	jmp return_to_main_conversation
@@ -297,13 +297,13 @@ help_avatarhood:
 help_items:
 	jsr print_he_says
 	jsr j_primm
-	.byte "Find ye the", $8d
-	.byte "bell, book and", $8d
-	.byte "candle! With", $8d
-	.byte "these three", $8d
-	.byte "things, one may", $8d
-	.byte "enter The Great", $8d
-	.byte "Stygian Abyss!", $8d
+	.byte "FIND YE THE", $8d
+	.byte "BELL, BOOK AND", $8d
+	.byte "CANDLE! WITH", $8d
+	.byte "THESE THREE", $8d
+	.byte "THINGS, ONE MAY", $8d
+	.byte "ENTER THE GREAT", $8d
+	.byte "STYGIAN ABYSS!", $8d
 	.byte 0
 
 	jmp return_to_main_conversation
@@ -311,22 +311,22 @@ help_items:
 help_threepartkey:
 	jsr print_he_says
 	jsr j_primm
-	.byte "Before thou dost", $8d
-	.byte "enter the abyss", $8d
-	.byte "thou shalt need", $8d
-	.byte "the key of three", $8d
-	.byte "parts, and the", $8d
-	.byte "word of passage.", $8d
+	.byte "BEFORE THOU DOST", $8d
+	.byte "ENTER THE ABYSS", $8d
+	.byte "THOU SHALT NEED", $8d
+	.byte "THE KEY OF THREE", $8d
+	.byte "PARTS, AND THE", $8d
+	.byte "WORD OF PASSAGE.", $8d
 	.byte 0
 
 	jsr j_waitkey
 	jsr j_primm
 	.byte $8d
-	.byte "Then might thou", $8d
-	.byte "enter the", $8d
-	.byte "chamber of The", $8d
-	.byte "Codex of", $8d
-	.byte "Ultimate Wisdom!", $8d
+	.byte "THEN MIGHT THOU", $8d
+	.byte "ENTER THE", $8d
+	.byte "CHAMBER OF THE", $8d
+	.byte "CODEX OF", $8d
+	.byte "ULTIMATE WISDOM!", $8d
 	.byte 0
 
 	jmp return_to_main_conversation
@@ -334,36 +334,36 @@ help_threepartkey:
 help_ready:
 	jsr print_he_says
 	jsr j_primm
-	.byte "Thou dost now", $8d
-	.byte "seem ready to", $8d
-	.byte "make the final", $8d
-	.byte "journey into the", $8d
-	.byte "dark abyss!", $8d
-	.byte "Go only with a", $8d
-	.byte "party of eight!", $8d
+	.byte "THOU DOST NOW", $8d
+	.byte "SEEM READY TO", $8d
+	.byte "MAKE THE FINAL", $8d
+	.byte "JOURNEY INTO THE", $8d
+	.byte "DARK ABYSS!", $8d
+	.byte "GO ONLY WITH A", $8d
+	.byte "PARTY OF EIGHT!", $8d
 	.byte 0
 
 	jsr j_waitkey
 	jsr j_primm
 	.byte $8d
-	.byte "Good luck, and", $8d
-	.byte "may the powers", $8d
-	.byte "of good watch", $8d
-	.byte "over thee on", $8d
-	.byte "this thy most", $8d
-	.byte "perilous", $8d
-	.byte "endeavour!", $8d
+	.byte "GOOD LUCK, AND", $8d
+	.byte "MAY THE POWERS", $8d
+	.byte "OF GOOD WATCH", $8d
+	.byte "OVER THEE ON", $8d
+	.byte "THIS THY MOST", $8d
+	.byte "PERILOUS", $8d
+	.byte "ENDEAVOUR!", $8d
 	.byte 0
 
 	jsr j_waitkey
 	jsr j_primm
 	.byte $8d
-	.byte "The hearts and", $8d
-	.byte "souls of all", $8d
-	.byte "Britannia go", $8d
-	.byte "with thee now.", $8d
-	.byte "Take care,", $8d
-	.byte "my friend.", $8d
+	.byte "THE HEARTS AND", $8d
+	.byte "SOULS OF ALL", $8d
+	.byte "BRITANNIA GO", $8d
+	.byte "WITH THEE NOW.", $8d
+	.byte "TAKE CARE,", $8d
+	.byte "MY FRIEND.", $8d
 	.byte 0
 
 	jmp return_to_main_conversation

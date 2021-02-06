@@ -180,8 +180,8 @@ search:
 print_you_find_nothing:
 	jsr j_primm
 	.byte $8d
-	.byte "You find", $8d
-	.byte "nothing!", $8d
+	.byte "YOU FIND", $8d
+	.byte "NOTHING!", $8d
 	.byte 0
 
 	rts
@@ -202,10 +202,10 @@ check_orb:
 find_orb:
 	jsr j_primm
 	.byte $8d
-	.byte "You find a", $8d
-	.byte "magical ball...", $8d
-	.byte "Who will touch", $8d
-	.byte "it? ", 0
+	.byte "YOU FIND A", $8d
+	.byte "MAGICAL BALL...", $8d
+	.byte "WHO WILL TOUCH", $8d
+	.byte "IT? ", 0
 
 	jsr j_getplayernum
 	jsr check_awake
@@ -229,7 +229,7 @@ find_orb:
 	ldy #$13
 	jsr increment_stat
 	jsr j_primm
-	.byte "Strength+5", $8d
+	.byte "STRENGTH+5", $8d
 	.byte 0
 
 @check_dex:
@@ -239,7 +239,7 @@ find_orb:
 	ldy #$14
 	jsr increment_stat
 	jsr j_primm
-	.byte "Dexterity+5", $8d
+	.byte "DEXTERITY+5", $8d
 	.byte 0
 
 @check_int:
@@ -249,7 +249,7 @@ find_orb:
 	ldy #$15
 	jsr increment_stat
 	jsr j_primm
-	.byte "Intelligence+5", $8d
+	.byte "INTELLIGENCE+5", $8d
 	.byte 0
 
 @done:
@@ -258,9 +258,9 @@ find_orb:
 find_fountain:
 	jsr j_primm
 	.byte $8d
-	.byte "You find a", $8d
-	.byte "fountain, who", $8d
-	.byte "will drink? ", 0
+	.byte "YOU FIND A", $8d
+	.byte "FOUNTAIN, WHO", $8d
+	.byte "WILL DRINK? ", 0
 
 	jsr j_getplayernum
 	jsr check_awake
@@ -282,7 +282,7 @@ find_fountain:
 @no_effect:
 	jsr j_primm
 	.byte $8d
-	.byte "Hmmm--No effect!", $8d
+	.byte "HMMM--NO EFFECT!", $8d
 	.byte 0
 
 	rts
@@ -290,7 +290,7 @@ find_fountain:
 @heal:
 	jsr j_primm
 	.byte $8d
-	.byte "Ahh--Refreshing!", $8d
+	.byte "AHH--REFRESHING!", $8d
 	.byte 0
 
 	jsr j_get_stats_ptr
@@ -306,7 +306,7 @@ find_fountain:
 @hurt:
 	jsr j_primm
 	.byte $8d
-	.byte "Bleck--Nasty!", $8d
+	.byte "BLECK--NASTY!", $8d
 	.byte 0
 
 	lda #$01
@@ -326,7 +326,7 @@ find_fountain:
 	sta (ptr1),y
 	jsr j_primm
 	.byte $8d
-	.byte "Mmm--Delicious!", $8d
+	.byte "MMM--DELICIOUS!", $8d
 	.byte 0
 
 	rts
@@ -367,12 +367,12 @@ find_stone:
 	bne @find_nothing
 	jsr j_primm
 	.byte $8d
-	.byte "You find the", $8d
+	.byte "YOU FIND THE", $8d
 	.byte 0
 
 	jsr print_color
 	jsr j_primm
-	.byte " stone!", $8d
+	.byte " STONE!", $8d
 	.byte 0
 
 	ldy dungeon_number
@@ -422,37 +422,37 @@ print_color:
 
 @blue:
 	jsr j_primm
-	.byte "blue", 0
+	.byte "BLUE", 0
 
 	rts
 
 @yellow:
 	jsr j_primm
-	.byte "yellow", 0
+	.byte "YELLOW", 0
 
 	rts
 
 @read:
 	jsr j_primm
-	.byte "red", 0
+	.byte "RED", 0
 
 	rts
 
 @green:
 	jsr j_primm
-	.byte "green", 0
+	.byte "GREEN", 0
 
 	rts
 
 @orange:
 	jsr j_primm
-	.byte "orange", 0
+	.byte "ORANGE", 0
 
 	rts
 
 @purple:
 	jsr j_primm
-	.byte "purple", 0
+	.byte "PURPLE", 0
 
 	rts
 

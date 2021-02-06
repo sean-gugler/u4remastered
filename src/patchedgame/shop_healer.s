@@ -40,7 +40,7 @@ bmplineaddr_hi = $e0c0
 
 	jsr j_primm
 	.byte $8d
-	.byte "Welcome unto", $8d
+	.byte "WELCOME UNTO", $8d
 	.byte 0
 	ldx current_location
 	dex 
@@ -55,11 +55,11 @@ bmplineaddr_hi = $e0c0
 	adc #$0b
 	jsr print_string
 	jsr j_primm
-	.byte " says:", $8d
-	.byte "Peace and joy be", $8d
-	.byte "with you friend.", $8d
-	.byte "Are you in need", $8d
-	.byte "of help?", 0
+	.byte " SAYS:", $8d
+	.byte "PEACE AND JOY BE", $8d
+	.byte "WITH YOU FRIEND.", $8d
+	.byte "ARE YOU IN NEED", $8d
+	.byte "OF HELP?", 0
 	jsr input_char
 	cmp #$d9
 	beq menu
@@ -72,12 +72,12 @@ menu:
 	adc #$0b
 	jsr print_string
 	jsr j_primm
-	.byte " says:", $8d
-	.byte "We can perform:", $8d
-	.byte "A-Curing", $8d
-	.byte "B-Healing", $8d
-	.byte "C-Resurrection", $8d
-	.byte "Your need:", 0
+	.byte " SAYS:", $8d
+	.byte "WE CAN PERFORM:", $8d
+	.byte "A-CURING", $8d
+	.byte "B-HEALING", $8d
+	.byte "C-RESURRECTION", $8d
+	.byte "YOUR NEED:", 0
 	jsr input_char
 	cmp #$c1
 	bne :+
@@ -99,16 +99,16 @@ ask_cure:
 	beq is_poisoned
 	jsr j_primm
 	.byte $8d
-	.byte "Thou suffers not", $8d
-	.byte "from poison!", $8d
+	.byte "THOU SUFFERS NOT", $8d
+	.byte "FROM POISON!", $8d
 	.byte 0
 	jmp ask_more
 
 is_poisoned:
 	jsr j_primm
 	.byte $8d
-	.byte "A curing will", $8d
-	.byte "cost thee 100gp.", $8d
+	.byte "A CURING WILL", $8d
+	.byte "COST THEE 100GP.", $8d
 	.byte 0
 	lda gold_hi
 	beq @no_money
@@ -117,18 +117,18 @@ is_poisoned:
 @no_money:
 	jsr j_primm
 	.byte $8d
-	.byte "I see by thy", $8d
-	.byte "purse that thou", $8d
-	.byte "hast not enough", $8d
-	.byte "gold.", 0
+	.byte "I SEE BY THY", $8d
+	.byte "PURSE THAT THOU", $8d
+	.byte "HAST NOT ENOUGH", $8d
+	.byte "GOLD.", 0
 	jsr j_waitkey
 	jsr j_primm
 	.byte $8d
-	.byte "I will", $8d
-	.byte "cure thee for", $8d
-	.byte "free, but give", $8d
-	.byte "unto others when", $8d
-	.byte "ever thou may!", $8d
+	.byte "I WILL", $8d
+	.byte "CURE THEE FOR", $8d
+	.byte "FREE, BUT GIVE", $8d
+	.byte "UNTO OTHERS WHEN", $8d
+	.byte "EVER THOU MAY!", $8d
 	.byte 0
 	jmp do_cure
 
@@ -148,8 +148,8 @@ ask_heal:
 	jsr ask_which_player
 	jsr j_primm
 	.byte $8d
-	.byte "A healing will", $8d
-	.byte "cost thee 200gp.", $8d
+	.byte "A HEALING WILL", $8d
+	.byte "COST THEE 200GP.", $8d
 	.byte 0
 	lda gold_hi
 	cmp #$02
@@ -181,17 +181,17 @@ ask_resurrect:
 	beq is_dead
 	jsr j_primm
 	.byte $8d
-	.byte "Thou art not", $8d
-	.byte "dead fool!", $8d
+	.byte "THOU ART NOT", $8d
+	.byte "DEAD FOOL!", $8d
 	.byte 0
 	jmp ask_more
 
 is_dead:
 	jsr j_primm
 	.byte $8d
-	.byte "Resurrection", $8d
-	.byte "will cost thee", $8d
-	.byte "300gp.", $8d
+	.byte "RESURRECTION", $8d
+	.byte "WILL COST THEE", $8d
+	.byte "300GP.", $8d
 	.byte 0
 	lda gold_hi
 	cmp #$03
@@ -199,11 +199,11 @@ is_dead:
 cannot_afford:
 	jsr j_primm
 	.byte $8d
-	.byte "I see by thy", $8d
-	.byte "purse that thou", $8d
-	.byte "hast not enough", $8d
-	.byte "gold. I cannot", $8d
-	.byte "aid thee.", $8d
+	.byte "I SEE BY THY", $8d
+	.byte "PURSE THAT THOU", $8d
+	.byte "HAST NOT ENOUGH", $8d
+	.byte "GOLD. I CANNOT", $8d
+	.byte "AID THEE.", $8d
 	.byte 0
 	jmp ask_more
 
@@ -225,13 +225,13 @@ ask_which_player:
 	adc #$0b
 	jsr print_string
 	jsr j_primm
-	.byte " asks:", $8d
-	.byte "Who is in need?", 0
+	.byte " ASKS:", $8d
+	.byte "WHO IS IN NEED?", 0
 	jsr j_getplayernum
 	bne @validate
 	jsr j_primm
 	.byte $8d
-	.byte "No one?", $8d
+	.byte "NO ONE?", $8d
 	.byte 0
 	pla 
 	pla 
@@ -253,9 +253,9 @@ ask_more:
 	adc #$0b
 	jsr print_string
 	jsr j_primm
-	.byte " asks:", $8d
-	.byte "Do you need", $8d
-	.byte "more help?", 0
+	.byte " ASKS:", $8d
+	.byte "DO YOU NEED", $8d
+	.byte "MORE HELP?", 0
 	jsr input_char
 	cmp #$d9
 	bne try_donate
@@ -276,21 +276,21 @@ bye:
 	adc #$0b
 	jsr print_string
 	jsr j_primm
-	.byte " says:", $8d
-	.byte "May thy life", $8d
-	.byte "be guarded by", $8d
-	.byte "the powers of", $8d
-	.byte "good.", $8d
+	.byte " SAYS:", $8d
+	.byte "MAY THY LIFE", $8d
+	.byte "BE GUARDED BY", $8d
+	.byte "THE POWERS OF", $8d
+	.byte "GOOD.", $8d
 	.byte 0
 	rts 
 
 ask_donate:
 	jsr j_primm
 	.byte $8d
-	.byte "Art thou willing", $8d
-	.byte "to give 100pts", $8d
-	.byte "of thy blood to", $8d
-	.byte "aid others?", 0
+	.byte "ART THOU WILLING", $8d
+	.byte "TO GIVE 100PTS", $8d
+	.byte "OF THY BLOOD TO", $8d
+	.byte "AID OTHERS?", 0
 	jsr input_char
 	cmp #$ce
 	beq no_donate
@@ -310,10 +310,10 @@ yes_donate:
 	jsr accrue_virtue
 	jsr j_primm
 	.byte $8d
-	.byte "Thou art a", $8d
-	.byte "great help, we", $8d
-	.byte "are in dire", $8d
-	.byte "need!", $8d
+	.byte "THOU ART A", $8d
+	.byte "GREAT HELP, WE", $8d
+	.byte "ARE IN DIRE", $8d
+	.byte "NEED!", $8d
 	.byte 0
 	jsr j_get_stats_ptr
 	ldy #$18
@@ -334,7 +334,7 @@ ask_pay:
 	sta zptmp_cost
 	jsr j_primm
 	.byte $8d
-	.byte "Wilt thou pay?", 0
+	.byte "WILT THOU PAY?", 0
 	jsr input_char
 	cmp #$d9
 	beq deduct_gold
@@ -342,8 +342,8 @@ ask_pay:
 	pla 
 	jsr j_primm
 	.byte $8d
-	.byte "Then I cannot", $8d
-	.byte "aid thee.", $8d
+	.byte "THEN I CANNOT", $8d
+	.byte "AID THEE.", $8d
 	.byte 0
 	jmp ask_more
 
@@ -459,26 +459,26 @@ inc_ptr:
 
 string_table:
 	.byte 0
-	.byte "The Royal Healer", 0
-	.byte "The Truth Healer", 0
-	.byte "The Love Healer", 0
-	.byte "Courage Healer", 0
-	.byte "The Healer", 0
-	.byte "Wound Healing", 0
-	.byte "Heal and Health", 0
-	.byte "Just Healing", 0
-	.byte "The Mystic Heal", 0
-	.byte "The Healer Shop", 0
-	.byte "Pendragon", 0
-	.byte "Starfire", 0
-	.byte "Salle'", 0
-	.byte "Windwalker", 0
-	.byte "Harmony", 0
-	.byte "Celest", 0
-	.byte "Triplet", 0
-	.byte "Justin", 0
-	.byte "Spiran", 0
-	.byte "Quat", 0
+	.byte "THE ROYAL HEALER", 0
+	.byte "THE TRUTH HEALER", 0
+	.byte "THE LOVE HEALER", 0
+	.byte "COURAGE HEALER", 0
+	.byte "THE HEALER", 0
+	.byte "WOUND HEALING", 0
+	.byte "HEAL AND HEALTH", 0
+	.byte "JUST HEALING", 0
+	.byte "THE MYSTIC HEAL", 0
+	.byte "THE HEALER SHOP", 0
+	.byte "PENDRAGON", 0
+	.byte "STARFIRE", 0
+	.byte "SALLE'", 0
+	.byte "WINDWALKER", 0
+	.byte "HARMONY", 0
+	.byte "CELEST", 0
+	.byte "TRIPLET", 0
+	.byte "JUSTIN", 0
+	.byte "SPIRAN", 0
+	.byte "QUAT", 0
 
 ; unused
 invert_all_players:
@@ -577,8 +577,8 @@ lost_rts:
 lost_an_eighth:
 	jsr j_primm
 	.byte $8d
-	.byte "Thou hast lost", $8d
-	.byte "an eighth!", $8d
+	.byte "THOU HAST LOST", $8d
+	.byte "AN EIGHTH!", $8d
 	.byte 0
 	ldy zptmp_virtue1
 	lda #$99

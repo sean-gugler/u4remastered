@@ -204,7 +204,7 @@ camp:
 	dec currplayer
 	bne @place_next
 	jsr j_primm
-	.byte "Resting...", $8d
+	.byte "RESTING...", $8d
 	.byte 0
 
 	lda #$4b
@@ -217,7 +217,7 @@ camp:
 	and #$07
 	bne check_sleep_effect
 	jsr j_primm
-	.byte "Ambushed!", $8d
+	.byte "AMBUSHED!", $8d
 	.byte 0
 
 	jsr j_rand
@@ -254,7 +254,7 @@ check_sleep_effect:
 	cmp last_sleep
 	bne @rested
 	jsr j_primm
-	.byte "No effect.", $8d
+	.byte "NO EFFECT.", $8d
 	.byte 0
 
 	jmp camp_done
@@ -283,7 +283,7 @@ check_sleep_effect:
 	bne @next_character
 	jsr restore_mp
 	jsr j_primm
-	.byte "Players healed!", $8d
+	.byte "PLAYERS HEALED!", $8d
 	.byte 0
 
 camp_done:

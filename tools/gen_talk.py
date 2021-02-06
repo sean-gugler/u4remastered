@@ -14,7 +14,7 @@ def encode_string(s, lastbit=True):
     for line in lines:
         if len(line) > 16:
             print(u"Line too long: '%s'" % line)
-    bytes = list(ord(c) | 0x80 for c in s.replace(u"\n", u"\r"))
+    bytes = list(ord(c.upper()) | 0x80 for c in s.replace(u"\n", u"\r"))
     if lastbit:
         bytes[-1] &= 0x7f
     return bytes

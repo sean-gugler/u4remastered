@@ -215,7 +215,7 @@ find_rune:
 	sty $58
 	jsr print_you_find
 	jsr j_primm
-	.byte "The rune of", $8d
+	.byte "THE RUNE OF", $8d
 	.byte 0
 
 	lda $58
@@ -242,8 +242,8 @@ find_book:
 	sta items
 	jsr print_you_find
 	jsr j_primm
-	.byte "The book", $8d
-	.byte "of truth!", $8d
+	.byte "THE BOOK", $8d
+	.byte "OF TRUTH!", $8d
 	.byte 0
 
 	lda #$04
@@ -262,8 +262,8 @@ find_candle:
 	sta items
 	jsr print_you_find
 	jsr j_primm
-	.byte "The candle", $8d
-	.byte "of love!", $8d
+	.byte "THE CANDLE", $8d
+	.byte "OF LOVE!", $8d
 	.byte 0
 
 	lda #$04
@@ -272,10 +272,10 @@ find_candle:
 
 find_telescope:
 	jsr j_primm
-	.byte "You see a knob", $8d
-	.byte "on the telescope", $8d
-	.byte "marked A-P", $8d
-	.byte "You select:", 0
+	.byte "YOU SEE A KNOB", $8d
+	.byte "ON THE TELESCOPE", $8d
+	.byte "MARKED A-P", $8d
+	.byte "YOU SELECT:", 0
 
 @waitkey:
 	jsr j_waitkey
@@ -349,7 +349,7 @@ find_mystic_armour:
 @found:
 	jsr print_you_find
 	jsr j_primm
-	.byte "Mystic armour!", $8d
+	.byte "MYSTIC ARMOUR!", $8d
 	.byte 0
 
 	lda #$08
@@ -377,7 +377,7 @@ find_mystic_weapons:
 @found:
 	jsr print_you_find
 	jsr j_primm
-	.byte "Mystic weapons!", $8d
+	.byte "MYSTIC WEAPONS!", $8d
 	.byte 0
 
 	lda #$08
@@ -388,7 +388,7 @@ find_mystic_weapons:
 
 print_you_find:
 	jsr j_primm
-	.byte "You find...", $8d
+	.byte "YOU FIND...", $8d
 	.byte 0
 
 	sed

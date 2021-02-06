@@ -23,17 +23,17 @@ offset(0c8e)
     replace(ea ea ea ea ea ea ea ea ea ea)
 
 # Lower case name input.
-offset(0dca)
-    match(ad 77 02)
-    replace(20 e0 71)
+#offset(0dca)
+#    match(ad 77 02)
+#    replace(20 e0 71)
 
-truncate(11e2)
-    append(ad 77 02)    # lda $0277
-    append(c9 41)       # cmp #$41
-    append(90 0b)       # bcc $7012
-    append(c9 5b)       # cmp #$5b
-    append(b0 07)       # bcs $7012
-    append(ae 8d 02)    # ldx $028d
-    append(d0 02)       # bne $7012
-    append(49 20)       # eor #$20
-    append(60)          # rts
+#truncate(11e2)
+#    append(ad 77 02)    # lda $0277
+#    append(c9 41)       # cmp #$41
+#    append(90 0b)       # bcc $7012
+#    append(c9 5b)       # cmp #$5b
+#    append(b0 07)       # bcs $7012
+#    append(ae 8d 02)    # ldx $028d
+#    append(d0 02)       # bne $7012
+#    append(49 20)       # eor #$20
+#    append(60)          # rts

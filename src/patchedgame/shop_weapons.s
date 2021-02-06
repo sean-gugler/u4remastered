@@ -48,7 +48,7 @@ shop_price_carry = $8700
 
 	jsr j_primm
 	.byte $8d
-	.byte "Welcome to", $8d
+	.byte "WELCOME TO", $8d
 	.byte 0
 	ldx current_location
 	dex 
@@ -64,12 +64,12 @@ shop_price_carry = $8700
 	adc #$07
 	jsr print_string
 	jsr j_primm
-	.byte " says:", $8d
-	.byte "Welcome friend,", $8d
-	.byte "art thou here to", $8d
+	.byte " SAYS:", $8d
+	.byte "WELCOME FRIEND,", $8d
+	.byte "ART THOU HERE TO", $8d
 	.byte 0
 	jsr j_primm
-	.byte "buy or sell?", 0
+	.byte "BUY OR SELL?", 0
 	jsr input_char
 	cmp #$c2
 	beq @buy
@@ -80,11 +80,11 @@ shop_price_carry = $8700
 @buy:
 	jsr j_primm
 	.byte $8d
-	.byte "Very good,", $8d
+	.byte "VERY GOOD,", $8d
 	.byte 0
 buy_menu:
 	jsr j_primm
-	.byte "we have:", $8d
+	.byte "WE HAVE:", $8d
 	.byte "A-NOTHING", $8d
 	.byte 0
 	lda #$00
@@ -107,7 +107,7 @@ buy_menu:
 	adc #$0d
 	jsr print_string
 	jsr j_primm
-	.byte "s", $8d
+	.byte "S", $8d
 	.byte 0
 	inc zptmp_inv_num
 	lda zptmp_inv_num
@@ -116,7 +116,7 @@ buy_menu:
 
 ; prompt
 	jsr j_primm
-	.byte "Your interest?", 0
+	.byte "YOUR INTEREST?", 0
 	jsr display_owned
 	jsr input_char
 	pha 
@@ -152,8 +152,8 @@ buy_menu:
 @ask_buy:
 	jsr j_primm
 	.byte $8d
-	.byte "Would you like", $8d
-	.byte "to buy one?", 0
+	.byte "WOULD YOU LIKE", $8d
+	.byte "TO BUY ONE?", 0
 	jsr input_char
 	pha 
 	jsr print_newline
@@ -163,11 +163,11 @@ buy_menu:
 	cmp #$ce
 	bne @ask_buy
 	jsr j_primm
-	.byte "Too bad.", $8d
+	.byte "TOO BAD.", $8d
 	.byte 0
 @more:
 	jsr j_primm
-	.byte "Anything else?", 0
+	.byte "ANYTHING ELSE?", 0
 	jsr input_char
 	cmp #$d9
 	bne :+
@@ -181,8 +181,8 @@ bye:
 	adc #$07
 	jsr print_string
 	jsr j_primm
-	.byte " says:", $8d
-	.byte "Fare thee well!", $8d
+	.byte " SAYS:", $8d
+	.byte "FARE THEE WELL!", $8d
 	.byte 0
 	rts 
 
@@ -205,10 +205,10 @@ try_spend:
 	bcs do_spend
 	jsr j_primm
 	.byte $8d
-	.byte "I fear you", $8d
-	.byte "have not the", $8d
-	.byte "funds, perhaps", $8d
-	.byte "something else.", $8d
+	.byte "I FEAR YOU", $8d
+	.byte "HAVE NOT THE", $8d
+	.byte "FUNDS, PERHAPS", $8d
+	.byte "SOMETHING ELSE.", $8d
 	.byte 0
 	jmp buy_menu
 
@@ -237,18 +237,18 @@ do_spend:
 	adc #$07
 	jsr print_string
 	jsr j_primm
-	.byte " says:", $8d
-	.byte "A fine choice!", $8d
-	.byte "Anything else?", $8d
+	.byte " SAYS:", $8d
+	.byte "A FINE CHOICE!", $8d
+	.byte "ANYTHING ELSE?", $8d
 	.byte 0
 	jmp buy_menu
 
 sell:
 	jsr j_primm
 	.byte $8d
-	.byte "Excellent, what", $8d
-	.byte "wouldst thou", $8d
-	.byte "like to sell?", 0
+	.byte "EXCELLENT, WHAT", $8d
+	.byte "WOULDST THOU", $8d
+	.byte "LIKE TO SELL?", 0
 sell_menu:
 	jsr display_owned
 	jsr input_char
@@ -267,10 +267,10 @@ sell_menu:
 	bne @make_offer
 	jsr j_primm
 	.byte $8d
-	.byte "Thou dost not", $8d
-	.byte "own that.", $8d
-	.byte "What else might", $8d
-	.byte "you sell?", 0
+	.byte "THOU DOST NOT", $8d
+	.byte "OWN THAT.", $8d
+	.byte "WHAT ELSE MIGHT", $8d
+	.byte "YOU SELL?", 0
 	jmp sell_menu
 
 @bye:
@@ -297,7 +297,7 @@ sell_menu:
 	sta payment + 1
 	jsr j_primm
 	.byte $8d
-	.byte "I will give you", $8d
+	.byte "I WILL GIVE YOU", $8d
 	.byte 0
 	lda payment
 	beq :+
@@ -305,7 +305,7 @@ sell_menu:
 :	lda payment + 1
 	jsr j_printbcd
 	jsr j_primm
-	.byte "gp for that.", $8d
+	.byte "GP FOR THAT.", $8d
 	.byte 0
 	lda zptmp_item_type
 	clc 
@@ -314,15 +314,15 @@ sell_menu:
 	jsr print_newline
 @confirm:
 	jsr j_primm
-	.byte "Deal?", 0
+	.byte "DEAL?", 0
 	jsr input_char
 	cmp #$d9
 	beq @sell_item
 	cmp #$ce
 	bne @confirm
 	jsr j_primm
-	.byte "Hmmph, what", $8d
-	.byte "else then?", 0
+	.byte "HMMPH, WHAT", $8d
+	.byte "ELSE THEN?", 0
 	jmp sell_menu
 
 @sell_item:
@@ -348,8 +348,8 @@ sell_menu:
 	cld 
 	jsr j_update_status
 	jsr j_primm
-	.byte "Fine, what", $8d
-	.byte "else?", 0
+	.byte "FINE, WHAT", $8d
+	.byte "ELSE?", 0
 	jmp sell_menu
 
 ; map location to shop number
@@ -468,19 +468,19 @@ inc_ptr:
 
 string_table:
 	.byte 0
-	.byte "Windsor Weaponry", 0
-	.byte "Willard's", $8d
-	.byte "Weaponry", 0
-	.byte "The Iron Works", 0
-	.byte "Duelling Weapons", 0
-	.byte "Hook's Arms", 0
-	.byte "Village Arms", 0
-	.byte "Winston", 0
-	.byte "Willard", 0
-	.byte "Peter", 0
-	.byte "Jumar", 0
-	.byte "Hook", 0
-	.byte "Wendy", 0
+	.byte "WINDSOR WEAPONRY", 0
+	.byte "WILLARD'S", $8d
+	.byte "WEAPONRY", 0
+	.byte "THE IRON WORKS", 0
+	.byte "DUELLING WEAPONS", 0
+	.byte "HOOK'S ARMS", 0
+	.byte "VILLAGE ARMS", 0
+	.byte "WINSTON", 0
+	.byte "WILLARD", 0
+	.byte "PETER", 0
+	.byte "JUMAR", 0
+	.byte "HOOK", 0
+	.byte "WENDY", 0
 	.byte "HANDS", 0
 	.byte "STAFF", 0
 	.byte "DAGGER", 0
@@ -499,96 +499,96 @@ string_table:
 	.byte "MYSTIC SWORD", 0
 	.byte "HANDS", $8d
 	.byte 0
-	.byte "We are the only", $8d
-	.byte "staff makers in", $8d
-	.byte "Britannia, yet", $8d
-	.byte "sell them for", $8d
-	.byte "only 20gp.", $8d
+	.byte "WE ARE THE ONLY", $8d
+	.byte "STAFF MAKERS IN", $8d
+	.byte "BRITANNIA, YET", $8d
+	.byte "SELL THEM FOR", $8d
+	.byte "ONLY 20GP.", $8d
 	.byte 0
-	.byte "We sell the", $8d
-	.byte "most deadly of", $8d
-	.byte "daggers, a", $8d
-	.byte "bargain at", $8d
-	.byte "only 2gp each.", $8d
+	.byte "WE SELL THE", $8d
+	.byte "MOST DEADLY OF", $8d
+	.byte "DAGGERS, A", $8d
+	.byte "BARGAIN AT", $8d
+	.byte "ONLY 2GP EACH.", $8d
 	.byte 0
-	.byte "Our slings are", $8d
-	.byte "made from only", $8d
-	.byte "the finest gut", $8d
-	.byte "and leather,", $8d
-	.byte "'tis yours", $8d
-	.byte "for 25gp.", $8d
+	.byte "OUR SLINGS ARE", $8d
+	.byte "MADE FROM ONLY", $8d
+	.byte "THE FINEST GUT", $8d
+	.byte "AND LEATHER,", $8d
+	.byte "'TIS YOURS", $8d
+	.byte "FOR 25GP.", $8d
 	.byte 0
-	.byte "These maces have", $8d
-	.byte "a hardened shaft", $8d
-	.byte "and a 5lb head,", $8d
-	.byte "fairly priced", $8d
-	.byte "at 100gp.", $8d
+	.byte "THESE MACES HAVE", $8d
+	.byte "A HARDENED SHAFT", $8d
+	.byte "AND A 5LB HEAD,", $8d
+	.byte "FAIRLY PRICED", $8d
+	.byte "AT 100GP.", $8d
 	.byte 0
-	.byte "Notice the fine", $8d
-	.byte "workmanship on", $8d
-	.byte "this axe, you'll", $8d
-	.byte "agree 225gp is", $8d
-	.byte "a good price.", $8d
+	.byte "NOTICE THE FINE", $8d
+	.byte "WORKMANSHIP ON", $8d
+	.byte "THIS AXE, YOU'LL", $8d
+	.byte "AGREE 225GP IS", $8d
+	.byte "A GOOD PRICE.", $8d
 	.byte 0
-	.byte "The fine work", $8d
-	.byte "on these swords", $8d
-	.byte "will be the", $8d
-	.byte "dread of thy", $8d
-	.byte "Foes, for 300gp.", $8d
+	.byte "THE FINE WORK", $8d
+	.byte "ON THESE SWORDS", $8d
+	.byte "WILL BE THE", $8d
+	.byte "DREAD OF THY", $8d
+	.byte "FOES, FOR 300GP.", $8d
 	.byte 0
-	.byte "Our bows are", $8d
-	.byte "made of finest", $8d
-	.byte "yew, and the", $8d
-	.byte "arrows willow, a", $8d
-	.byte "steal at 250gp.", $8d
+	.byte "OUR BOWS ARE", $8d
+	.byte "MADE OF FINEST", $8d
+	.byte "YEW, AND THE", $8d
+	.byte "ARROWS WILLOW, A", $8d
+	.byte "STEAL AT 250GP.", $8d
 	.byte 0
-	.byte "Crossbows made", $8d
-	.byte "by Iolo the Bard", $8d
-	.byte "are the finest", $8d
-	.byte "in the world,", $8d
-	.byte "yours for 600gp.", $8d
+	.byte "CROSSBOWS MADE", $8d
+	.byte "BY IOLO THE BARD", $8d
+	.byte "ARE THE FINEST", $8d
+	.byte "IN THE WORLD,", $8d
+	.byte "YOURS FOR 600GP.", $8d
 	.byte 0
-	.byte "Flasks of oil", $8d
-	.byte "make great", $8d
-	.byte "weapons and", $8d
-	.byte "create a wall", $8d
-	.byte "of fire too,", $8d
-	.byte "5gp each.", $8d
+	.byte "FLASKS OF OIL", $8d
+	.byte "MAKE GREAT", $8d
+	.byte "WEAPONS AND", $8d
+	.byte "CREATE A WALL", $8d
+	.byte "OF FIRE TOO,", $8d
+	.byte "5GP EACH.", $8d
 	.byte 0
-	.byte "A halberd is", $8d
-	.byte "a mighty weapon", $8d
-	.byte "to attack over", $8d
-	.byte "obstacles; a", $8d
-	.byte "must and", $8d
-	.byte "only 350gp.", $8d
+	.byte "A HALBERD IS", $8d
+	.byte "A MIGHTY WEAPON", $8d
+	.byte "TO ATTACK OVER", $8d
+	.byte "OBSTACLES; A", $8d
+	.byte "MUST AND", $8d
+	.byte "ONLY 350GP.", $8d
 	.byte 0
-	.byte "This magical axe", $8d
-	.byte "can be thrown at", $8d
-	.byte "thy enemy and", $8d
-	.byte "will then", $8d
-	.byte "return, all for", $8d
-	.byte "1500gp.", $8d
+	.byte "THIS MAGICAL AXE", $8d
+	.byte "CAN BE THROWN AT", $8d
+	.byte "THY ENEMY AND", $8d
+	.byte "WILL THEN", $8d
+	.byte "RETURN, ALL FOR", $8d
+	.byte "1500GP.", $8d
 	.byte 0
-	.byte "Magical swords", $8d
-	.byte "such as these", $8d
-	.byte "are rare indeed!", $8d
-	.byte "I will part with", $8d
-	.byte "one for 2500gp.", $8d
+	.byte "MAGICAL SWORDS", $8d
+	.byte "SUCH AS THESE", $8d
+	.byte "ARE RARE INDEED!", $8d
+	.byte "I WILL PART WITH", $8d
+	.byte "ONE FOR 2500GP.", $8d
 	.byte 0
-	.byte "A magical bow", $8d
-	.byte "will keep thy", $8d
-	.byte "enemies far away", $8d
-	.byte "or dead! A", $8d
-	.byte "must for 2000gp!", $8d
+	.byte "A MAGICAL BOW", $8d
+	.byte "WILL KEEP THY", $8d
+	.byte "ENEMIES FAR AWAY", $8d
+	.byte "OR DEAD! A", $8d
+	.byte "MUST FOR 2000GP!", $8d
 	.byte 0
-	.byte "This magic wand", $8d
-	.byte "casts mighty", $8d
-	.byte "blue bolts to", $8d
-	.byte "strike down thy", $8d
-	.byte "foes, 5000gp.", $8d
+	.byte "THIS MAGIC WAND", $8d
+	.byte "CASTS MIGHTY", $8d
+	.byte "BLUE BOLTS TO", $8d
+	.byte "STRIKE DOWN THY", $8d
+	.byte "FOES, 5000GP.", $8d
 	.byte 0
-	.byte "Mystic swords", $8d
-	.byte "are an unknown", $8d
+	.byte "MYSTIC SWORDS", $8d
+	.byte "ARE AN UNKNOWN", $8d
 	.byte 0
 	.byte "HND", 0
 	.byte "STF", 0

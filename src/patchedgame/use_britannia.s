@@ -174,7 +174,7 @@ music_init		= $ec00
 
 use:
 	jsr j_primm
-	.byte "Which item:", $8d
+	.byte "WHICH ITEM:", $8d
 	.byte 0
 
 	jsr get_input
@@ -182,7 +182,7 @@ use:
 	bpl keyword_matched
 	jsr j_primm
 	.byte $8d
-	.byte "Not usable item!", $8d
+	.byte "NOT USABLE ITEM!", $8d
 	.byte 0
 
 	rts
@@ -190,7 +190,7 @@ use:
 print_none_owned:
 	jsr j_primm
 	.byte $8d
-	.byte "None owned!", $8d
+	.byte "NONE OWNED!", $8d
 	.byte 0
 
 	rts
@@ -198,7 +198,7 @@ print_none_owned:
 print_no_effect:
 	jsr j_primm
 	.byte $8d
-	.byte "Hmm...No effect!", $8d
+	.byte "HMM...NO EFFECT!", $8d
 	.byte 0
 
 	rts
@@ -230,8 +230,8 @@ use_stone:
 @have_stone:
 	jsr j_primm
 	.byte $8d
-	.byte "No place to", $8d
-	.byte "use them!", $8d
+	.byte "NO PLACE TO", $8d
+	.byte "USE THEM!", $8d
 	.byte 0
 
 	rts
@@ -256,8 +256,8 @@ use_bell:
 	sta items
 	jsr j_primm
 	.byte $8d
-	.byte "The bell rings", $8d
-	.byte "on and on!", $8d
+	.byte "THE BELL RINGS", $8d
+	.byte "ON AND ON!", $8d
 	.byte 0
 
 	rts
@@ -285,9 +285,9 @@ use_book:
 	sta items
 	jsr j_primm
 	.byte $8d
-	.byte "The words", $8d
-	.byte "resonate with", $8d
-	.byte "the ringing!", $8d
+	.byte "THE WORDS", $8d
+	.byte "RESONATE WITH", $8d
+	.byte "THE RINGING!", $8d
 	.byte 0
 
 	rts
@@ -315,9 +315,9 @@ use_candle:
 	sta items
 	jsr j_primm
 	.byte $8d
-	.byte "As you light the", $8d
-	.byte "candle the earth", $8d
-	.byte "trembles!", $8d
+	.byte "AS YOU LIGHT THE", $8d
+	.byte "CANDLE THE EARTH", $8d
+	.byte "TREMBLES!", $8d
 	.byte 0
 
 	jsr shake_screen
@@ -339,8 +339,8 @@ use_horn:
 @have_horn:
 	jsr j_primm
 	.byte $8d
-	.byte "The horn sounds", $8d
-	.byte "an eerie tone!", $8d
+	.byte "THE HORN SOUNDS", $8d
+	.byte "AN EERIE TONE!", $8d
 	.byte 0
 
 	lda #$5f
@@ -371,10 +371,10 @@ use_wheel:
 	sta ship_hull
 	jsr j_primm
 	.byte $8d
-	.byte "Once mounted,", $8d
-	.byte "the wheel glows", $8d
-	.byte "with a blue", $8d
-	.byte "light!", $8d
+	.byte "ONCE MOUNTED,", $8d
+	.byte "THE WHEEL GLOWS", $8d
+	.byte "WITH A BLUE", $8d
+	.byte "LIGHT!", $8d
 	.byte 0
 
 	rts
@@ -394,10 +394,10 @@ use_skull:
 @not_at_abyss:
 	jsr j_primm
 	.byte $8d
-	.byte "You hold the", $8d
-	.byte "evil skull of", $8d
-	.byte "Mondain the", $8d
-	.byte "wizard aloft....", $8d
+	.byte "YOU HOLD THE", $8d
+	.byte "EVIL SKULL OF", $8d
+	.byte "MONDAIN THE", $8d
+	.byte "WIZARD ALOFT....", $8d
 	.byte 0
 
 	jsr shake_screen
@@ -427,9 +427,9 @@ use_skull:
 use_skull_at_abyss:
 	jsr j_primm
 	.byte $8d
-	.byte "You cast the", $8d
-	.byte "skull of Mondain", $8d
-	.byte "into the abyss!", $8d
+	.byte "YOU CAST THE", $8d
+	.byte "SKULL OF MONDAIN", $8d
+	.byte "INTO THE ABYSS!", $8d
 	.byte 0
 
 	lda #$ff
@@ -633,8 +633,8 @@ dec_virtue:
 @lost_an_eight:
 	jsr j_primm
 	.byte $8d
-	.byte "Thou hast lost", $8d
-	.byte "an eighth!", $8d
+	.byte "THOU HAST LOST", $8d
+	.byte "AN EIGHTH!", $8d
 	.byte 0
 
 	lda #$99

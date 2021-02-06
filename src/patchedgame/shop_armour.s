@@ -40,7 +40,7 @@ inbuf = $af00
 
 	jsr j_primm
 	.byte $8d
-	.byte "Welcome to", $8d
+	.byte "WELCOME TO", $8d
 	.byte 0
 	ldx current_location
 	dex 
@@ -56,9 +56,9 @@ inbuf = $af00
 	adc #$07
 	jsr print_string
 	jsr j_primm
-	.byte " says:", $8d
-	.byte "Want to buy", $8d
-	.byte "or sell?", 0
+	.byte " SAYS:", $8d
+	.byte "WANT TO BUY", $8d
+	.byte "OR SELL?", 0
 	jsr input_char
 	cmp #$c2
 	beq @buy
@@ -69,11 +69,11 @@ inbuf = $af00
 @buy:
 	jsr j_primm
 	.byte $8d
-	.byte "Well then,", $8d
+	.byte "WELL THEN,", $8d
 	.byte 0
 buy_menu:
 	jsr j_primm
-	.byte "we've got:", $8d
+	.byte "WE'VE GOT:", $8d
 	.byte "A-NOTHING", $8d
 	.byte 0
 	lda #$00
@@ -105,7 +105,7 @@ buy_menu:
 
 ; prompt
 	jsr j_primm
-	.byte "What'll it be?", 0
+	.byte "WHAT'LL IT BE?", 0
 	jsr display_owned
 	jsr input_char
 	pha 
@@ -141,8 +141,8 @@ buy_menu:
 @ask_buy:
 	jsr j_primm
 	.byte $8d
-	.byte "Do you want", $8d
-	.byte "to buy it?", 0
+	.byte "DO YOU WANT", $8d
+	.byte "TO BUY IT?", 0
 :	jsr input_char
 	beq :-
 	pha 
@@ -153,11 +153,11 @@ buy_menu:
 	cmp #$ce
 	bne @ask_buy
 	jsr j_primm
-	.byte "Too bad.", $8d
+	.byte "TOO BAD.", $8d
 	.byte 0
 @more:
 	jsr j_primm
-	.byte "Anything else?", 0
+	.byte "ANYTHING ELSE?", 0
 	jsr input_char
 	cmp #$d9
 	bne :+
@@ -171,8 +171,8 @@ bye:
 	adc #$07
 	jsr print_string
 	jsr j_primm
-	.byte " says:", $8d
-	.byte "Good bye.", $8d
+	.byte " SAYS:", $8d
+	.byte "GOOD BYE.", $8d
 	.byte 0
 	rts 
 
@@ -194,9 +194,9 @@ try_spend:
 	cld 
 	bcs do_spend
 	jsr j_primm
-	.byte "What you try'n", $8d
-	.byte "to pull? You", $8d
-	.byte "can't pay.", $8d
+	.byte "WHAT YOU TRY'N", $8d
+	.byte "TO PULL? YOU", $8d
+	.byte "CAN'T PAY.", $8d
 	.byte 0
 	jmp bye
 
@@ -225,17 +225,17 @@ do_spend:
 	adc #$07
 	jsr print_string
 	jsr j_primm
-	.byte " says:", $8d
-	.byte "Good choice!", $8d
-	.byte "Anything else?", $8d
+	.byte " SAYS:", $8d
+	.byte "GOOD CHOICE!", $8d
+	.byte "ANYTHING ELSE?", $8d
 	.byte 0
 	jmp buy_menu
 
 sell:
 	jsr j_primm
 	.byte $8d
-	.byte "What do you want", $8d
-	.byte "to sell?", 0
+	.byte "WHAT DO YOU WANT", $8d
+	.byte "TO SELL?", 0
 sell_menu:
 	jsr display_owned
 	jsr input_char
@@ -254,9 +254,9 @@ sell_menu:
 	bne @make_offer
 	jsr j_primm
 	.byte $8d
-	.byte "Come on, you", $8d
-	.byte "don't even own", $8d
-	.byte "any! What else?", 0
+	.byte "COME ON, YOU", $8d
+	.byte "DON'T EVEN OWN", $8d
+	.byte "ANY! WHAT ELSE?", 0
 	jmp sell_menu
 
 @bye:
@@ -278,7 +278,7 @@ sell_menu:
 	sta payment + 1
 	jsr j_primm
 	.byte $8d
-	.byte "I'll give ya", $8d
+	.byte "I'LL GIVE YA", $8d
 	.byte 0
 	lda payment
 	beq :+
@@ -286,7 +286,7 @@ sell_menu:
 :	lda payment + 1
 	jsr j_printbcd
 	jsr j_primm
-	.byte "gp for that.", $8d
+	.byte "GP FOR THAT.", $8d
 	.byte 0
 	lda zptmp_item_type
 	clc 
@@ -295,15 +295,15 @@ sell_menu:
 	jsr print_newline
 @confirm:
 	jsr j_primm
-	.byte "Deal?", 0
+	.byte "DEAL?", 0
 	jsr input_char
 	cmp #$d9
 	beq @sell_item
 	cmp #$ce
 	bne @confirm
 	jsr j_primm
-	.byte "Harumph, what", $8d
-	.byte "else then?", 0
+	.byte "HARUMPH, WHAT", $8d
+	.byte "ELSE THEN?", 0
 	jmp sell_menu
 
 @sell_item:
@@ -329,8 +329,8 @@ sell_menu:
 	cld 
 	jsr j_update_status
 	jsr j_primm
-	.byte "Good, what", $8d
-	.byte "else?", 0
+	.byte "GOOD, WHAT", $8d
+	.byte "ELSE?", 0
 	jmp sell_menu
 
 ; map location to shop number
@@ -404,17 +404,17 @@ inc_ptr:
 
 string_table:
 	.byte 0
-	.byte "Windsor Armour", 0
-	.byte "Valiant's Armour", 0
-	.byte "Duelling Armour", 0
-	.byte "Light Armour", 0
-	.byte "Basic Armour", 0
+	.byte "WINDSOR ARMOUR", 0
+	.byte "VALIANT'S ARMOUR", 0
+	.byte "DUELLING ARMOUR", 0
+	.byte "LIGHT ARMOUR", 0
+	.byte "BASIC ARMOUR", 0
 	.byte 0
-	.byte "Jean", 0
-	.byte "Valiant", 0
-	.byte "Pierre", 0
-	.byte "Limpy", 0
-	.byte "Big John", 0
+	.byte "JEAN", 0
+	.byte "VALIANT", 0
+	.byte "PIERRE", 0
+	.byte "LIMPY", 0
+	.byte "BIG JOHN", 0
 	.byte 0
 	.byte "SKIN", 0
 	.byte "CLOTH", 0
@@ -434,45 +434,45 @@ string_table:
 	.byte 0
 	.byte "SKIN", $8d
 	.byte 0
-	.byte "Cloth armour is", $8d
-	.byte "good for a tight", $8d
-	.byte "budget, fairly", $8d
-	.byte "priced at 50gp.", $8d
+	.byte "CLOTH ARMOUR IS", $8d
+	.byte "GOOD FOR A TIGHT", $8d
+	.byte "BUDGET, FAIRLY", $8d
+	.byte "PRICED AT 50GP.", $8d
 	.byte 0
-	.byte "Leather armour", $8d
-	.byte "is both supple", $8d
-	.byte "and strong, and", $8d
-	.byte "costs a mere", $8d
-	.byte "200gp, a", $8d
-	.byte "bargain!", $8d
+	.byte "LEATHER ARMOUR", $8d
+	.byte "IS BOTH SUPPLE", $8d
+	.byte "AND STRONG, AND", $8d
+	.byte "COSTS A MERE", $8d
+	.byte "200GP, A", $8d
+	.byte "BARGAIN!", $8d
 	.byte 0
-	.byte "Chain mail is", $8d
-	.byte "the armour used", $8d
-	.byte "by more warriors", $8d
-	.byte "than all others.", $8d
-	.byte "Ours costs 600gp", $8d
+	.byte "CHAIN MAIL IS", $8d
+	.byte "THE ARMOUR USED", $8d
+	.byte "BY MORE WARRIORS", $8d
+	.byte "THAN ALL OTHERS.", $8d
+	.byte "OURS COSTS 600GP", $8d
 	.byte 0
-	.byte "Full plate", $8d
-	.byte "armour is the", $8d
-	.byte "ultimate in non-", $8d
-	.byte "magic armour,", $8d
-	.byte "get yours", $8d
-	.byte "for 2000gp.", $8d
+	.byte "FULL PLATE", $8d
+	.byte "ARMOUR IS THE", $8d
+	.byte "ULTIMATE IN NON-", $8d
+	.byte "MAGIC ARMOUR,", $8d
+	.byte "GET YOURS", $8d
+	.byte "FOR 2000GP.", $8d
 	.byte 0
-	.byte "Magic armour is", $8d
-	.byte "rare and", $8d
-	.byte "expensive. This", $8d
-	.byte "chain sells for", $8d
-	.byte "4000gp.", $8d
+	.byte "MAGIC ARMOUR IS", $8d
+	.byte "RARE AND", $8d
+	.byte "EXPENSIVE. THIS", $8d
+	.byte "CHAIN SELLS FOR", $8d
+	.byte "4000GP.", $8d
 	.byte 0
-	.byte "Magical plate", $8d
-	.byte "armour is the", $8d
-	.byte "best known", $8d
-	.byte "protection, only", $8d
-	.byte "we have it.", $8d
-	.byte "Cost: 7000gp.", $8d
+	.byte "MAGICAL PLATE", $8d
+	.byte "ARMOUR IS THE", $8d
+	.byte "BEST KNOWN", $8d
+	.byte "PROTECTION, ONLY", $8d
+	.byte "WE HAVE IT.", $8d
+	.byte "COST: 7000GP.", $8d
 	.byte 0
-	.byte "Mystic robes!", $8d
+	.byte "MYSTIC ROBES!", $8d
 	.byte 0
 
 ;unused
