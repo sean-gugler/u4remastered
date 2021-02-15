@@ -1,0 +1,148 @@
+:CODE START
+8800
+:CODE END
+9312
+:DATA BYTES
+8803-8810
+882E-8857
+885A-8867
+8878-8885
+8888-889C
+88C2-88C5
+88D0-88DF
+891E-893A
+894D-8957
+895A-8969
+8985-899D
+89C4-89FD
+8A00-8A02
+8A32-8A58
+8A5E-8A8A
+8AAC-8ADF
+8B06-8B18
+8B29-8B36
+8B44-8B4A
+8B58-8B6F
+8BA4-8BB5
+8BB8-8C00
+8C70-9200
+9289-9293
+92ED-92F5
+9310-9312
+9351-9379
+:WORDS
+:POINTERS
+:HILOLOOKUP
+:LOHILOOKUP
+:DATA TEXT
+:BLANK LINES
+8C00
+:REMOVED BYTES
+:FULL COMMENTS
+88CD prompt
+8BB8 map location to shop number
+924E unused
+:SIDE COMMENTS
+89AE gold
+:USER LABELS
+0012 tile_xpos
+0013 tile_ypos
+001A current_location
+004E console_xpos
+004F console_ypos
+0054 currplayer
+0056 hexnum
+0057 bcdnum
+0058 zptmp_item_type
+0059 zptmp_display_pos
+005A zptmp1
+006A zptmp_shop_num
+0070 zptmp_inv_num
+007C ptr2
+007E ptr1
+007F ptr1 + 1
+0800 j_waitkey
+081E j_primm_xy
+0821 j_primm
+0824 j_console_out
+0833 j_printbcd
+0845 j_update_status
+0866 j_printdigit
+0869 j_clearstatwindow
+8820 @buy_or_sell
+8875 @buy
+8885 buy_menu
+88A0 @next_item
+88F5 +
+88FE @find_stock
+8913 @found
+891B @ask_buy
+8957 @more
+8973 +
+8977 bye
+899E try_spend
+8A00 payment
+8A01 payment + 1
+8A02 do_spend
+8A23 +
+8A5B sell
+8A8A sell_menu
+8AE2 @bye
+8AE5 @make_offer
+8B20 +
+8B41 @confirm
+8B72 @sell_item
+8B92 @skip_overflow
+8BB8 location_table
+8BC8 inventory
+8BE0 price
+8BE1 price + 1
+8C00 input_char
+8C10 encode_bcd_value
+8C1C @dec
+8C24 @max
+8C26 @done
+8C28 decode_bcd_value
+8C2F @inc
+8C37 @done
+8C38 print_newline
+8C3E print_string
+8C49 @next_char
+8C4D @next_string
+8C53 @end_string
+8C59 @print_char
+8C68 @done
+8C69 inc_ptr
+8C6F +
+8C70 string_table
+9200 get_input
+9209 @get_char
+922A @backspace
+923C @got_input
+9240 @pad_spaces
+924E check_inline_keyword
+925A @next
+9261 +
+926F @done
+9278 display_owned
+9293 @next_row
+92CC @two_digit
+92CF +
+92DE @next_item
+92EA @nothing
+92FA save_console_xy
+9305 restore_console_xy
+9310 prev_console_x
+9311 prev_console_y
+AB00 stats
+AB01 stats + 1
+AB20 weapons
+AF00 inbuf
+:DISABLED HILO LABELS
+:USER HILO
+:TAB SIZE
+0008
+:LOAD OFFSET
+0000
+:SYSTEM
+Commodore 64

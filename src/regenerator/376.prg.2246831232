@@ -1,0 +1,93 @@
+:CODE START
+8800
+:CODE END
+9800
+:DATA BYTES
+8816-883E
+8844-8852
+8858-8866
+886A-8875
+887B-88E5
+88EB-8919
+891F-894F
+8955-895A
+895F-8963
+8968-896D
+8977-89AB
+89B4-8A02
+8A29-8A81
+8AB6-8AE8
+8AEE-8B12
+8BEB-9800
+:WORDS
+:POINTERS
+:HILOLOOKUP
+:LOHILOOKUP
+:DATA TEXT
+:BLANK LINES
+:REMOVED BYTES
+:FULL COMMENTS
+:SIDE COMMENTS
+880B (G)ood
+880F (P)oisoned
+:USER LABELS
+0029 last_meditated
+002F move_counter_lo
+004E console_xpos
+0054 currplayer
+006A zptemp
+0070 zptmp_mismatches
+007E ptr1
+007F ptr1 + 1
+0800 j_waitkey
+0821 j_primm
+0824 j_console_out
+082D j_get_stats_ptr
+0830 j_printname
+8867 welcome
+891C ask_again
+894F input_word
+89AE @found
+89B1 @bye
+8A17 @skip
+8A1B @done
+8A1C check_avatar
+8A84 lookup_advice
+8AA4 print_advice
+8AEB @done
+8AEE tokens
+8B12 find_token
+8B16 @compare_token
+8B1D @next_char
+8B30 @next_token
+8B35 @not_found
+8B3A get_input
+8B43 @get_char
+8B64 @backspace
+8B76 @got_input
+8B7A @pad_spaces
+8B88 check_inline_keyword
+8B94 @next
+8B9B +
+8BA9 @done
+8BB3 print_newline
+8BB9 print_string
+8BC4 @next_char
+8BC8 @next_string
+8BCE @end_string
+8BD4 @print_char
+8BE3 @done
+8BE4 inc_ptr
+8BEA +
+8BEB string_table
+AB00 stats
+AB06 stat_spirit
+AF00 inbuf
+:DISABLED HILO LABELS
+:USER HILO
+:TAB SIZE
+0008
+:LOAD OFFSET
+0000
+:SYSTEM
+Commodore 64

@@ -383,6 +383,15 @@ clean_patchedgame: \
 	rm -f src/patchedgame/*.map
 	rm -f src/patchedgame/*.lab
 
+# Main.
+
+src/patchedgame/main.o: src/include/uscii.i src/include/main.i
+
+src/patchedgame/main.prg: src/patchedgame/main.o src/patchedgame/main.cfg
+	$(LD65) -m $(patsubst %.prg,%.map,$@) -C src/patchedgame/main.cfg \
+		-Ln $(patsubst %.prg,%.lab,$@) \
+		-o $@ $(LD65FLAGS) $< src/loadaddr.o || (rm -f $@ && exit 1)
+
 # Subroutines.
 
 files/patched/14f.prg: src/patchedgame/subs.prg | files/patched

@@ -1,0 +1,137 @@
+:CODE START
+8800
+:CODE END
+8F00
+:DATA BYTES
+8803-8812
+8830-8872
+888A-88CE
+88FA-891A
+8920-8941
+894C-8980
+8986-89CC
+89EC-8A0E
+8A4A-8A64
+8A6A-8A8E
+8A98-8AE0
+8B08-8B1F
+8B27-8B31
+8B4E-8B6C
+8B93-8BCA
+8BCE-8C0B
+8C2D-8C5B
+8C7C-8C8C
+8C98-8CB2
+8CD5-8CEB
+8D5B-8E42
+8ED2-8EEE
+8EF5-8F00
+:WORDS
+:POINTERS
+:HILOLOOKUP
+:LOHILOOKUP
+:DATA TEXT
+:BLANK LINES
+:REMOVED BYTES
+:FULL COMMENTS
+8CFB unused
+8D13 unused
+8E42 unused
+:SIDE COMMENTS
+89D9 (G)ood
+8AED (G)ood
+8C23 sacrifice
+8E7D BUG: should be _hi
+:USER LABELS
+001A current_location
+001F party_size
+0054 currplayer
+0058 zptmp_cost
+0059 zptmp_virtue1
+005A zptmp_virtue2
+006A zptmp_shop_num
+0070 zptmp_row_count
+007E ptr1
+007F ptr1 + 1
+0800 j_waitkey
+0821 j_primm
+0824 j_console_out
+082D j_get_stats_ptr
+0845 j_update_status
+084B j_update_view
+0854 j_playsfx
+085D j_getplayernum
+887C menu
+88D8 +
+88DF +
+88E6 +
+88E9 ask_cure
+891D is_poisoned
+8949 @no_money
+89CF try_cure
+89D4 do_cure
+89E6 ask_heal
+8A18 try_heal
+8A39 ask_resurrect
+8A67 is_dead
+8A95 cannot_afford
+8AE3 do_resurrect
+8AFA ask_which_player
+8B36 @validate
+8B3F @valid
+8B40 ask_more
+8B76 try_donate
+8B85 bye
+8BCB ask_donate
+8C19 no_donate
+8C23 yes_donate
+8C6D -
+8C77 ask_pay
+8CB5 deduct_gold
+8CC1 special_fx
+8CD6 location_table
+8CEB input_char
+8CFB encode_bcd_value
+8D07 @dec
+8D0F @max
+8D11 @done
+8D13 decode_bcd_value
+8D1A @inc
+8D22 @done
+8D23 print_newline
+8D29 print_string
+8D34 @next_char
+8D38 @next_string
+8D3E @end_string
+8D44 @print_char
+8D53 @done
+8D54 inc_ptr
+8D5A +
+8D5B string_table
+8E42 invert_all_players
+8E46 @next
+8E4E invert_player
+8E65 @next
+8E71 invertview
+8E84 @nextline
+8E86 @invert
+8EA3 accrue_virtue
+8EB2 @skip
+8EB7 deduct_virtue
+8EC0 lost_rts
+8EC8 @underflow
+8ECA +
+8ECF lost_an_eighth
+AB00 stats
+AB13 gold_hi
+E000 bmplineaddr_lo
+E008 bmplineaddr_lo + 8
+E0C0 bmplineaddr_hi
+:DISABLED HILO LABELS
+:USER HILO
+:TAB SIZE
+0008
+:LOAD OFFSET
+0000
+:SYSTEM
+Commodore 64

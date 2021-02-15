@@ -1,0 +1,137 @@
+:CODE START
+8800
+:CODE END
+9000
+:DATA BYTES
+8803-8810
+882E-884A
+885B-8868
+886B-8881
+88B4-88C3
+8902-891A
+892F-8939
+893C-894B
+8967-8979
+89A0-89C8
+89CB-89CD
+89FD-8A21
+8A27-8A42
+8A64-8A91
+8AB8-8AC7
+8AD8-8AE5
+8AF3-8AF9
+8B07-8B20
+8B55-8B66
+8B69-8B9D
+8BE3-8E7D
+8F0B-8F0D
+8F46-8F4F
+8FA2-8FAE
+8FB3-9000
+:WORDS
+:POINTERS
+:HILOLOOKUP
+:LOHILOOKUP
+:DATA TEXT
+:BLANK LINES
+:REMOVED BYTES
+:FULL COMMENTS
+88B1 prompt
+8B69 map location to shop number
+8ECB unused
+:SIDE COMMENTS
+898A gold
+:USER LABELS
+001A current_location
+004E console_xpos
+004F console_ypos
+006A shop_zptmp
+007E ptr1
+007F ptr1 + 1
+0800 j_waitkey
+081E j_primm_xy
+0821 j_primm
+0824 j_console_out
+0833 j_printbcd
+0845 j_update_status
+0866 j_printdigit
+0869 j_clearstatwindow
+8820 @buy_or_sell
+8858 @buy
+8868 buy_menu
+8885 @next_item
+88A9 @skip
+88D9 +
+88E2 @find_stock
+88F7 @found
+88FF @ask_buy
+891A -
+8939 @more
+8955 +
+8959 bye
+897A try_spend
+89CB payment
+89CC payment + 1
+89CD do_spend
+89EE +
+8A24 sell
+8A42 sell_menu
+8A94 @bye
+8A97 @make_offer
+8ACF +
+8AF0 @confirm
+8B23 @sell_item
+8B43 @skip_overflow
+8B69 location_table
+8B79 inventory
+8B8D price
+8B8E price + 1
+8B9D print_newline
+8BA3 input_char
+8BB1 print_string
+8BBC @next_char
+8BC0 @next_string
+8BC6 @end_string
+8BCC @print_char
+8BDB @done
+8BDC inc_ptr
+8BE2 +
+8BE3 string_table
+8E7D get_input
+8E86 @get_char
+8EA7 @backspace
+8EB9 @got_input
+8EBD @pad_spaces
+8ECB check_inline_keyword
+8ED7 @next
+8EDE +
+8EEC @done
+8EF5 save_console_xy
+8F00 restore_console_xy
+8F0B prev_console_x
+8F0C prev_console_y
+8F0D encode_bcd_value
+8F19 @dec
+8F21 @max
+8F23 @done
+8F25 decode_bcd_value
+8F2C @inc
+8F34 @done
+8F35 display_owned
+8F4F @next_row
+8F81 @two_digit
+8F84 +
+8F93 @next_item
+8F9F @nothing
+AB00 stats
+AB01 stats + 1
+AB18 armour
+AF00 inbuf
+:DISABLED HILO LABELS
+:USER HILO
+:TAB SIZE
+0008
+:LOAD OFFSET
+0000
+:SYSTEM
+Commodore 64
