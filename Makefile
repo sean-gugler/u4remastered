@@ -398,7 +398,7 @@ clean_subs:
 
 # Dungeon.
 
-files/patched/495.prg: src/patchedgame/dungeon.prg | files/patched
+DISABLE_files/patched/495.prg: src/patchedgame/dungeon.prg | files/patched
 	cp $< $@
 
 src/patchedgame/dungeon.prg: src/patchedgame/dungeon.o src/patchedgame/dungeon.cfg
