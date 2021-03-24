@@ -256,13 +256,14 @@ colorptr = * + 1
 	.res 19, 15
 	.res 4, 11
 	.res 2, 15
-	.res 11, 1
+	.res 11, 3
 	.endmacro
 
 trainercolors:
 ;	.incbin "trainercolors.bin"
 
-	.res 120, 3
+	.res 40, 1
+	.res 80, 3
 	.res 80, 2
 	.res 80, 1
 	trainerrow

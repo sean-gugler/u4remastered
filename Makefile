@@ -622,7 +622,7 @@ src/loader.prg: $(LOADER_OBJS) src/loader.cfg
 		-o $@ $(LD65FLAGS) $(LOADER_OBJS) || (rm -f $@ && exit 1)
 
 files/compressed/loader: src/loader.prg | files/compressed
-	exomizer sfx 0x2000 -x 'sta $$dbe7' -m $(EXOMIZER_MAX_OFFSET) -q -o $@ $<
+	exomizer sfx 0x2000 -m $(EXOMIZER_MAX_OFFSET) -q -o $@ $<
 
 src/ifflinit1541/iffllen_program.o: files/iffl/gam_program_iffl.i
 
@@ -630,7 +630,7 @@ src/loader1541.prg: $(LOADER1541_OBJS) src/loader.cfg
 	$(LD65) -m $(patsubst %.prg,%.map,$@) -C src/loader.cfg -o $@ $(LD65FLAGS) $(LOADER1541_OBJS) || (rm -f $@ && exit 1)
 
 files/compressed/loader1541: src/loader1541.prg | files/compressed
-	exomizer sfx 0x2000 -x 'sta $$dbe7' -m $(EXOMIZER_MAX_OFFSET) -q -o $@ $<
+	exomizer sfx 0x2000 -m $(EXOMIZER_MAX_OFFSET) -q -o $@ $<
 
 clean_ifflloader:
 	rm -f files/iffl/iffl_file_count.i
@@ -666,7 +666,7 @@ src/efloader.prg: $(EFLOADER_OBJS) src/efloader.cfg
 		-o $@ $(LD65FLAGS) $(EFLOADER_OBJS) || (rm -f $@ && exit 1)
 
 files/compressed/efloader: src/efloader.prg | files/compressed
-	exomizer sfx 0x2000 -x 'sta $$dbe7' -m $(EXOMIZER_MAX_OFFSET) -q -o $@ $<
+	exomizer sfx 0x2000 -m $(EXOMIZER_MAX_OFFSET) -q -o $@ $<
 
 clean_efloader:
 	rm -f $(EFLOADER_OBJS)
@@ -810,6 +810,9 @@ clean_easyflash:
 # Intro.
 
 COMMON_INTRO_OBJS = \
+	src/crackintro/clrscreen.o
+
+CRACK_OBJS = \
 	src/crackintro/init.o \
 	src/crackintro/fadebasic.o \
 	src/crackintro/main.o \
@@ -844,7 +847,8 @@ src/crackintro/intro.prg: $(INTRO_OBJS) src/crackintro/intro.cfg
 	$(LD65) -m $(patsubst %.prg,%.map,$@) -C src/crackintro/intro.cfg -o $@ $(LD65FLAGS) $(INTRO_OBJS)
 
 files/compressed/u4remastered: src/crackintro/intro.prg | files/compressed
-	exomizer sfx sys -m $(EXOMIZER_MAX_OFFSET) -q -o $@ $<
+	cp $< $@
+#	exomizer sfx sys -m $(EXOMIZER_MAX_OFFSET) -q -o $@ $<
 
 
 src/crackintro/startup1541.o: files/compressed/loader1541
