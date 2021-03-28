@@ -44,7 +44,7 @@ talk_lord_british:
 	lda #$01
 	sta currplayer
 	jsr j_get_stats_ptr
-	ldy #$45
+	ldy #$45     ;Should be #$12 - no idea where #$45 came from.
 	lda (ptr1),y
 	cmp #$c4
 	bne @alive
@@ -52,6 +52,7 @@ talk_lord_british:
 	sta (ptr1),y
 	jsr j_printname
 	jsr j_primm
+;	.byte $8d    ;cosmetic FIX
 	.byte "THOU SHALT", $8d
 	.byte "LIVE AGAIN!", $8d
 	.byte 0
