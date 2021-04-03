@@ -411,10 +411,10 @@ clean_dungeon:
 
 # Peer at a gem.
 
-files/patched/277.prg: src/patchedgame/peer_surface.prg | files/patched
+DISABLE_files/patched/277.prg: src/patchedgame/peer_surface.prg | files/patched
 	cp $< $@
 
-files/patched/477.prg: src/patchedgame/peer_underworld.prg | files/patched
+DISABLE_files/patched/477.prg: src/patchedgame/peer_underworld.prg | files/patched
 	cp $< $@
 
 src/patchedgame/peer_%.prg: src/patchedgame/peer_%.o src/patchedgame/peer.cfg
