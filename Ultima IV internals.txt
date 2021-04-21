@@ -1,0 +1,753 @@
+In Vice 3.4, press Alt+H to break into debugger.
+Use 'm' command to view and '>' command to change values.
+Use 'x' command to resume running.
+
+Allow vanilla D64 boot disk to run by disabling copy protection check while in main menu
+>6c8c  ea ea ea ea ea ea ea ea ea ea
+(10 NOPs; see 150.binpatch)
+
+Full party without a saved game
+bk 4034
+>1f 8
+
+
+CHARACTER CREATE
+You will be asked 7 questions.
+    Each answer you give eliminates 1 virtue.
+    The 1 remaining determines your class and starting town.
+Round 1: 4 questions, all unique virtues.
+Round 2: 2 questions, runoff of your 4 picks from round 1.
+Round 3: 1 question, tie-break your 2 picks from round 2.
+    In sum you'll end up voting
+	   3x for the winner
+	   2x for the tie-break
+	   1x each for the 2 remaining runoff picks
+
+50 base for each virtue (hidden), +5 for each card chosen during eliminations.
+15 base for each stat. For each card chosen,
+ +3 for single-principle virtues
+ +1 each for multi-principle virtues
+With a lucky draw, you could start the game with one stat as high as 28.
+
+HCVJSHSH
+3..1.11. INT Truth
+.3.11.1. DEX Love
+..3.111. STR Courage
+
+
+
+FILES IN MEMORY / ON DISK
+id	start	len 	offset	name	prg	brt	twn	dng	description
+$7e	$ac00	$0100	$10f00	stmp	-	27e	-	-	temp map status
+$7f	$ac00	$0100	$11000	smap	-	27f	-	-	save game map status
+$80	$aa00	$0200	$11100	spar	-	280	-	-	save game party stats
+$1a	$0010	$0020	$11300	ssta	-	21a	-	-	save game status
+
+     player_x,y is the absolute position from current map's origin at left,top
+        new_x,y is the next intended position. copied to player_x,y if movement rules allow
+In world map, a 2x2 region of 16x16 patches is always loaded.
+        map_x,y is the upper-left of that 2x2 / 16
+       tile_x,y is the player_x,y relative to map_x,y origin
+When not in world map,
+  britannia_x,y is where the player will return upon exit
+
+ADDR
+$10 player_xpos
+$11 player_ypos
+$12 tile_xpos
+$13 tile_ypos
+$14 map_x
+$15 map_y
+$16 new_x
+$17 new_y
+$18 britannia_x
+$19 britannia_y
+$1a current_location (see table 'shpi')
+$1b game_mode
+$1c dungeon_level
+$1d balloon_flying
+$1e player_transport
+	10 ship
+	14 horse
+	18 balloon
+	1f walk
+$1f party_size
+$20 dng_direction
+$21 light_duration
+$22 moon_phase_trammel
+$23 moon_phase_felucca
+$24 horse_mode
+$25 player_has_spoken_to_lb
+$26 last_sleep
+$27 last_humility_check
+$28 altar_room_principle
+$29 last_meditated
+$2a last_found_reagent
+$2b ship_hull
+$2c move_counter[4]
+$2d 
+$2e 
+$2f 
+
+PLAYER STATS
+$aa00 [20] slot 0
+$aa20 [20] slot 1
+$aa40 [20] slot 2
+$aa60 [20] slot 3
+$aa80 [20] slot 4
+$aaa0 [20] slot 5
+$aac0 [20] slot 6
+$aae0 [20] slot 7
+
+00 [10] name
+10 [01] gender symbol  5c M  7b F
+11 [01] class index 0..7
+12 [01] status  [c7](G)ood  [d3](S)leep  [d0](P)oison  [c4](D)ead
+13 [01] strength 00..50
+14 [01] dexterity 00..50
+15 [01] intelligence 00..50
+16 [01] magic points 00..99
+17 [01] class bit  MSB
+18 [02] hit points
+1A [01] level  1..8
+1A [02] hit point max
+1C [02] experience
+1E [01] weapon
+1F [01] armor
+
+retail defaults
+>C:aa00  cd c1 d2 c9  c1 c8 00 00  00 00 00 00  00 00 00 00   ................
+>C:aa10  7b 00 c7 18  22 25 21 80  02 00 02 00  01 25 01 01   {..."%!......%..
+>C:aa20  c9 cf cc cf  00 bd 30 08  f0 17 20 ed  fd e8 d0 f5   ......0... .....
+>C:aa30  5c 01 c7 16  19 13 06 40  03 00 03 00  02 40 03 01   \......@.....@..
+>C:aa40  c7 c5 cf c6  c6 d2 c5 d9  00 8d 00 e0  ad 00 e0 d0   ................
+>C:aa50  5c 02 c7 20  15 11 00 20  03 00 03 00  02 05 05 02   \.. ... ........
+>C:aa60  ca c1 c1 ce  c1 00 8b 08  f0 07 20 ed  fd c8 4c 65   .......... ...Le
+>C:aa70  7b 03 c7 17  16 13 03 10  02 00 02 00  01 75 02 01   {............u..
+>C:aa80  ca d5 cc c9  c1 00 7c 08  4c 00 e0 8d  84 c2 cc cf   ......|.L.......
+>C:aa90  7b 04 c7 15  16 12 03 08  02 00 02 00  01 10 04 02   {...............
+>C:aaa0  c4 d5 d0 d2  c5 00 8d 84  c2 cc cf c1  c4 a0 c1 d3   ................
+>C:aab0  5c 05 c7 17  14 17 04 04  03 00 03 00  03 25 06 03   \............%..
+>C:aac0  d3 c8 c1 cd  c9 ce cf 00  bd d6 08 f0  06 20 ed fd   ............. ..
+>C:aad0  5c 06 c7 16  15 15 07 02  02 00 02 00  01 50 06 02   \............P..
+>C:aae0  cb c1 d4 d2  c9 ce c1 00  c4 a0 c1 d3  cd ae c3 cf   ................
+>C:aaf0  7b 07 c7 11  12 10 00 01  01 00 01 00  00 05 01 01   {...............
+
+PARTY STATS
+$ab00 [08] virtue levels
+$ab08 [01] torches
+$ab09 [01] gems
+$ab0a [01] keys
+$ab0b [01] sextant
+$ab0c [01] flags: stones LSB
+$ab0d [01] flags: runes  LSB
+$ab0e [01] flags: bitmask $07 = acquired, mask $70 = used:  bell book candle
+$ab0f [01] flags: 3-part key  TLC
+$ab10 [02] food
+$ab12 [01] food timer / fractional
+$ab13 [02] gold
+$ab15 [01] horn
+$ab16 [01] wheel
+$ab17 [01] skull
+$ab18 [08] armor
+$ab20 [10] weapons
+$ab30 [08] (unused)
+$ab38 [08] reagents
+$ab40 [1a] spells (26)
+$ab5a [a6] (unused through $abff)
+
+MAP STATE
+$ac00 [20] object sprite (same as type, except for pirate ship)
+$ac20 [20] object x
+$ac40 [20] object y
+$ac60 [20] object type
+$ac80 [20] object x prev
+$aca0 [20] object y prev
+$acc0 [20] object dungeon level / npc can move (see AI movement rules, towne)
+$ace0 [20] npc dialogue number
+
+term: "MOB" = movable/mobile objects; foes, water hazards, npcs
+World:
+  $6569 00-03 for randomly-spawned mobs
+        00-07 overwritten by scripted mobs (abyss island: pirate fleet, daemon guards)
+		08-1f for transports and dropped loot (chests, ships)
+           1f overwritten by balloon upon exit from hythloth
+Towne:  00-1f for anything
+Dungeon:
+        00-01 for random mobs on level 1
+		02-03 unused
+		04-05 for random mobs on level 2
+		...
+		1e-1f unused
+
+$6614  In dungeon, up to 2 random monsters per level.
+$663d  Type of monster is random of 4 starting at index = dungeon level
+
+$6569  On world map, up to 4 random monsters at once.
+$6541     1:16 chance land monster
+$65e2    1:128 chance water monster
+$65f9   1:1024 chance pirate
+$65c7  Type of land monster is RAND & RAND, or 1:4 chance per bit.
+$65ab  Also depends how long you've been playing:
+      0+ turns  2 bits (first row in tile sheet)
+ 10,000+ turns  3 bits (2 rows in tile sheet)
+ 30,000+ turns  4 bits (4 rows in tile sheet)
+
+
+
+COMBAT STATE
+  foes
+$ad00 [10] x
+$ad10 [10] y
+$ad20 [10] previous x
+$ad30 [10] previous y
+$ad40 [10] hit points
+$ad50 [10] sprite (0 = dead)
+$ad60 [10] type (fixed since spawn)
+$ad70 [10] 
+  players
+$ad80 [08] x
+$ad90 [08] y
+$ada0 [08] sprite  20,22,...2e, 38 = sleep, 0 = dead or fled
+$adfd [01] attack_sprite
+$adfe [01] target_x
+$adff [01] target_y
+
+
+0-25 damage each player for:
+  fire field, lava, falling rocks, pit, whirlpool, and
+  world range attacks (pirate cannon, lava lizard, serpent, hydra, dragon, balron)
+whirlpool also damages ship 10
+twister does 4x whirlpool
+
+Chest holds 0-99 gold  ($5485)
+  trap chance = 1:4 each bit
+    00 acid
+	01 sleep
+	10 poison
+	11 bomb
+  evade trap: rand(100) < DEX + 25  ($5409)
+
+Camping has 1:8 chance of being ambushed by one of:
+  orc, skeleton, rogue, python, insects, slime, troll, wisp
+Otherwise, if hundreds-digit of the turn counter has changed since last rest,
+  everyone alive heals 99 - 176 points
+  and recovers full MP
+
+Inn beds have 1:8 chance of being ambushed by rogues.
+Otherwise,
+  everyone alive heals 100 - 200 points
+  and recovers full MP
+
+$5520 Torches last 100 turns.
+
+Every turn,
+  $6231 1:4 chance restore 1 hull point (max 50; use wheel only works if 50 exactly)
+  $6250 1:8 chance wake from sleep
+
+Leveling up with Lord British adds 0-7 points to each stat, STR DEX INT.
+
+
+SPELLS
+Ratios are irrelevant; that's world-building role-play.
+One of each ingredient is enough.
+Cost listed for cheapest purchase of reagents, * if some components not for sale anywhere.
+
+Reagents  $$  MP
+.BC.....   6   5 Awaken
+...DE...   7  15 Blink
+.BC.....   6   5 Cure
+A.C..F..   5  20 Dispel field
+A..D.F..   6  10 Energy field
+A....F..   3  15 Fireball
+A....F.H   3* 40 Gate travel  (ask Mentorian)
+.B.D....   7  10 Heal
+.....F.H   1* 20 Iceball
+.....FGH   1* 30 Jinx
+.....FG.   1* 25 Kill
+A.......   2   5 Light
+A....F..   3   5 Magic Missile
+A.C....H   6* 20 Negate magic
+A...E...   6   5 Open chest
+ABC.....   8  15 Protection
+AB..E...  10  20 Quickness
+ABCDE..H  15* 45 Resurrect  (ask Nigel)
+.B.D....   7  15 Sleep
+A...E..H   6* 30 Tremor
+A.C.....   4  15 Undead
+......GH   0* 15 View
+A...E...   6  10 Wind change
+A..DE...   9  15 Xit dungeon
+...DE...   7  10 Y up
+...DE...   7   5 Z down
+
+SPELL EFFECTS
+$4c20 aura duration 10 
+  jinx: foe will damage another 0-63 if in the way of player target
+  negate: all spells and magic attacks fail
+  protect: 1:2 chance no damage
+  quickness: after each move, 1:2 chance move again
+light: duration 100 ($4c43)
+sleep: chance = rand(255) > foe HP. wake up = 1:8 chance every turn.
+HP:
+ 75 -  99 heal
+ 16 -  63 magic missile
+ 24 - 127 fireball
+ 32 - 255 iceball
+      232 kill
+tremor: 1:2 -255, 1:4 =23 (fleeing), HP >= $c0 IMMUNE (mimic, gazer, liche, zorn, hydra, dragon, balron)
+undead: 1:2 =23 (fleeing)
+
+Some fountains really do nothing.
+Good ones are rare.
+ $90 no effect
+ $91 heal        Deceit 5  Despise 1,6  Wrong 2,6  Shame 4,8  Hythloth 3
+ $92 damage
+ $93 cure        Destard 2  Covetous 1
+ $94 poison
+
+
+
+WEAPONS
+
+to_hit = (128 + DEX * 2) / 255
+	DEX >= 64 would always hit, except this game caps DEX at 50!
+damage = up to STR + weapon, max 255
+
+Retail calculation for sell is "half" price buy,
+  where hi 2 and lo 2 digits of 4-digit price
+  are independently halved (sucks for mace!)
+Optional fix in v2.3.0 trainer menu for true 50% discount
+
+CLS:MBFDTPRS DMG  BUY SELL
+$FF ++++++++ $08    0    0 A hands/nothing
+$FF ++++++++ $10   20   10 B staff        
+$FF ++++++++ $18    2    1 C dagger       
+$FF ++++++++ $20   25   12 D sling        
+$7F .+++++++ $28  100    0 E mace         
+$6F .++.++++ $30  225  112 F axe          
+$6F .++.++++ $40  300  100 G sword        
+$7E .++++++. $28  250  125 H bow          
+$7E .++++++. $38  600  300 I crossbow     
+$FF ++++++++ $40    5    2 J flaming oil  
+$2C ..+.++.. $60  350  125 K halberd      
+$0C ....++.. $60 1500  700 L magic axe    
+$2E ..+.+++. $80 2500 1200 M magic sword  
+$5E .+.++++. $50 2000 1000 N magic bow    
+$D0 ++.+.... $a0 5000 2500 O magic wand   
+$FF ++++++++ $ff 7000 3500 P Mystic Sword
+
+$5962 weapon_class_masks
+$7d73 weapon_damage_table
+
+ARMOUR
+
+to_be_hit = Durability (DUR) / 255
+
+Retail calculation for sell is half price buy.
+  (Same math logic as weapons, but none of the
+  actual armour prices would carry
+  so the effect is true 50%)
+
+CLS:MBFDTPRS DUR  BUY SELL
+$FF ++++++++ $60    0    0 A skin
+$FF ++++++++ $80   50   25 B cloth
+$7F .+++++++ $90  200  100 C leather
+$2C ..+.++.. $a0  600  300 D chain
+$2C ..+.++.. $b0 2000 1000 E plate
+$24 ..+..+.. $c0 4000 2000 F magic chain
+$04 .....+.. $d0 7000 3500 G magic plate
+$FF ++++++++ $f8 9000 4500 H Mystic Armor
+
+$5bf5 armour_class_masks
+$7d83 armour_table (vs. rand $FF)
+
+
+
+ENEMY STATS
+
+Count: how many in enemy party
+  Spawns between half and full stated value,
+  upper bounded by double player's party size "Z"
+  S = MIN[Z * 2, (C + rand(C)) / 2]
+
+Companion: main foes sometimes have a handful of companions
+  3:32 chance per slot to be a companion
+  1:32 chance per slot to be the companion's companion 
+
+Power: dictates most other stats
+Exp    = hi(P) + 1       awarded player who deals killing blow
+Attack = rand(P/4)       damage to player
+HP     = P/2 | rand(P)   between half and full power*
+  *HP Can exceed "full" power if bit pattern has gaps.
+  Example: P=50(ghost), rand=4F ... HP = 28|4F = 6F
+  Why they used different formula than Count is unknown.
+
+$726e 1:4 chance of range attack
+
+Health ratings are current HP relative to full Power
+  $17 fleeing (always 23 pts regardless of Power)
+  25% critical
+  50% heavily wounded
+  75% lightly wounded
+  100% barely wounded
+
+Index     Companion
+|  String |   Power
+|  |   Tile   |  Count
+00 01  80 C8  FF 1  PIRATE
+01 02  82 C8  FF 1  PIRATE
+02 03  84 8A  40 C  NIXIE
+03 04  86 88  60 4  SQUID
+04 05  88 86  80 4  SERPENT
+05 06  8A 84  60 8  SEAHORSE
+06 07  8C 8C  FF 1  WHIRLPOOL
+07 08  8E 8E  FF 1  TWISTER
+08 09  90 C4  30 C  RAT
+09 0A  94 E4  30 C  BAT
+0A 0B  98 90  40 6  SPIDER
+0B 0C  9C E4  50 4  GHOST
+0C 0D  A0 A0  30 F  SLIME
+0D 0E  A4 D0  60 6  TROLL
+0E 0F  A8 A8  30 F  GREMLIN
+0F 10  AC AC  C0 1  MIMIC
+10 11  B0 B0  FF 1  REAPER
+11 12  B4 90  30 F  INSECTS
+12 13  B8 BC  F0 4  GAZER
+13 14  BC 9C  80 8  PHANTOM
+14 15  C0 A4  50 A  ORC
+15 16  C4 E0  30 C  SKELETON
+16 17  C8 C8  50 A  ROGUE
+17 18  CC 90  30 C  PYTHON
+18 19  D0 F0  70 6  ETTIN
+19 1A  D4 B8  40 8  HEADLESS
+1A 1B  D8 EC  80 6  CYCLOPS
+1B 1C  DC BC  40 C  WISP
+1C 1D  E0 F0  B0 6  MAGE
+1D 1E  E4 F0  C0 4  LICHE
+1E 1F  E8 F4  60 8  LAVA LIZARD
+1F 20  EC B8  F0 4  ZORN
+20 21  F0 FC  70 6  DAEMON
+21 22  F4 F8  D0 4  HYDRA
+22 23  F8 FC  E0 4  DRAGON
+23 24  FC FC  FF 1  BALRON
+24 4D  20     70 1  MAGE
+25 4E  22     30 1  BARD
+26 4F  24     60 1  FIGHTER
+27 50  26     40 1  DRUID
+28 51  28     60 1  TINKER
+29 52  2A     80 1  PALADIN
+2A 53  2C     90 1  RANGER
+2B 54  2E     30 1  SHEPHERD
+2C 55  50     80 F  GUARD
+2D 56  52     30 1  MERCHANT
+2E 57  54     30 1  BARD
+2F 58  56     30 1  JESTER
+30 59  58     20 1  BEGGAR
+31 5A  5A     20 1  CHILD
+32 5B  5C     80 1  BULL
+33 5C  5E     FF 1  LORD BRITISH
+
+BUG: original code calculates wrong index,
+  causing overruns beyond power table bounds.
+    (If you could encounter character classes in the wild,
+    they'd overrun the count table bounds as well.)
+  Toughness of paladins and shepards are swapped.
+  Wimpy townsfolk are as bad-ass as cyclops - beggars as tough as liches!
+
+Index      Wrong power
+|  String  |  Power fixed
+|  |   Tile   |  Count
+24 4D  20  70 70 1  MAGE
+26 4E  22  60 30 1  BARD
+28 4F  24  60 60 1  FIGHTER
+2A 50  26  90 40 1  DRUID
+2C 51  28  80 60 1  TINKER
+2E 52  2A  30 80 1  PALADIN
+30 53  2C  20 90 1  RANGER
+32 54  2E  80 30 1  SHEPHERD
+34 55  50  C9 80 F  GUARD
+36 56  52  8A 30 1  MERCHANT
+38 57  54  86 30 1  BARD
+3A 58  56  8C 30 1  JESTER
+3C 59  58  C4 20 1  BEGGAR
+3E 5A  5A  90 20 1  CHILD
+40 5B  5C  A0 80 1  BULL
+42 5C  5E  A8 FF 1  LORD BRITISH
+
+Move towards nearest player (x or y random); if illegal, random direction.
+  Mimic and Reaper cannot move.
+Mimic only active while nearest player is 4 or less manhattan units away.
+When next to player and not fleeing,
+  Gremlin will steal 25 food 
+  Rogue will 1:4 chance steal 0-63 gold
+Zorn negates all magic while awake.
+Zorn and Ghost can move through anything except water or lightning.
+Wisp 1:8 chance random teleport.
+Reaper and Balron 1:4 chance cast Sleep
+Serpent, Lava Lizard, Hydra, Dragon, Balron range attack on world map
+  when <= 4 units away X or Y
+
+Range attack on world map, including player cannon, chance to destroy on hit
+  1:4 living, 1:1 inanimate
+
+Poison or Sleep vs. status Good has 1:2 chance success.
+Lightning, Fire, Lava attack damage is according to ordinary power rating.
+
+AI movement rules:
+  COMBAT
+    find nearest player by manhattan distance
+    ?
+    if fleeing, invert direction
+    3:4 chance of preventing move back to previous position
+  WORLD
+    Whirpool, Twister move randomly
+    non-evil creature, each turn 1:4 chance hostile, else random
+  TOWNE
+    0: no movement
+    +x: random move, 1:2 chance per turn
+	-1: toward player, attack if adjacent
+	-x: toward player, random if can't
+	-128: toward player only
+  DUNGEON
+    Random legal movement (7 attempts per mob, $69cb)
+    7:8 chance of preventing move back to previous position ($7fcc)
+
+Ship:
+  <= 3 units away & lined up broadsides?  fire cannons
+  not facing player? chance turn toward player (1:4 if < 6 units away, else 1:1)
+  else: sail forward
+
+$67ed bizarre ship turn logic compares unsigned (not absolute) x >= y of vector(Player - Pirate)
+This makes some zones more likely to line up broadside cannons than others.
+>vvvv<<<<
+>>vvv<<<<
+>>>vv<<<<
+>>>>v<<<<
+>>>>O<<<<
+^^^^^<^^^
+^^^^^<<^^
+^^^^^<<<^
+^^^^^<<<<
+
+
+FILE
+id	start	len 	offset	name	description
+$19	$8800	$0080	$16000	shpi	tables (shop index)
+
+num_towns = 8
+addr_8800 = Latitude[num_towns]
+struct Latitude {
+	u8 weapon
+	u8 armor
+	u8 food
+	u8 pub
+	u8 reagents
+	u8 healer
+	u8 inn
+	u8 guild
+}
+W  A  F  P  R  H  I  G
+00 00 00 00 00 1a 00 00  A $01 Britannia Castle
+00 00 00 00 00 0c 00 00  B $02 Lycaeum
+00 00 00 00 00 0f 00 00  C $03 Empath Abbey
+00 00 00 00 00 12 00 00  D $04 Serpent's Hold  [bugged as 0c]
+00 00 0e 00 1a 1b 02 00  E $05 Moonglow
+03 07 06 02 00 1d 0c 00  F $06 Britain
+09 05 00 13 00 06 1a 00  G $07 Jhelom
+00 00 18 00 00 19 00 00  H $08 Yew
+1c 00 00 00 00 00 03 00  I $09 Minoc
+14 18 00 02 00 00 03 00  J $0A Trinsic
+00 00 11 00 04 1b 0d 00  K $0B Skara Brae
+00 00 00 00 00 00 00 00  L $0C Magincia
+00 04 1a 05 07 00 00 00  M $0D Paws
+0b 11 00 19 08 00 00 07  N $0E Buccaneer's Den
+14 00 00 16 00 00 15 1a  O $0F Vesper
+00 00 00 00 00 1a 00 00  P $10 Cove
+
+                           $11 Deceit
+                           $12 Despise
+                           $13 Destard
+                           $14 Wrong
+                           $15 Covetous
+                           $16 Shame
+                           $17 Hythloth
+                           $18 Abyss
+                           $19 shrine of Honesty       
+                           $1A shrine of Compassion    
+                           $1B shrine of Valor         
+                           $1C shrine of Justice       
+                           $1D shrine of Sacrifice     
+                           $1E shrine of Honor       
+                           $1F shrine of Spirituality
+                           $20 shrine of Humility    
+current_location, @ $001a  ^^^
+
+ 
+SEARCH
+
+Location table
+>C:8a25  b6 64 2e cd  b0 2d 60 c5  e0 40
+>C:8a2f  36 a5 95 2c  d0 ad d7 f5  85 50 
+Jump table
+>C:882d  69 88 69 88  ab 88 ab 88  d7 88 71 89  98 89 cf 89  0b 89 41 89
+
+0123456789abcdef  hex
+ABCDEFGHIJKLMNOP  sextant
+
+8869 DG,LG/KF,GE  mandrake
+88ab JF,CO/CM,MN  nightshade
+88d7 NA,LA bell
+8971 KN,CN horn
+8998 NH,GA wheel
+89cf PF,MF skull
+890b IF,OA black
+8941 FA,EA white
+
+
+
+DUNGEON ROOM TRIGGERS
+Up to four trigger zones per room, 4 bytes each.
+Positions consist of two 4-bit nibbles as XXXX:YYYY
+af10 replacement tile
+af11 trigger position
+af12 replacement position
+af13 replacement position
+af14 (zone 2)
+af18 (zone 3)
+af1c (zone 4)
+
+example:
+[$16][$57][$A5][$A6] = when player moves to 5,7 replace tiles 11,5 and 11,6 with $16(tile_floor_hex)
+
+
+
+VIRTUES
+
+Cheat key up-arrow shows all 8 virtue levels as a string of 16 digits.
+Each must reach level 99 to qualify for promotion to partial avatar (00).
+Characters will refuse to join if your matching virtue < 40.
+
+Rules of engagement:
+   Never start combat against non-evil, let it initiate.
+   Ok to attack anything in battlefield.
+   Ok to send injured player off field.
+   Ok to abandon dungeon room.
+   Thwart/flee non-evil = trade-off XP/Compassion
+
+Not Evil:  bat, insect, python, rat, seahorse, spider
+
+Hst Com Vlr Jus Sac Hnr Spi Hum file/addr
+     -5      -3      -3           5b/471c  Initiate combat against non-evil OR in town
+ -1          -1      -1           5b/5357  Get a chest in town or castle
+     +1      +1                   5b/744c  Non-evil foe flees
+         -2                       5b/755b  Abandon combat against evil foe  [1]
+     +2      +2                   5b/7565  Abandon combat against non-evil foe
+         +1                       5b/7614  Victory against evil foe (1:2 chance)
+                 +1               5b/778c  Any party member dies in combat
+         -2      -2               5b/7971  Party member flees from evil foe with full HP  [1]
+ -4          -4      -4           71/8a6a  Underbid for reagents
+ +2          +2      +2           71/8aae  Purchase reagents
+                 +5               72/8c23  Donate blood (req. HP 400+)
+                 -5               72/8c19  Refuse to donate when asked
+                         +3       76/8a0c  Ask Hawkwind for insight  [2]
+     +2                           78/8ce3  Give gold to beggar, any amount  [2]
+                 +3               78/8cd2  Have no gold after donating to beggar  [3]
+                             -5   78/8d83  Answer YES to a pride question
+                            +10   78/8da2  Answer NO to a pride question  [2]
+                     +5           79/****  Find something with Search  (279/8859 Britannia, 379/89fc Towne, 479/8a28 Dungeon)
+                         -3       82/89c4  Meditate with the wrong mantra
+                         +3       82/8a19  Meditate properly, per cycle (e.g. 3 cycles = +9) [5]
+ -5  -5  -5  -5  -5  -5  -5  -5   7a/****  Use the skull  (27a/8a8b Britannia, 37a/895e Towne, 47a/8ae3 Dungeon)
++10 +10 +10 +10 +10 +10 +10 +10  27a/8ad6  Destroy the skull  [4]
+
+[1] no penalty in dungeon room
+[2] only awarded if tens-digit of the turn counter has changed since last award
+[3] original game awarded to HONOR instead of SACRIFICE. Fixed in version 2.3.0
+[4] no award in original game (stored in wrong memory area). Fixed in version 2.3.0
+[5] only allowed if hundreds-digit of the turn counter has changed since last meditate; only awarded for advice, not ascent.
+
+No virtue penalty for trying to pay but cannot afford food, ale, or inn; you just get a verbal rebuke.
+
+Main player gets XP for completing quests with Search
++  0    Find a reagent
++100 x8 Find a rune
++200 x8 Find a stone
++400 x6 Find anything else
+----
+4800 XP from quests.
+1600 XP must come from combat.
+
+
+
+PUBS
+Food is always cheaper at a grocer.
+Ale costs $2; over-pay (3 or more) to ask for info.
+Payments accrue until rumor price is met.
+
+-- Tables
+Which pub # is in which location
+>C:8cbd  00 00 00 00  00 01 02 00  00 03 00 00  04 05 06 00
+Cost of food
+>C:8ccd  04 02 03 02 04 02
+Cost of rumor
+>C:8cd3  20 30 10 40 99 25
+
+food rumor towne  topic
+   4 20 Britain   black stone
+   2 30 Jhelom    sextant
+   3 10 Trinsic   white stone
+   2 40 Paws      mandrake
+   4 99 Bucc-Den  skull
+   2 25 Vesper    nightshade
+
+
+Most NPCs will engage in conversation (hostility percent 00).
+These are the NPCs that may turn away:
+	10  Damon
+	10  Slysam
+	10  Ragnar
+	14  a sleepy guard
+	20  a person lost in thought
+	20  Daranor
+	20  Joe, a drunken fighter
+	20  Cricket
+	20  a stern guard
+	20  a chanting druid
+	20  Roofus
+	20  Rankbreath
+	32  a reaper
+These are the ones that may fight you,
+        if you fail initial roll by 40 or more,
+        or on subsequent prompts by 80 or more.
+	40  Suzanna
+	40  Gimble
+	40  a strong guard (not Catriona)
+	60  Vorpal
+	80  Brigant
+
+
+
+$1B  game_mode  values
+  00 waiting for disk insertion
+  01 world
+  02 town
+  03 dungeon
+  80 combat random wandering
+  81 combat in dungeon room
+  82 combat at inn
+
+
+Campfire animation is very clever! It uses the previous tile (altar)
+as a mask for the randomization. Contrast fire field, which randomizes
+the entire tile. MagerValp found an optimization, but the logic is original.
+
+
+CHEESE TACTICS
+
+Boarding a different ship instant-repairs both.
+Wait just 9 turns between repeat talks to get virtue benefit each time.
+You're immune to sleep while poisoned.
+Each reagent payment awards virtue; buy 1 at a time to quickly max.
+1 reagent purchase ablates penalty of 2 gold steals; crime does pay!
+Minoc hotel is a rip-off. No difference in number of beds except price.
